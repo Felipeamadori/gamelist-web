@@ -7,6 +7,38 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+#header {
+    background: #ff0;
+    padding: 10px;
+}
+
+#body {
+    padding: 10px;
+    padding-bottom: 80px;
+    /* Height of the footer */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    /* Height of the footer */
+    background: #6c34d3;
+}
+
 h1,
 h2,
 h3,
@@ -31,6 +63,7 @@ p {
     padding: 3px 10px 5px 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     font-size: 24px;
+    text-decoration: none;
 }
 
 .user-acess-link,
@@ -46,6 +79,7 @@ p {
 
 .user-acess-link:hover {
     color: aquamarine;
+    text-decoration: none;
     font-size: 20px;
 }
 
@@ -147,6 +181,18 @@ svg.material-icons:not(:last-child) {
     width: 168px;
 }
 
+.card.sign-cards {
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 3px 10px 5px 10px;
+    font-size: 20px;
+    width: 80px;
+    height: 30px;
+}
+
 .card-container .card:not(.highlight-card) {
     cursor: pointer;
 }
@@ -190,14 +236,14 @@ svg#rocket-smoke {
     z-index: -10;
 }
 
-a,
-a:visited,
-a:hover {
+.a-link,
+.a-link:visited,
+.a-link:hover {
     color: #5a19d2;
     text-decoration: none;
 }
 
-a:hover {
+.a-link:hover {
     color: #5a19d2;
 }
 
@@ -252,6 +298,12 @@ a:hover {
 .circle-link:hover {
     transform: translateY(-0.25rem);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-text {
+    color: #eee;
+    margin-left: 40px;
+    margin-top: 40px;
 }
 
 footer {
