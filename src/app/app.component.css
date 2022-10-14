@@ -17,15 +17,18 @@ body {
 #container {
     min-height: 100%;
     position: relative;
+    width: 1060px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #header {
-    background: #ff0;
+    background: #5a19d2;
     padding: 10px;
+    margin-bottom: 30px;
 }
 
 #body {
-    padding: 10px;
     padding-bottom: 80px;
     /* Height of the footer */
 }
@@ -52,78 +55,63 @@ p {
     margin: 0;
 }
 
+a {
+    all: unset;
+    cursor: pointer;
+}
+
 .spacer {
     flex: 1;
 }
 
 .title-text {
-    color: #eee;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.309);
-    padding: 3px 10px 5px 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 24px;
     text-decoration: none;
-}
-
-.user-acess-link,
-.user-acess-link:visited {
-    margin: 0px 10px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.309);
+    color: #eee;
     padding: 3px 10px 5px 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    color: #eee;
-    font-size: 20px;
 }
 
-.user-acess-link:hover {
-    color: aquamarine;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.register-link,
-.register-link:visited {
-    color: #eee;
-    font-size: 20px;
-}
-
-.register-link:hover {
-    color: aquamarine;
-    font-size: 20px;
-}
-
-.toolbar {
+.header-bar {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 75px;
+    height: 50px;
     display: flex;
     align-items: center;
-    background-color: #5a19d2;
+    background-color: #5900ff;
     color: white;
     font-weight: 600;
 }
 
-.toolbar img {
-    margin: 0 16px;
-}
-
-.toolbar #twitter-logo {
+.toolbar {
+    position: absolute;
     height: 40px;
-    margin: 0 8px;
+    width: 100%;
+    background-color: #4900d2;
 }
 
-.toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
+.toolbar a {
+    overflow: hidden;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 6px 18px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #4900d2;
+    color: #eee;
 }
 
-.toolbar #twitter-logo:hover,
-.toolbar #youtube-logo:hover {
-    opacity: 0.8;
+.toolbar a:hover {
+    background-color: #340095;
+}
+
+.toolbar a:active {
+    background-color: #eee;
+    color: #4900d2;
 }
 
 .content {
@@ -181,16 +169,23 @@ svg.material-icons:not(:last-child) {
     width: 168px;
 }
 
-.card.sign-cards {
-    margin: 0px 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+.card.sign-in {
+    color: #4900d2;
+    background-color: #eee;
+    padding: 0px 10px 3px 10px;
+    font-size: 16px;
+    width: 75px;
+    height: 25px;
+}
+
+.card.sign-up {
+    border-radius: 3px;
     color: #eee;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 3px 10px 5px 10px;
-    font-size: 20px;
-    width: 80px;
-    height: 30px;
+    background-color: #4900d2;
+    padding: 0px 10px 3px 10px;
+    font-size: 16px;
+    width: 60px;
+    height: 25px;
 }
 
 .card-container .card:not(.highlight-card) {
