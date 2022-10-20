@@ -1,48 +1,46 @@
 <ng-container>
     <div class="row" style="width:100%;">
         <div class="col-4">
-            <img width="100%" src="https://images.ctfassets.net/wn7ipiv9ue5v/2gPmUEQz0K8epMNH8Sb3MQ/aa6fc38af06ea69b7e2aa1b696bc45af/PDwebsite_BoxArt_600x850_KSPPC.jpg?w=1920&h=&fm=avif&q=75">
+            <img width="100%" src="{{ game.imageURL }}">
         </div>
         <div class="col-8">
             <h3>{{ game.title }}</h3>
-            <p>{{ game.publisher }}</p>
             <h4>&starf; {{ game.rating }}/10</h4>
-            <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Tags:</p>
-            <ul>
-                <li>Space exploration</li>
-                <li>Simulator</li>
-                <li>Sci-Fi</li>
+            <p style="text-align: justify;">{{ game.shortDescription }}</p>
+            <ul style="list-style-type: none;padding-left: 0px">
+                <li>Release date: <b>{{ game.releaseDate }}</b></li>
+                <li>Developer: <b>{{ game.developer }}</b></li>
+                <li>Publisher: <b>{{ game.publisher }}</b></li>
             </ul>
         </div>
     </div>
+    <br>
+    <h6>About {{ game.title }}</h6>
+    <hr>
+    <p style="text-align: justify;">{{ game.description }}</p>
+    <p>Tags:</p>
+    <ul>
+        <li *ngFor="let item of createRange(tagsLength); let index = index">{{ game.tags[index] }}</li>
+    </ul>
+    <h6>System Requirements:</h6>
+    <hr>
     <div class="row" style="margin-top:20px;">
-        <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <div class="col-3">    
-                <p>Minimum Requisites:</p>
-                <ul>
-                    <li>Req 1</li>
-                    <li>Req 2</li>
-                    <li>Req 3</li>
-                    <li>Req 4</li>
-                    <li>Req 5</li>
-                    <li>Req 6</li>
-                </ul>
-            </div>
-            <div class="col-3">    
-                <p>Recommended Requisites:</p>
-                <ul>
-                    <li>Req 1</li>
-                    <li>Req 2</li>
-                    <li>Req 3</li>
-                    <li>Req 4</li>
-                    <li>Req 5</li>
-                    <li>Req 6</li>
-                </ul>
-            </div>
-            <div class="col-3"></div>
-            <div class="col-3"></div>
+        <div class="col-4">
+            <p>Minimum Settings</p>
+            <ul class="reqs-ul">
+                <li *ngFor="let item of createRange(minSettingsLength); let index = index">{{ game.minSettings[index] }}</li>
+            </ul>
         </div>
+        <div class="col-4">
+            <p>Recommended Settings</p>
+            <ul class="reqs-ul">
+                <li *ngFor="let item of createRange(recSettingsLength); let index = index">{{ game.recSettings[index] }}</li>
+            </ul>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <h6>Reviews:</h6>
+    <hr>
+    <div class="row">
+    </div>
 </ng-container>
