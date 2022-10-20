@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signed = true;
+  signed = false;
+  clicked = false;
 
   handleSignClick() {
     this.signed = true;
