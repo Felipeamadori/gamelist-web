@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ContentVisualizerComponent } from './content-visualizer/content-visualizer.component';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ContentVisualizerComponent
+    ContentVisualizerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

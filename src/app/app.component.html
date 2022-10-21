@@ -2,16 +2,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/b804522f54.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div id="container">
+    <div id="container" style="background-color:#eee;">
         <div class="row">
             <div class="col-2"></div>
-            <div class="col-8">
-                <div id="header">
-                    <app-header></app-header>
-                </div>
+            <div class="col-8 body">
+                <app-header></app-header>
                 <div id="body">
                     <div class="container">
                         <div class="content" role="main">
@@ -22,7 +22,7 @@
                 <router-outlet></router-outlet>
 
                 <div id="footer">
-                    <p class="footer-text">Footer placeholder.</p>
+                    <app-footer></app-footer>
                 </div>
             </div>
         </div>

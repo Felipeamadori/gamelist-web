@@ -229,24 +229,6 @@ svg#rocket-smoke {
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-.footer-text {
-    color: #eee;
-    margin-left: 40px;
-    margin-top: 40px;
-}
-
-footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-}
-
-footer a {
-    display: flex;
-    align-items: center;
-}
-
 .github-star-badge {
     color: #24292e;
     display: flex;
@@ -280,6 +262,10 @@ svg#clouds {
     width: 1920px;
 }
 
+.col-8.body{
+    background-color:#fff;
+    padding: 0px;
+}
 
 /* Responsive Styles */
 
@@ -299,6 +285,37 @@ svg#clouds {
         right: 120px;
         transform: rotate(-5deg);
     }
+}
+
+.footer-text {
+    color: #eee;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
 }
 
 @media screen and (max-width: 575px) {
