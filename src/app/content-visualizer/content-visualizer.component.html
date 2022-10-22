@@ -1,12 +1,12 @@
 <ng-container>
-    <div class="row" style="width:100%;">
+    <div class="row image-container">
         <div class="col-4">
-            <img width="100%" src="{{ game.imageURL }}">
+            <img class="img-thumbnail" [alt]="game.title" [src]="game.imageURL">
         </div>
         <div class="col-8">
             <h3>{{ game.title }}</h3>
             <h4>&starf; {{ game.rating }}/10</h4>
-            <p style="text-align: justify;">{{ game.shortDescription }}</p>
+            <p>{{ game.shortDescription }}</p>
             <ul style="list-style-type: none;padding-left: 0px">
                 <li>Release date: <b>{{ game.releaseDate }}</b></li>
                 <li>Developer: <b>{{ game.developer }}</b></li>
@@ -17,14 +17,14 @@
     <br>
     <h6>About {{ game.title }}</h6>
     <hr>
-    <p style="text-align: justify;">{{ game.description }}</p>
+    <p>{{ game.description }}</p>
     <p>Tags:</p>
     <ul>
         <li *ngFor="let item of createRange(tagsLength); let index = index">{{ game.tags[index] }}</li>
     </ul>
     <h6>System Requirements</h6>
     <hr>
-    <div class="row" style="margin-top:20px;">
+    <div class="row">
         <div class="col-4">
             <p>Minimum Settings</p>
             <ul class="reqs-ul">

@@ -1,13 +1,14 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <div class="header-bar" role="banner">
     <a href="#home"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif" /></a>
     <a class="title-text" href="#">Game List</a>
     <div class="spacer"></div>
-    <div>
-        <div class="card-container">
-            <a class="card sign-in" [hidden]="signed" (click)="handleSignClick()" href="#signin">Sign In</a>
-            <a class="card sign-up" [hidden]="signed" (click)="handleSignClick()" href="#signup">Sign Up</a>
-        </div>
-    </div>
+    <button class="sign-in" [hidden]="signed" (click)="handleSignClick()" href="#signin">Sign In</button>
+    <button class="sign-up" [hidden]="signed" (click)="handleSignClick()" href="#signup">Sign Up</button>
+
     <div [hidden]="!signed">
         <span class="user-minimenu">
                 Hello, {{ user_name }}!
@@ -24,11 +25,15 @@
         </div>
     </div>
 </div>
-<ul class="li-nav">
-    <div class="toolbar">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#link1">Link #1</a></li>
-        <li><a href="#link2">Link #2</a></li>
-        <li><a href="#link3">Link #3</a></li>
+<div class="toolbar">
+    <a href="#home">Home</a>
+    <a href="#link1">Games</a>
+    <a href="#link2">Community</a>
+    <a href="#link3">Help</a>
+    <div class="search-container">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Search..." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
     </div>
-</ul>
+</div>
