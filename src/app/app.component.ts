@@ -27,6 +27,18 @@ export class AppComponent {
       title:"Counter-Strike:Global Offensive",
       alt:"Counter-Strike:Global Offensive",
       shortDescription:"Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.)."
+    },
+    {
+      url:"https://upload.wikimedia.org/wikipedia/en/0/0c/Boxshot_of_video_game_Project_zomboid.jpg",
+      title:"Project Zomboid",
+      alt:"Project Zomboid",
+      shortDescription:"Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die? All it takes is a bite.."
+    },
+    {
+      url:"https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677",
+      title:"Ori and the Will of the Wisps",
+      alt:"Ori and the Will of the Wisps",
+      shortDescription:"Play the critically acclaimed masterpiece. Embark on a new journey in a vast, exotic world where you’ll encounter towering enemies and challenging puzzles on your quest to unravel Ori’s destiny."
     }
   ]
 }

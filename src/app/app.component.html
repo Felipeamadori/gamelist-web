@@ -1,18 +1,9 @@
-<div id="container" style="background-color:#eee;">
+<div class="container">
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 body">
-            <app-header></app-header>
-            <div id="body">
-                <app-game-list *ngFor="let game of games" [url]="game.url" [alt]="game.alt" [title]="game.title" [shortDescription]="game.shortDescription"></app-game-list>
-                <!--<app-content-visualizer></app-content-visualizer>-->
-            </div>
-
-            <div id="footer">
-                <app-footer></app-footer>
-            </div>
-        </div>
+        <app-header class="max-width"></app-header>
+        <app-game-list class="max-width" *ngFor="let game of games" [url]="game.url" [alt]="game.alt" [title]="game.title" [shortDescription]="game.shortDescription"></app-game-list>
+        <!--<app-content-visualizer></app-content-visualizer>-->
+        <app-footer class="max-width"></app-footer>
     </div>
-    <div class="col-2"></div>
 </div>
 <router-outlet></router-outlet>

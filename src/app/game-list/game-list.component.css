@@ -1,10 +1,21 @@
 .container {
-    margin-top: 20px;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.col-2 {
+    padding: 0 10px;
 }
 
 .row.section {
     padding: 0px;
     height: 120px;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
 }
 
 .game-title {
@@ -30,6 +41,7 @@
     background-color: #eee;
     margin: 10px 0 0 0;
     float: right;
+    width: 120px;
 }
 
 .interaction-buttons:hover {

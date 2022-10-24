@@ -14,3 +14,7 @@ hr {
 p {
     text-align: justify;
 }
+
+.center-content {
+    padding: 30px 50px;
+}
