@@ -1,3 +1,13 @@
+.container {
+    padding: 0;
+    background-color: #5e1ed4;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
 .footer-text {
     color: #eee;
     margin-left: 40px;
@@ -5,13 +15,13 @@
 }
 
 .footer {
-    background-color: #5e1ed4;
-    margin-top: 8px;
+    margin: 0;
     display: flex;
     line-height: 20px;
-    width: 100%;
     height: 100px;
-    padding: 25px;
+    margin: auto;
+    width: 25%;
+    padding: 10px;
 }
 
 .footer a {
@@ -19,19 +29,41 @@
     align-items: center;
 }
 
+.brand-container {
+    flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 .fa-brands {
     color: #eee;
-    background-color: #111;
-    font-size: 30px;
-    padding: 1% 0;
+    font-size: 26px;
     margin: 0 10px;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
 }
 
+.fa-brands.fa-twitter {
+    padding: 13px 0px 0px 3px;
+    background-color: #326ada;
+}
+
+.fa-brands.fa-discord {
+    padding: 12px 0px 0px 0px;
+    background-color: #7289da;
+}
+
 .fa-brands:hover {
-    background-color: #7b50ca71;
+    background-color: #000;
 }

@@ -8,9 +8,8 @@ import { ContentVisualizerComponent } from './content-visualizer/content-visuali
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { GameListComponent } from './game-list/game-list.component';
-import { GameDisplayComponent } from './game-list/game-display/game-display.component';
 import { GamelistModule } from './game-list/game-list.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
     ContentVisualizerComponent,
     FooterComponent,
     GameListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    GamelistModule,
-    HttpClientModule
+    GamelistModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,15 @@
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { GameDisplayComponent } from "./game-display/game-display.component";
+import { GameComponent } from "./game/game.component";
 
 @NgModule({
-    declarations: [ GameDisplayComponent ],
-    exports: [ GameDisplayComponent ],
-    imports: [ CommonModule ]
+    declarations: [ GameComponent ],
+    exports: [ GameComponent ],
+    imports: [ 
+        CommonModule, 
+        HttpClientModule
+    ]
 })
 
 export class GamelistModule {}

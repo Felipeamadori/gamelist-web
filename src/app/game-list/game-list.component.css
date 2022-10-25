@@ -1,6 +1,11 @@
+body {
+    background-color: #eee;
+}
+
 .container {
-    margin-top: 10px;
+    background-color: #fff;
     padding: 0px;
+    padding-bottom: 5px;
 }
 
 .col-2 {
@@ -8,14 +13,14 @@
 }
 
 .row.section {
-    padding: 0px;
-    height: 120px;
+    padding: 10px 10px 10px 5px;
+    height: 160px;
+    margin-bottom: 40px;
 }
 
 .row {
     padding: 0;
     margin: 0;
-    margin-bottom: 20px;
 }
 
 .game-title {
@@ -27,9 +32,8 @@
 }
 
 .img-thumbnail {
-    align-items: left;
-    height: inherit;
-    margin-right: 10px;
+    height: 160px;
+    margin: 0px;
     padding: 2px;
 }
 
@@ -48,4 +52,38 @@
     background-color: #5900ff;
     border-color: #eee;
     color: #eee;
+}
+
+input[type=text] {
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 9px 0px 8px 5px;
+    margin-top: 9px;
+    margin-right: -23px;
+    font-size: 14px;
+    border: none;
+    width: 193px;
+    border-radius: 3px;
+    height: 24px;
+    float: center;
+    border-width: 2px;
+    border-color: #ddd;
+    border-style: solid;
+}
+
+.search-container {
+    float: center;
+    margin: 0 10px 0 10px;
+    padding-top: 10px;
+}
+
+.search-container button {
+    float: center;
+    padding: 0px 4px;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 9px;
+    background: #fff;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
 }
