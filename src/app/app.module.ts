@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { GameDisplayComponent } from './game-list/game-display/game-display.component';
 import { GamelistModule } from './game-list/game-list.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GamelistModule } from './game-list/game-list.module';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    GamelistModule
+    GamelistModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

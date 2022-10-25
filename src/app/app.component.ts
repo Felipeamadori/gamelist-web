@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  games: Object[] = [];
+  
+  constructor(http: HttpClient) {
+    http
+      .get<Object[]>('')
+      .subscribe(
+        games => this.games = games,
+        err => console.log(err.message)
+        );
+  }
+
   title = 'gamelist-web';
 
-  games = [
+  gamesStatic = [
     {
       url:"https://images.ctfassets.net/wn7ipiv9ue5v/2gPmUEQz0K8epMNH8Sb3MQ/aa6fc38af06ea69b7e2aa1b696bc45af/PDwebsite_BoxArt_600x850_KSPPC.jpg?w=1920&h=&fm=avif&q=75",
       title:"Kerbal Space Program",
@@ -40,5 +52,5 @@ export class AppComponent {
       alt:"Ori and the Will of the Wisps",
       shortDescription:"Play the critically acclaimed masterpiece. Embark on a new journey in a vast, exotic world where you’ll encounter towering enemies and challenging puzzles on your quest to unravel Ori’s destiny."
     }
-  ]
+  ];
 }
