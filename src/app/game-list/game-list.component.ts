@@ -1,24 +1,16 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-game-list',
+  templateUrl: './game-list.component.html',
+  styleUrls: ['./game-list.component.css']
 })
-export class AppComponent {
-  games: Object[] = [];
-  
-  constructor(http: HttpClient) {
-    http
-      .get<Object[]>('')
-      .subscribe(
-        games => this.games = games,
-        err => console.log(err.message)
-        );
-  }
+export class GameListComponent implements OnInit {
 
-  title = 'gamelist-web';
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   gamesStatic = [
     {

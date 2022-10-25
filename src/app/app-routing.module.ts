@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContentVisualizerComponent } from './content-visualizer/content-visualizer.component';
+import { GameListComponent } from './game-list/game-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'games',
+    component: GameListComponent,
+    children: [
+      {
+        path: ':gameTitle', component: ContentVisualizerComponent
+      }
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,20 @@
+.row.image-container {
+    width: 100%;
+}
+
+.reqs-ul {
+    padding-left: 17px;
+    font-size: 12px;
+}
+
+hr {
+    margin-top: -5px;
+}
+
+p {
+    text-align: justify;
+}
+
+.center-content {
+    padding: 30px 50px;
+}
