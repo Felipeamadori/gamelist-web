@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { GamesComponent } from './games/games.component';
 import { GamesModule } from './games/games.module';
 import { UtilsModule } from './utils/utils.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UtilsModule } from './utils/utils.module';
     AppRoutingModule,
     CommonModule,
     GamesModule,
-    UtilsModule
+    UtilsModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
