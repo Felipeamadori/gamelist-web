@@ -1,0 +1,69 @@
+.container {
+    padding: 0;
+    background-color: #5e1ed4;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-text {
+    color: #eee;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+.footer {
+    margin: 0;
+    display: flex;
+    line-height: 20px;
+    height: 100px;
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+}
+
+.footer a {
+    display: flex;
+    align-items: center;
+}
+
+.brand-container {
+    flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-brands {
+    color: #eee;
+    font-size: 26px;
+    margin: 0 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.fa-brands.fa-twitter {
+    padding: 13px 0px 0px 3px;
+    background-color: #326ada;
+}
+
+.fa-brands.fa-discord {
+    padding: 12px 0px 0px 0px;
+    background-color: #7289da;
+}
+
+.fa-brands:hover {
+    background-color: #000;
+}

@@ -1,15 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GameService } from '../game/game.service';
 
 @Component({
   selector: 'app-game-list',
   templateUrl: './game-list.component.html',
   styleUrls: ['./game-list.component.css']
 })
+
 export class GameListComponent implements OnInit {
-
-  constructor() { }
-
+  
+  games: any[] = [];
+  
+  constructor(private gameService: GameService) {  }
+  
   ngOnInit(): void {
+    this.gameService
+      .listFromUser('')
+      .subscribe(games => this.games = games);
   }
 
   gamesStatic = [

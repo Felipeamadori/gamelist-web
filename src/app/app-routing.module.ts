@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentVisualizerComponent } from './content-visualizer/content-visualizer.component';
-import { GameListComponent } from './game-list/game-list.component';
+import { GameListComponent } from './games/game-list/game-list.component';
 
 const routes: Routes = [
   {

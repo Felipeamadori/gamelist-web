@@ -3,29 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { ContentVisualizerComponent } from './content-visualizer/content-visualizer.component';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
-import { GameListComponent } from './game-list/game-list.component';
-import { GameDisplayComponent } from './game-list/game-display/game-display.component';
-import { GamelistModule } from './game-list/game-list.module';
-import { HttpClientModule } from '@angular/common/http';
+import { GamesComponent } from './games/games.component';
+import { GamesModule } from './games/games.module';
+import { UtilsModule } from './utils/utils.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ContentVisualizerComponent,
-    FooterComponent,
-    GameListComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    GamelistModule,
-    HttpClientModule
+    GamesModule,
+    UtilsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
-<div class="header">
-    <div class="header-bar">
-        <a href="#home"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif" /></a>
+<div class="container">
+    <div class="header-bar row">
+        <a href="#home"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
         <a class="title-text" href="#">Game List</a>
         <div class="spacer"></div>
         <button class="sign-in" [hidden]="signed" (click)="handleSignClick()" href="#signin">Sign In</button>
@@ -9,7 +9,7 @@
         <div [hidden]="!signed">
             <span class="user-minimenu">
                     Hello, {{ user_name }}!
-            </span>
+                </span>
             <div class="dropdown-minimenu">
                 <span>&#9776; Menu</span>
                 <div class="dropdown-minimenu-content">
@@ -21,17 +21,11 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="toolbar">
-        <a href="#home">Home</a>
-        <a href="#link1">Games</a>
-        <a href="#link2">Community</a>
-        <a href="#link3">Help</a>
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Search..." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+        <div class="toolbar">
+            <a href="#home">Home</a>
+            <a href="#link1">Games</a>
+            <a href="#link2">Community</a>
+            <a href="#link3">Help</a>
         </div>
     </div>
 </div>
