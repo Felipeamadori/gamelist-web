@@ -1,1 +1,29 @@
-<p>game-list works!</p>
+<body>
+    <app-header></app-header>
+    <div class="container">
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search..." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="row section" *ngFor="let game of gamesStatic">
+            <div class="col-2">
+                <img class="img-thumbnail" [src]="game.url" [alt]="game.alt">
+            </div>
+            <div class="col-8 row section">
+                <h6 class="game-title">{{ game.title }}</h6>
+                <p class="game-description">{{ game.shortDescription }}</p>
+            </div>
+            <div class="col-2">
+                <div>
+                    <button class="interaction-buttons">View page</button>
+                    <button class="interaction-buttons" disabled=true>Add to Profile</button>
+                    <button class="interaction-buttons" disabled=true>Create Review</button>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</body>
