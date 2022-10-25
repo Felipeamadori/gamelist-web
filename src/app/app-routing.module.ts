@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentVisualizerComponent } from './content-visualizer/content-visualizer.component';
-import { GameListComponent } from './game-list/game-list.component';
+import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path:'games',
-    component: GameListComponent,
+    component: GamesComponent,
     children: [
       {
         path: ':gameTitle', component: ContentVisualizerComponent

@@ -7,8 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { ContentVisualizerComponent } from './content-visualizer/content-visualizer.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
-import { GameListComponent } from './game-list/game-list.component';
-import { GamelistModule } from './game-list/game-list.module';
+import { GamesComponent } from './games/games.component';
+import { GamesModule } from './games/games.module';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -17,14 +17,14 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     ContentVisualizerComponent,
     FooterComponent,
-    GameListComponent,
+    GamesComponent,
     HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    GamelistModule
+    GamesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
