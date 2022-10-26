@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" *ngIf="!this.loading">
     <div class="header-bar row">
         <a href="#home"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
         <a class="title-text" href="#">Game List</a>
         <div class="spacer"></div>
         <button class="sign-in" [hidden]="signed" (click)="handleSignClick()" href="#signin">Sign In</button>
-        <button class="sign-up" [hidden]="signed" (click)="handleSignClick()" href="#signup">Sign Up</button>
+        <button class="sign-up" (click)="logout()" href="#signup">Logout</button>
 
         <div [hidden]="!signed">
             <span class="user-minimenu">
-                    Hello, {{ user_name }}!
+                    Hello, {{ this.userLogado.nome }}!
                 </span>
             <div class="dropdown-minimenu">
                 <span>&#9776; Menu</span>
@@ -22,10 +22,10 @@
             </div>
         </div>
         <div class="toolbar">
-            <a href="#home">Home</a>
-            <a href="#link1">Games</a>
-            <a href="#link2">Community</a>
-            <a href="#link3">Help</a>
+            <a href="">Home</a>
+            <a href="games">Games</a>
+            <a href="community">Community</a>
+            <a href="help">Help</a>
         </div>
     </div>
 </div>

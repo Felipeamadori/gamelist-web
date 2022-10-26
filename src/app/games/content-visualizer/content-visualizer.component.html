@@ -1,0 +1,52 @@
+<body>
+    <app-header></app-header>
+    <div class="container">
+        <div class="center-content">
+            <div class="row image-container">
+                <div class="col-4">
+                    <img class="img-thumbnail" [alt]="gameStatic.title" [src]="gameStatic.imageURL">
+                </div>
+                <div class="col-8">
+                    <h3>{{ gameStatic.title }}</h3>
+                    <h4>&starf; {{ gameStatic.rating }}/10</h4>
+                    <p>{{ gameStatic.shortDescription }}</p>
+                    <ul style="list-style-type: none;padding-left: 0px">
+                        <li>Release date: <b>{{ gameStatic.releaseDate }}</b></li>
+                        <li>Developer: <b>{{ gameStatic.developer }}</b></li>
+                        <li>Publisher: <b>{{ gameStatic.publisher }}</b></li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <h6>About {{ gameStatic.title }}</h6>
+            <hr>
+            <p>{{ gameStatic.description }}</p>
+            <p>Tags:</p>
+            <ul>
+                <li *ngFor="let item of createRange(tagsLength); let index = index">{{ gameStatic.tags[index] }}</li>
+            </ul>
+            <h6>System Requirements</h6>
+            <hr>
+            <div class="row">
+                <div class="col-4">
+                    <p>Minimum Settings</p>
+                    <ul class="reqs-ul">
+                        <li *ngFor="let item of createRange(minSettingsLength); let index = index">{{ gameStatic.minSettings[index] }}</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <p>Recommended Settings</p>
+                    <ul class="reqs-ul">
+                        <li *ngFor="let item of createRange(recSettingsLength); let index = index">{{ gameStatic.recSettings[index] }}</li>
+                    </ul>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <h6>Reviews</h6>
+            <hr>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</body>
