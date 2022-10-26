@@ -11,11 +11,10 @@ const routes: Routes = [
     path:'', component: LoginComponent
   },
   {
-    path:'games',
-    component: GameListComponent,
-    children: [{
-      path: ':id_game', component: ContentVisualizerComponent
-    }]
+    path:'games', component: GameListComponent,
+  },
+  {
+    path:'games/:id_game', component: ContentVisualizerComponent,
   },
   {
     path: '**',
