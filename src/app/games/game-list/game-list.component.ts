@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../game/game.service';
 import { Game } from '../../core/model/game.model';
 import { FilterByname } from './filter-by-name.pipe';
 
@@ -15,7 +14,7 @@ export class GameListComponent implements OnInit {
   filter: string = '';
   noMatches = false;
 
-  constructor(private gameService: GameService) {  }
+  constructor() {  }
   
   ngOnInit(): void {
     this.gamesStatic = [
