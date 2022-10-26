@@ -30,6 +30,11 @@ export class UserService extends AbstractService {
     return this.userSubject.asObservable();
   }
 
+  logout() {
+    this.tokenService.removeToken();
+    this.userSubject.next(null);
+  }
+
   private DecodeAndNotify() {
     const token = this.tokenService.getToken();
     const data = jwt_decode(token) as TokenPayload;

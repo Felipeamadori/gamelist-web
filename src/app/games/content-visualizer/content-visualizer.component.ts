@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GameService } from '../game/game.service';
 
 @Component({
   selector: 'app-content-visualizer',
@@ -12,7 +11,6 @@ export class ContentVisualizerComponent implements OnInit {
   game: any[] = [];
 
   constructor(
-    private gameService: GameService,
     private activatedRoute: ActivatedRoute 
   ) { }
 

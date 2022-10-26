@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsuarioDto } from 'src/app/core/dto/usuario-dto';
 import { TokenPayload } from 'src/app/core/model/tokenPayload.model';
@@ -14,11 +15,12 @@ export class HeaderComponent implements OnInit {
   user$: Observable<TokenPayload | null>;
   user: TokenPayload | null;
   userLogado: UsuarioDto;
+  loading = true;
   signed = false;
   clicked = false;
   user_name = "Tharesu";
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.user$ = this.userService.getUserLogado();
     this.user$.subscribe(user => this.user = user);
    }
@@ -26,8 +28,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
       this.userLogado = res;
-      console.log(this.userLogado);
-    })
+      this.signed = true;
+      this.loading = false;
+    });
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['']);
   }
 
   handleSignClick() {
