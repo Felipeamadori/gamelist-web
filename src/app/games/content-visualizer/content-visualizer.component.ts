@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GameService } from '../game/game.service';
 
 @Component({
   selector: 'app-content-visualizer',
@@ -7,11 +9,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ContentVisualizerComponent implements OnInit {
 
-  constructor() { }
+  game: any[] = [];
+
+  constructor(
+    private gameService: GameService,
+    private activatedRoute: ActivatedRoute 
+  ) { }
 
   ngOnInit(): void {
+    /*const gameTitle = this.activatedRoute.snapshot.params.gameTitle
+    this.gameService
+      .listFromGame(gameTitle)
+      .subscribe(game => this.game = game)*/
   }
-  game = { 
+
+  gameStatic = { 
     title : "Kerbal Space Program",
     developer: "Squad",
     publisher : "Private Division",
@@ -25,9 +37,9 @@ export class ContentVisualizerComponent implements OnInit {
     recSettings : ["OS: Windows 10 64-bit", "Processor: Core i5", "Memory: 8 GB RAM", "Graphics: DX10 (SM 4.0) capable, 1GB VRAM", "Hard Drive: 4 GB HD space"]
   }
 
-  tagsLength = this.game.tags.length;
-  minSettingsLength = this.game.minSettings.length;
-  recSettingsLength = this.game.recSettings.length;
+  tagsLength = this.gameStatic.tags.length;
+  minSettingsLength = this.gameStatic.minSettings.length;
+  recSettingsLength = this.gameStatic.recSettings.length;
 
   createRange(number : number){
     // return new Array(number);

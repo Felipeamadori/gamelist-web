@@ -9,8 +9,8 @@ export class GameService {
 
     constructor(private http: HttpClient) {}
 
-    listFromUser(userName: string) {
+    listFromGame(gameTitle: string) {
         return this.http
-        .get<Game[]>(API + '');
+        .get<Game[]>(API + '/' + gameTitle);
     }
 }

@@ -1,29 +1,32 @@
 <body>
-    <app-header></app-header>
-    <div class="container">
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Search..." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div class="row section" *ngFor="let game of gamesStatic">
-            <div class="col-2">
-                <img class="img-thumbnail" [src]="game.url" [alt]="game.alt">
+    <ng-container>
+        <app-header></app-header>
+        <div class="container">
+            <div class="text-center search-container">
+                <form action="/action_page.php">
+                    <input class="rounded" type="search" placeholder="Search..." autofocus (keyup)="onKey($event)">
+                    <!--<button type="submit"><i class="fa fa-search"></i></button>-->
+                </form>
             </div>
-            <div class="col-8 row section">
-                <h6 class="game-title">{{ game.title }}</h6>
-                <p class="game-description">{{ game.shortDescription }}</p>
-            </div>
-            <div class="col-2">
-                <div>
-                    <button class="interaction-buttons">View page</button>
-                    <button class="interaction-buttons" disabled=true>Add to Profile</button>
-                    <button class="interaction-buttons" disabled=true>Create Review</button>
+            <div class="row section" *ngFor="let game of gamesStatic | filterByName: filter">
+                <p class="text-center text-muted" *ngIf="gamesStatic.length == 0">No matches found.</p>
+                <div class="col-2">
+                    <img class="img-thumbnail" [src]="game.urlMedia" [alt]="game.id_game">
                 </div>
+                <div class="col-8 row section">
+                    <h6 class="game-title">{{ game.name }}</h6>
+                    <p class="game-description">{{ game.description }}</p>
+                </div>
+                <div class="col-2">
+                    <div>
+                        <a [routerLink]="['/games', game.id_game]"><button class="interaction-buttons">View page</button></a>
+                        <button class="interaction-buttons" disabled=true>Add to Profile</button>
+                        <button class="interaction-buttons" disabled=true>Create Review</button>
+                    </div>
+                </div>
+                <hr>
             </div>
-            <hr>
         </div>
-    </div>
-    <app-footer></app-footer>
+        <app-footer></app-footer>
+    </ng-container>
 </body>
