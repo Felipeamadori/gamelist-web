@@ -9,6 +9,7 @@ import { UtilsModule } from './utils/utils.module';
 import { HomeModule } from './home/home.module';
 import { ErrorsModule } from './errors/errors.module';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
     GamesModule,
     UtilsModule,
     HomeModule,
-    ErrorsModule
+    ErrorsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { TokenDto } from 'src/app/core/dto/token-dto';
 import { Usuario } from 'src/app/core/model/usuario.model';
 import { AuthService } from 'src/app/core/service/auth.service';
-//import { ToastrService } from "ngx-toastr";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
     constructor(private fb: FormBuilder, 
                 private authService: AuthService,
-                private router: Router) { 
+                private router: Router,
+                private toast: ToastrService) { 
       this.usuario = new Usuario;
     }
 
@@ -30,8 +31,10 @@ export class LoginComponent implements OnInit {
 
     login() {
       this.authService.authenticate(this.usuario).subscribe(() => { 
-        this.router.navigate(['games'])
-      }, () => alert('usuario nao encontrado'));
+          this.router.navigate(['games']);
+        }, () => {
+          alert('User not found')
+          return;
+        });
     }
-
 }
