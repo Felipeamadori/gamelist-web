@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   loading = true;
   signed = false;
   clicked = false;
-  user_name = "Tharesu";
 
   constructor(private userService: UserService, private router: Router) {
     this.user$ = this.userService.getUserLogado();

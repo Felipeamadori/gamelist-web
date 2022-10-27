@@ -1,5 +1,6 @@
 .container {
     min-height: 100vh;
+    background-color: #fff;
 }
 
 .row.image-container {
@@ -21,4 +22,8 @@ p {
 
 .center-content {
     padding: 30px 50px;
+}
+
+body {
+    background-color: #eee;
 }

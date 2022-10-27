@@ -1,5 +1,4 @@
-<div class="container">
-    <!-- *ngIf=" !this.loading " -->
+<div class="container" *ngIf=" !this.loading ">
     <div class="header-bar row">
         <a href="#home"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
         <a class="title-text" href="#">Game List</a>
@@ -9,15 +8,15 @@
 
         <div [hidden]="!signed">
             <span class="user-minimenu">
-                    Hello, Tharas!<!--{{ this.userLogado.nome }}-->
+                    Hello, {{ this.userLogado.nome }}!
                 </span>
             <div class="dropdown-minimenu">
                 <span>&#9776; Menu</span>
                 <div class="dropdown-minimenu-content">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">My Games</a></li>
-                        <li><a href="#">Settings</a></li>
+                        <li><a href="user/profile">Profile</a></li>
+                        <li><a href="games">Library</a></li>
+                        <li><a href="user/settings">Settings</a></li>
                         <li><a (click)="logout()">Logout</a></li>
                     </ul>
                 </div>

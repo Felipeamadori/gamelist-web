@@ -12,6 +12,7 @@ export class GameComponent implements OnInit {
 
   @Input() game: Game[] = [];
   filter: string = '';
+  @Input() hideAddButtons: boolean = false;
 
   constructor() {  }
   

@@ -7,6 +7,8 @@ import { ContentVisualizerComponent } from './games/content-visualizer/content-v
 import { GameListComponent } from './games/game-list/game-list.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserModule } from './user/user.module';
 
 const routes: Routes = [
   {
@@ -14,6 +16,12 @@ const routes: Routes = [
   },
   {
     path:'register', component: RegisterComponent
+  },
+  {
+    path:'user/profile', component: UserProfileComponent
+  },
+  {
+    path:'users/:userId', component: UserProfileComponent
   },
   {
     path:'games', component: GameListComponent,

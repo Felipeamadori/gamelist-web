@@ -10,11 +10,13 @@ import { HomeModule } from './home/home.module';
 import { ErrorsModule } from './errors/errors.module';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

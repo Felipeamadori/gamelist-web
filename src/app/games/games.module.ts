@@ -23,6 +23,12 @@ import { FilterByDescription } from './game-list/filter-by-description.pipe';
         HttpClientModule,
         UtilsModule,
         GameModule
+    ],
+    exports: [
+        GameListComponent,
+        GameModule,
+        FilterByName,
+        FilterByDescription
     ]
 })
 

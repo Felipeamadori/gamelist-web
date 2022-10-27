@@ -4,7 +4,6 @@
         <div class="search-container">
             <form action="/action_page.php">
                 <input class="rounded" type="search" placeholder="Search..." autofocus (keyup)="onKey($event)">
-                <!--<button type="submit"><i class="fa fa-search"></i></button>-->
             </form>
         </div>
         <app-game [game]="gamesStatic | filterByName : filter"></app-game>
