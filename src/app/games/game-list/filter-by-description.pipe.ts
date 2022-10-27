@@ -14,5 +14,4 @@ export class FilterByDescription implements PipeTransform {
             return gamesStatic;
         }
     }
-
 }

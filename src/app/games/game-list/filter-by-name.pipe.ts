@@ -1,8 +1,8 @@
-import { Pipe, PipeTransform } from "@angular/core";
-import { Game } from "src/app/core/model/game.model";
+import { Pipe, PipeTransform } from '@angular/core';
+import { Game } from 'src/app/core/model/game.model';
 
 @Pipe({ name: 'filterByName' })
-export class FilterByname implements PipeTransform {
+export class FilterByName implements PipeTransform {
     transform(gamesStatic: Game[], nameQuery: string) {
         nameQuery = nameQuery.trim().toLowerCase();
 

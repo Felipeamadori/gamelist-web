@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../../core/model/game.model';
-import { FilterByname } from './filter-by-name.pipe';
 
 @Component({
   selector: 'app-game-list',
@@ -43,7 +42,7 @@ export class GameListComponent implements OnInit {
       {
         id_game:3,
         urlMedia:"https://i0.wp.com/www.thunderlan.org/wp-content/uploads/2017/08/Counter-Strike-Global-Offensive-cover.jpg?fit=450%2C600&ssl=1",
-        name:"Counter-Strike:Global Offensive",
+        name:"Counter-Strike: Global Offensive",
         description:"Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).",
         appid: 0,
         categ: "",
