@@ -12,7 +12,8 @@ export class UserProfileComponent implements OnInit {
   game: Game[] = [];
   user: Usuario[] = [];
   filter: string = '';
-  ownProfile = this.myProfile();
+  ownProfile = false;
+  // this.myProfile();
 
   constructor() { 
     this.user = [ {
