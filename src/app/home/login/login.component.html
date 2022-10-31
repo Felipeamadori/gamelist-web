@@ -8,9 +8,9 @@
 
                 <form [formGroup]="loginForm" class="form mt-4" (submit)="this.login()">
 
-                    <input [(ngModel)]="this.usuario.email" formControlName="userName" class="form-control" placeholder="user name" autofocus>
+                    <input [(ngModel)]="this.usuario.email" formControlName="userName" class="form-control" placeholder="email" autofocus>
                     <small *ngIf="loginForm.get('userName')?.errors?.required" class="text-danger d-block mt-2">
-                User name is required!
+                Email is required!
             </small>
                     <small *ngIf="!loginForm.get('userName')?.errors?.required" class="text-danger d-block mt-2">
                 &nbsp;
