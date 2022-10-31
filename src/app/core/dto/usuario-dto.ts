@@ -3,6 +3,10 @@ export class UsuarioDto {
     nome: String;
     email: String;
     datanasc: String;
+    pfp_url: String;
+    bio: String;
+    joinDate: String;
+    reviews: Number;
 
     constructor() { }
 }

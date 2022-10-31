@@ -1,24 +1,50 @@
 <body>
     <app-header></app-header>
-    <div class="container" *ngFor="let user of user">
+    <div class="container" *ngIf=" !this.loading ">
         <div class="row">
             <div class="col-3">
-                <img class="profile-picture float-left" src="../../../assets/images/marcelo.jpg">
+                <img class="profile-picture float-left" [src]="this.userLogado.pfp_url" *ngIf="this.userLogado.pfp_url != null">
+                <img class="profile-picture float-left" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfp_url == null">
             </div>
-            <div class="col-6">
-                <h1>{{ user.nome }}</h1>
-                <hr class="name-separator">
-                <h6>Bio:</h6>
-                <p>me goose. <br>you lose.</p>
+            <div class="col-7">
+                <!--Capitalize first letter-->
+                <h1>{{ (this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase()) }}</h1>
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                        <h6>Games Reviewed:</h6>
+                        <p>&starf; {{ numberWithDots(this.userLogado.reviews) }}</p>
+                    </div>
+                    <div class="col-4">
+                        <h6>Member Since:</h6>
+                        <p>&starf; {{ this.userLogado.joinDate }}</p>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <p align="justify">{{ this.userLogado.bio }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-1"></div>
-            <div class="col-1">
+            <div class="col-2 d-flex flex-column text-center">
                 <a href="/user/edit-profile"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
                 <a href="/user/settings"><button class="interaction-buttons" [hidden]="!ownProfile">Settings</button></a>
-                <button class="interaction-buttons" disabled=true [hidden]="ownProfile">Add Friend</button>
+                <a><button class="interaction-buttons" [hidden]="!ownProfile" (click)="logout()">Logout</button></a>
+                <a><button class="interaction-buttons" disabled=true [hidden]="ownProfile">Add Friend</button></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <hr>
             </div>
             <div class="col-1"></div>
         </div>
+
+
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
