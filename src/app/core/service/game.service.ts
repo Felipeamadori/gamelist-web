@@ -11,7 +11,6 @@ import { AbstractService } from './abstract.service';
 export class GameService extends AbstractService {
 
   private readonly URL = this.API_URL + "/games";
-  private game: Game;
 
   constructor(http: HttpClient) {
     super(http);
@@ -24,7 +23,7 @@ export class GameService extends AbstractService {
   getGamesPagination(page: number): Observable<Page> {
     const params = new HttpParams()
         .append('page', page.toString());
-    return this.http.get<Page>(this.URL);
+    return this.http.get<Page>(this.URL, {params});
   }
 
 }

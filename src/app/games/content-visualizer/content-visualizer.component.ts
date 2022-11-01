@@ -29,7 +29,7 @@ export class ContentVisualizerComponent implements OnInit {
         this.game = game
         this.genresLength = this.splitCommas(this.game.genres).length;
         this.categoriesLength = this.splitCommas(this.game.categ).length;
-        this.rating = this.ratingsMean(this.game.positive_rating, this.game.negative_rating);
+        this.rating = this.ratingsMean(this.game.positiveRating, this.game.negativeRating);
         this.loading = false;
       })
   }
