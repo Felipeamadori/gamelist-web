@@ -11,12 +11,13 @@ import { ErrorsModule } from './errors/errors.module';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    UserProfileComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,11 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     UtilsModule,
     HomeModule,
     ErrorsModule,
+    UserModule,
     ToastrModule.forRoot()
+  ],
+  exports: [
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

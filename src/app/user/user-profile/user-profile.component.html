@@ -2,11 +2,11 @@
     <app-header></app-header>
     <div class="container" *ngIf=" !this.loading ">
         <div class="row">
-            <div class="col-3">
-                <img class="profile-picture float-left" [src]="this.userLogado.pfp_url" *ngIf="this.userLogado.pfp_url != null">
-                <img class="profile-picture float-left" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfp_url == null">
+            <div class="col-xl-3 text-center">
+                <img class="profile-picture" [src]="this.userLogado.pfp_url" *ngIf="this.userLogado.pfp_url != null">
+                <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfp_url == null">
             </div>
-            <div class="col-7">
+            <div class="col-xl-7">
                 <!--Capitalize first letter-->
                 <h1>{{ (this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase()) }}</h1>
                 <hr>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2 d-flex flex-column text-center">
+            <div class="col-xl-2 d-flex flex-column text-center">
                 <a href="/user/edit-profile"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
                 <a href="/user/settings"><button class="interaction-buttons" [hidden]="!ownProfile">Settings</button></a>
                 <a><button class="interaction-buttons" [hidden]="!ownProfile" (click)="logout()">Logout</button></a>
@@ -38,7 +38,7 @@
 
         <div class="row">
             <div class="col-1"></div>
-            <div class="col-10">
+            <div class="col-xl-10">
                 <hr>
             </div>
             <div class="col-1"></div>
@@ -47,7 +47,7 @@
 
         <div class="row">
             <div class="col-1"></div>
-            <div class="col-10">
+            <div class="col-xl-10">
                 <h2>Game List</h2>
                 <hr class="name-separator">
                 <form action="/action_page.php">
@@ -58,11 +58,11 @@
         </div>
         <div class="row">
             <div class="col-1"></div>
-            <div class="col-10">
-                <app-game [hideAddButtons]="ownProfile" [game]="game | filterByName : filter"></app-game>
+            <div class="col-xl-10">
+                <app-game [hideAddButtons]="ownProfile" [games]="game | filterByName : filter"></app-game>
             </div>
             <div class="col-1"></div>
         </div>
-    </div>
-    <app-footer></app-footer>
-</body>
+        </div>
+        <app-footer></app-footer>
+    </body>

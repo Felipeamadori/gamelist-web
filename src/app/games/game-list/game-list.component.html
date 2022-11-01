@@ -1,12 +1,12 @@
 <body>
     <app-header></app-header>
     <div class="container">
-        <div class="search-container">
+        <div class="search-container text-center">
             <form action="/action_page.php">
                 <input class="rounded" type="search" placeholder="Search..." autofocus (keyup)="onKey($event)">
             </form>
         </div>
-        <app-game [game]="gamesStatic | filterByName : filter"></app-game>
+        <app-game [games]="games | filterByName : filter"></app-game>
     </div>
     <app-footer></app-footer>
 </body>

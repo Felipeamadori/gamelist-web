@@ -15,7 +15,6 @@ body {
 
 .row.section {
     padding: 10px 10px 0px 5px;
-    height: 140px;
     margin-bottom: 40px;
 }
 
@@ -34,7 +33,6 @@ body {
 
 .img-thumbnail {
     height: 140px;
-    width: 100px;
     margin: 0px;
     padding: 2px;
 }
@@ -46,7 +44,7 @@ body {
     border-radius: 5px;
     background-color: #eee;
     margin: 10px 0 0 0;
-    float: right;
+    float: center;
     width: 120px;
 }
 

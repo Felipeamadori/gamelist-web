@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/core/service/game.service';
 import { Game } from '../../core/model/game.model';
 
 @Component({
@@ -9,14 +10,15 @@ import { Game } from '../../core/model/game.model';
 
 export class GameListComponent implements OnInit {
 
-  gamesStatic: Game[];
+  games: Game[];
   filter: string = '';
   noMatches = false;
 
-  constructor() {  }
+  constructor(private gameService: GameService) {  }
   
   ngOnInit(): void {
-    this.gamesStatic = [
+    this.gameService.getGamesPagination(0).subscribe(response => this.games = response.content);
+    /*this.gamesStatic = [
       {
         id_game:1,
         urlMedia:"https://images.ctfassets.net/wn7ipiv9ue5v/2gPmUEQz0K8epMNH8Sb3MQ/aa6fc38af06ea69b7e2aa1b696bc45af/PDwebsite_BoxArt_600x850_KSPPC.jpg?w=1920&h=&fm=avif&q=75",
