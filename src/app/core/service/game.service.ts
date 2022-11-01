@@ -17,11 +17,15 @@ export class GameService extends AbstractService {
     super(http);
   }
 
+  getGameByID(id: number): Observable<Game> {
+    return this.http.get<Game>(this.URL + '/' + id);
+  }
+
   getGamesPagination(page: number): Observable<Page> {
     const params = new HttpParams()
         .append('page', page.toString());
     return this.http.get<Page>(this.URL);
-    }
+  }
 
 }
 

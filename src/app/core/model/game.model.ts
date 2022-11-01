@@ -6,8 +6,8 @@ export class Game {
     categ: String;
     genres: String;
     urlMedia: String;
-    positive_rating: Number;
-    negative_rating: Number;
+    positive_rating: number;
+    negative_rating: number;
     description: String;
 
     constructor() { }

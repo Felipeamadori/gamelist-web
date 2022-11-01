@@ -13,11 +13,15 @@ export class GameListComponent implements OnInit {
   games: Game[];
   filter: string = '';
   noMatches = false;
+  loading = true;
 
   constructor(private gameService: GameService) {  }
   
   ngOnInit(): void {
-    this.gameService.getGamesPagination(0).subscribe(response => this.games = response.content);
+    this.gameService.getGamesPagination(0).subscribe(response => {
+      this.games = response.content;
+      this.loading = false;
+    });
     /*this.gamesStatic = [
       {
         id_game:1,

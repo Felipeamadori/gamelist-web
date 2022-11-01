@@ -1,11 +1,11 @@
 <div class="container" *ngIf=" !this.loading ">
     <div class="header-bar row">
-        <a href="#home"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
-        <a class="title-text" href="#">Game List</a>
+        <a [routerLink]="['/']"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
+        <a class="title-text" [routerLink]="['/']">Game List</a>
         <div class="spacer"></div>
-        <a class="sign-in" [hidden]="signed" href="">Sign In</a>
-        <a class="sign-up" [hidden]="signed" (click)="handleSignClick()" onclick="return false;" href="">Sign Up</a>
-
+        <a class="sign-in" [hidden]="signed" [routerLink]="['/login']">Sign In</a>
+        <a class="sign-up" [hidden]="signed"  onclick="return false;" [routerLink]="['/register']">Sign Up</a>
+        <!--(click)="handleSignClick()"-->
         <div [hidden]="!signed">
             <span class="user-minimenu">
                     Hello, {{ this.userLogado.nome }}!
@@ -14,19 +14,19 @@
                 <span>&#9776; Menu</span>
                 <div class="dropdown-minimenu-content">
                     <ul>
-                        <li><a href="user/profile">Profile</a></li>
-                        <li><a href="games">Library</a></li>
-                        <li><a href="user/settings">Settings</a></li>
+                        <li><a [routerLink]="['/user','profile']">Profile</a></li>
+                        <li><a [routerLink]="['/games']">Library</a></li>
+                        <li><a [routerLink]="['/user','settings']">Settings</a></li>
                         <li><a (click)="logout()">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="toolbar">
-            <a href="">Home</a>
-            <a href="games">Games</a>
-            <a href="community">Community</a>
-            <a href="help">Help</a>
+            <a [routerLink]="['/']">Home</a>
+            <a [routerLink]="['/games']">Games</a>
+            <a [routerLink]="['/community']">Community</a>
+            <a [routerLink]="['/help']">Help</a>
         </div>
     </div>
 </div>

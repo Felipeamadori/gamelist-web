@@ -6,7 +6,6 @@ export class UsuarioDto {
     pfp_url: String;
     bio: String;
     joinDate: String;
-    reviews: Number;
-
+    
     constructor() { }
 }
