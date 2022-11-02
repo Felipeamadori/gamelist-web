@@ -5,6 +5,7 @@ import { AuthGuard } from './core/guard/auth.guard';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ContentVisualizerComponent } from './games/content-visualizer/content-visualizer.component';
 import { GameListComponent } from './games/game-list/game-list.component';
+import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
@@ -12,7 +13,10 @@ import { UserModule } from './user/user.module';
 
 const routes: Routes = [
   {
-    path:'', component: LoginComponent, canActivate:[AuthGuard]
+    path:'', component: HomeComponent
+  },
+  {
+    path:'login', component: LoginComponent, canActivate:[AuthGuard]
   },
   {
     path:'register', component: RegisterComponent

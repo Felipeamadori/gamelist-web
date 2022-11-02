@@ -20,7 +20,7 @@
             <br>
             <h6>About {{ game.name }}</h6>
             <hr>
-            <p>{{ game.description }}</p>
+            <div [innerHTML]="game.description"></div>
             <hr>
             <div class="row">
                 <div class="col-4">

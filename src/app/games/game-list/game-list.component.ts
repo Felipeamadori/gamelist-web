@@ -45,6 +45,10 @@ export class GameListComponent implements OnInit {
       });
   }
 
+  ngOnDestroy(): void {
+    this.debounce.unsubscribe();
+  }
+
   onKey(event: any) {
     return event.target.value;
   }

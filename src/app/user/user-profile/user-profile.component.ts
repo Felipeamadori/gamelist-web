@@ -51,14 +51,6 @@ export class UserProfileComponent implements OnInit {
     this.filter = event.target.value;
   }
 
-  myProfile() {
-    if(1 > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   numberWithDots(x: Number): String {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }

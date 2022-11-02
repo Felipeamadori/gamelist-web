@@ -12,13 +12,3 @@ body {
 .spacing {
     margin-top: 20px;
 }
-
-.form-control:focus {
-    outline: none;
-    border-color: #5900ff;
-}
-
-.btn.btn-primary.btn-block {
-    background-color: #5900ff;
-    border-color: #5900ff;
-}

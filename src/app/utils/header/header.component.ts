@@ -22,14 +22,16 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {
     this.user$ = this.userService.getUserLogado();
     this.user$.subscribe(user => this.user = user);
-   }
+  }
 
   ngOnInit(): void {
-    this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
-      this.userLogado = res;
-      this.signed = true;
-      this.loading = false;
-    });
+    if(this.userService.isLogged()) {
+      this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
+        this.userLogado = res;
+        this.signed = true;
+        this.loading = false;
+      });
+    }
   }
 
   logout() {
