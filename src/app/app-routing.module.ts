@@ -12,7 +12,10 @@ import { UserModule } from './user/user.module';
 
 const routes: Routes = [
   {
-    path:'', component: LoginComponent, canActivate:[AuthGuard]
+    path:'', component: GameListComponent
+  },
+  {
+    path:'login', component: LoginComponent, canActivate:[AuthGuard]
   },
   {
     path:'register', component: RegisterComponent

@@ -1,16 +1,16 @@
-<div class="container" *ngIf=" !this.loading ">
+<div class="container">
     <div class="header-bar row">
         <a [routerLink]="['/']"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
         <a class="title-text" [routerLink]="['/']">Game List</a>
         <div class="spacer"></div>
         <a class="sign-in" [hidden]="signed" [routerLink]="['/login']">Sign In</a>
-        <a class="sign-up" [hidden]="signed"  onclick="return false;" [routerLink]="['/register']">Sign Up</a>
+        <a class="sign-up" [hidden]="signed" onclick="return false;" [routerLink]="['/register']">Sign Up</a>
         <!--(click)="handleSignClick()"-->
-        <div [hidden]="!signed">
-            <span class="user-minimenu">
+        <div>
+            <span class="user-minimenu" *ngIf=" !this.loading ">
                     Hello, {{ this.userLogado.nome }}!
-                </span>
-            <div class="dropdown-minimenu">
+            </span>
+            <div class="dropdown-minimenu" *ngIf=" !this.loading ">
                 <span>&#9776; Menu</span>
                 <div class="dropdown-minimenu-content">
                     <ul>

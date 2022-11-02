@@ -32,6 +32,10 @@ export class GameListComponent implements OnInit {
       .subscribe(filter => this.filter = filter);
   }
 
+  ngOnDestroy(): void {
+    this.debounce.unsubscribe();
+  }
+
   onKey(event: any) {
     return event.target.value;
   }

@@ -1,19 +1,37 @@
-<h4 class="text-center">Login</h4>
+<body>
+    <app-header></app-header>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h4 class="text-center spacing">Login</h4>
 
-<form [formGroup]="loginForm" class="form mt-4" (submit)="this.login()">
+                <form [formGroup]="loginForm" class="form mt-4" (submit)="this.login()">
 
-    <input [(ngModel)]="this.usuario.email" formControlName="userName" class="form-control" placeholder="user name" autofocus>
-    <small *ngIf="loginForm.get('userName')?.errors?.required" class="text-danger d-block mt-2">
-        User name is required!
-    </small>
+                    <input [(ngModel)]="this.usuario.email" formControlName="userName" class="form-control" placeholder="user name" autofocus>
+                    <small *ngIf="loginForm.get('userName')?.errors?.required" class="text-danger d-block mt-2">
+                User name is required!
+            </small>
+                    <small *ngIf="!loginForm.get('userName')?.errors?.required" class="text-danger d-block mt-2">
+                &nbsp;
+            </small>
 
-    <input [(ngModel)]="this.usuario.senha" formControlName="password" type="password" class="form-control" placeholder="password">
-    <small *ngIf="loginForm.get('password')?.errors?.required" class="text-danger d-block mt-2">
-        Password is required!
-    </small>
+                    <input [(ngModel)]="this.usuario.senha" formControlName="password" type="password" class="form-control" placeholder="password">
+                    <small *ngIf="loginForm.get('password')?.errors?.required" class="text-danger d-block mt-2">
+                Password is required!
+            </small>
+                    <small *ngIf="!loginForm.get('password')?.errors?.required" class="text-danger d-block mt-2">
+                &nbsp;
+            </small>
 
-    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
 
-</form>
+                </form>
 
-<p>Not a user?<a href="/register">Register now</a></p>
+                <p>Not a user?<a [routerLink]="['/register']">Register now</a></p>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</body>
