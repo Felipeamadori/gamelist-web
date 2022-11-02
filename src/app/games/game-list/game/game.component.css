@@ -15,7 +15,6 @@ body {
 
 .row.section {
     padding: 10px 10px 0px 5px;
-    height: 140px;
     margin-bottom: 40px;
 }
 
@@ -42,10 +41,10 @@ body {
     color: #5900ff;
     border-width: 1px;
     border-color: #5900ff;
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: #eee;
     margin: 10px 0 0 0;
-    float: right;
+    float: center;
     width: 120px;
 }
 
@@ -53,7 +52,7 @@ body {
     color: #5900ff;
     border-width: 1px;
     border-color: #5900ff;
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: #eee;
     margin: 10px 0 0 0;
     float: right;
@@ -63,7 +62,7 @@ body {
 
 .interaction-buttons:hover {
     background-color: #5900ff;
-    border-color: #eee;
+    border-color: #5900ff;
     color: #eee;
 }
 

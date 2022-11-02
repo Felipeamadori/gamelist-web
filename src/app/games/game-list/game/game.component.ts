@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/app/core/model/game.model';
+import { UserProfileComponent } from 'src/app/user/user-profile/user-profile.component';
 
 
 @Component({
@@ -10,10 +11,15 @@ import { Game } from 'src/app/core/model/game.model';
 
 export class GameComponent implements OnInit {
 
-  @Input() game: Game[] = [];
+  @Input() games: Game[] = [];
+  @Input() hideAddButtons: boolean = false;
   filter: string = '';
 
   constructor() {  }
   
   ngOnInit(): void {  }
+  
+  addGame(newGame: Game) {
+    //this.games.push(newGame);
+  }
 }

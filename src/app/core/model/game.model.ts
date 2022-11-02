@@ -1,15 +1,15 @@
 export class Game {
 
-    id_game: Number;
+    id: Number;
     appid : Number;
     name: String;
     categ: String;
     genres: String;
     urlMedia: String;
-    positive_rating: Number;
-    negative_rating: Number;
+    positiveRating: number;
+    negativeRating: number;
     description: String;
+    shortDescription: String;
 
     constructor() { }
-
 }
