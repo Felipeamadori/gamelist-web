@@ -6,6 +6,9 @@ import jwt_decode from 'jwt-decode';
 import { TokenService } from './tokenService';
 import { UsuarioDto } from '../dto/usuario-dto';
 import { TokenPayload } from '../model/tokenPayload.model';
+import { UsuarioGame } from '../model/usuario-game.model';
+import { Game } from '../model/game.model';
+import { Usuario } from '../model/usuario.model';
 
 const KEY = 'userSession';
 
@@ -60,12 +63,20 @@ export class UserService extends AbstractService {
     return this.http.post<UsuarioDto>(this.URL + 'cadastrar', newUser);
   }
 
+  addGame(ug: UsuarioGame) {
+    return this.http.post<UsuarioGame>(this.URL + 'adicionar-game', ug);
+  }
+
+  getAllGamesById(id: Number): Observable<Game[]> {
+    return this.http.get<Game[]>(this.URL + 'games/' + id);
+  }
+
   setUser(user: UsuarioDto) {
       window.localStorage.setItem(KEY, JSON.stringify(user));
   }
 
   getUserInfo() {
-      return JSON.parse(window.localStorage.getItem(KEY) || '');
+      return JSON.parse(window.localStorage.getItem(KEY) || '') as Usuario;
   }
 
   removeUser() {

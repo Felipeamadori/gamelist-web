@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/app/core/model/game.model';
+import { UsuarioGame } from 'src/app/core/model/usuario-game.model';
+import { Usuario } from 'src/app/core/model/usuario.model';
+import { UserService } from 'src/app/core/service/user.service';
 import { UserProfileComponent } from 'src/app/user/user-profile/user-profile.component';
 
 
@@ -13,13 +16,24 @@ export class GameComponent implements OnInit {
 
   @Input() games: Game[] = [];
   @Input() hideAddButtons: boolean = false;
-  filter: string = '';
 
-  constructor() {  }
+  filter: string = '';
+  userLogado: Usuario;
+
+  constructor(private userService: UserService) {  }
   
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+    this.userLogado = this.userService.getUserInfo() as Usuario;
+   }
   
   addGame(newGame: Game) {
-    //this.games.push(newGame);
+    let novo = new UsuarioGame;
+    novo.game = newGame;
+    novo.usuario = this.userLogado;
+    this.userService.addGame(novo).subscribe(response => {
+      if (response) {
+        alert(response.game.name + 'Adicionado com sucesso')
+      }
+    });
   }
 }

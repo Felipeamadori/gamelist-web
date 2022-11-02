@@ -7,7 +7,7 @@
                  #busca autofocus (keyup)="debounce.next(busca.value)">
             </form>
         </div>
-        <app-game [games]="games | filterByName : filter"></app-game>
+        <app-game [hideAddButtons]="!logado" [games]="games | filterByName : filter"></app-game>
         <div class="row text-center">
             <div class="col bottom-margin">
                 <button class="interaction-buttons text-center" (click)="addPage()">Load more</button>

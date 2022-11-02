@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators'; 
 
 import { GameService } from 'src/app/core/service/game.service';
+import { UserService } from 'src/app/core/service/user.service';
 import { Game } from '../../core/model/game.model';
 
 @Component({
@@ -18,11 +19,13 @@ export class GameListComponent implements OnInit {
   noMatches = false;
   loading = true;
   pagination = 0;
-  debounce: Subject<string> = new Subject<string>(); 
+  debounce: Subject<string> = new Subject<string>();
+  logado: boolean; 
 
-  constructor(private gameService: GameService) {  }
+  constructor(private gameService: GameService, private userService: UserService) {  }
   
   ngOnInit(): void {
+    this.logado = this.userService.isLogged();
     this.gameService.getGamesPagination(this.pagination).subscribe(response => {
       this.games = response.content;
       this.loading = false;
