@@ -7,12 +7,13 @@
             </div>
             <div class="col-xl-7 row section text-center">
                 <h6 class="game-title ">{{ game.name }}</h6>
-                <p class="game-description ">{{ game.description }}</p>
+                <br>
+                <p class="game-description ">{{ game.shortDescription }}</p>
             </div>
             <div class="col-xl-2 text-center">
-                    <a [routerLink]="[ '/games', game.id ]"><button class="interaction-buttons">View page</button></a>
-                    <button class="interaction-buttons" [hidden]="hideAddButtons" (click)="addGame(game)">Add to Profile</button>
-                    <button class="interaction-buttons" disabled=true [hidden]="hideAddButtons">Create Review</button>
+                <a [routerLink]="[ '/games', game.id ]"><button class="interaction-buttons">View page</button></a>
+                <button class="interaction-buttons" [hidden]="hideAddButtons" (click)="addGame(game)">Add to Profile</button>
+                <button class="interaction-buttons" disabled=true [hidden]="hideAddButtons">Create Review</button>
             </div>
         </div>
         <hr>

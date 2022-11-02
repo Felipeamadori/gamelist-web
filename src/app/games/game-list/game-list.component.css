@@ -13,6 +13,10 @@ body {
     padding: 0 10px;
 }
 
+.bottom-margin {
+    margin-bottom: 40px;
+}
+
 .row.section {
     padding: 10px 10px 10px 5px;
     height: 160px;
@@ -40,24 +44,25 @@ body {
 
 .interaction-buttons {
     color: #5900ff;
+    font-size: 16px;
     border-width: 1px;
     border-color: #5900ff;
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: #eee;
     margin: 10px 0 0 0;
-    float: right;
-    width: 120px;
+    float: center;
+    width: 100px;
 }
 
 .interaction-buttons a {
     color: #5900ff;
     border-width: 1px;
     border-color: #5900ff;
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: #eee;
     margin: 10px 0 0 0;
-    float: right;
-    width: 120px;
+    float: center;
+    width: 100px;
     cursor: pointer;
 }
 
