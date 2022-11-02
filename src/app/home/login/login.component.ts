@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
     login() {
       this.authService.authenticate(this.usuario).subscribe(() => { 
-          this.router.navigate(['games']);
+          this.router.navigate(['/']);
         }, () => {
           alert('User not found')
           return;

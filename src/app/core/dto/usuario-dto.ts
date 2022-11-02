@@ -3,7 +3,7 @@ export class UsuarioDto {
     nome: String;
     email: String;
     datanasc: String;
-    pfp_url: String;
+    pfpUrl: String;
     bio: String;
     joinDate: String;
     

@@ -3,8 +3,8 @@
     <div class="container" *ngIf=" !this.loading ">
         <div class="row">
             <div class="col-xl-3 text-center">
-                <img class="profile-picture" [src]="this.userLogado.pfp_url" *ngIf="this.userLogado.pfp_url != null">
-                <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfp_url == null">
+                <img class="profile-picture" [src]="this.userLogado.pfpUrl" *ngIf="this.userLogado.pfpUrl != null">
+                <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfpUrl == null">
             </div>
             <div class="col-xl-7">
                 <!--Capitalize first letter-->
@@ -63,6 +63,6 @@
             </div>
             <div class="col-1"></div>
         </div>
-        </div>
-        <app-footer></app-footer>
-    </body>
+    </div>
+    <app-footer></app-footer>
+</body>

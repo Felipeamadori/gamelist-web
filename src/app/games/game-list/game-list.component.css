@@ -79,9 +79,9 @@ input[type=search] {
     margin-right: -23px;
     font-size: 14px;
     border: none;
-    width: 193px;
+    width: 250px;
     border-radius: 3px;
-    height: 24px;
+    height: 30px;
     float: center;
     border-width: 2px;
     border-color: #ddd;
@@ -97,16 +97,4 @@ input[type=search]:focus {
     float: center;
     margin: 0 10px 0 10px;
     padding-top: 10px;
-}
-
-.search-container button {
-    float: center;
-    padding: 0px 4px;
-    margin-top: 10px;
-    margin-right: 10px;
-    height: 9px;
-    background: #fff;
-    font-size: 13px;
-    border: none;
-    cursor: pointer;
 }

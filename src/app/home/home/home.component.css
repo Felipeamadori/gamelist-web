@@ -1,0 +1,14 @@
+body {
+    background-color: #eee;
+}
+
+.container {
+    background-color: #fff;
+    padding: 0px;
+    padding-bottom: 5px;
+    min-height: 100vh;
+}
+
+.spacing {
+    margin-top: 20px;
+}
