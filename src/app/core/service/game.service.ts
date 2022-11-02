@@ -26,5 +26,9 @@ export class GameService extends AbstractService {
     return this.http.get<Page>(this.URL, {params});
   }
 
+  getGameByName(name: String): Observable<Game[]> {
+    return this.http.post<Game[]>(this.URL + '/by-name', name);
+  }
+
 }
 

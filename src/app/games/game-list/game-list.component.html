@@ -3,7 +3,8 @@
     <div class="container">
         <div class="search-container text-center">
             <form action="/action_page.php">
-                <input class="rounded" type="search" placeholder="Search..." autofocus (keyup)="debounce.next(onKey($event))">
+                <input class="rounded" type="search" placeholder="Search..." 
+                 #busca autofocus (keyup)="debounce.next(busca.value)">
             </form>
         </div>
         <app-game [games]="games | filterByName : filter"></app-game>

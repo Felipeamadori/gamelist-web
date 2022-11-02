@@ -29,7 +29,20 @@ export class GameListComponent implements OnInit {
     });
     this.debounce
       .pipe(debounceTime(300))  
-      .subscribe(filter => this.filter = filter);
+      .subscribe(filter => {
+        this.filter = filter;
+        if (this.filter !== '') {
+            this.gameService.getGameByName(this.filter).subscribe(response => {
+              this.games = response;
+              this.loading = false;
+            });
+        } else {
+          this.gameService.getGamesPagination(this.pagination).subscribe(response => {
+            this.games = response.content;
+            this.loading = false;
+          });
+        }
+      });
   }
 
   onKey(event: any) {
