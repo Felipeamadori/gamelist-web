@@ -1,19 +1,26 @@
 <body>
     <app-header></app-header>
     <div class="container">
-        <div class="row" *ngIf=" this.loading ">
+        <div class="row" *ngIf="this.loading">
+            <div class="col-5"></div>
+            <div class="col-2">
+                <app-loadscreen class="text-center"></app-loadscreen>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <div class="row" *ngIf=" !this.loading && !this.signed ">
             <div class="col-2"></div>
-            <div class="col-8 text-center spacing">
-                <h3>Log in to see goose!</h3>
+            <div class="col-8 text-center">
+                <h3 class="spacing">Log in to see goose!</h3>
             </div>
             <div class="col-2"></div>
         </div>
-        <div class="row spacing" *ngIf=" !this.loading ">
+        <div class="row" *ngIf=" !this.loading && this.signed">
             <div class="col-2"></div>
-            <div class="col-8 text-center spacing">
-                <h5>Work in progress...</h5>
+            <div class="col-8 text-center">
+                <h5 class="spacing">Work in progress...</h5>
                 <br>
-                <img class="img-thumbnail" src="../../assets/images/marcelo.jpg">
+                <img class="rounded" src="../../assets/images/marcelo.jpg">
                 <h5>This is the way.</h5>
             </div>
             <div class="col-2"></div>

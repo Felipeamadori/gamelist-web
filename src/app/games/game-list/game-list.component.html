@@ -1,4 +1,12 @@
-<body *ngIf=" !this.loading">
+<body *ngIf="this.loading">
+    <app-header></app-header>
+    <div class="container">
+        <app-loadscreen></app-loadscreen>
+    </div>
+    <app-footer></app-footer>
+</body>
+
+<body *ngIf="!this.loading">
     <app-header></app-header>
     <div class="container">
         <div class="search-container text-center">

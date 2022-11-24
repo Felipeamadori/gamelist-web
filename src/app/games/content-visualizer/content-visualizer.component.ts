@@ -10,6 +10,7 @@ import { GameService } from 'src/app/core/service/game.service';
 })
 export class ContentVisualizerComponent implements OnInit {
 
+  hideAddButtons: boolean = false;
   game: Game;
   genresLength: number;
   categoriesLength: number;

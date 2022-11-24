@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="header-bar row">
+<div class="container header-bar">
+    <div class="row">
         <a [routerLink]="['/']"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
         <a class="title-text" [routerLink]="['/']">Game List</a>
         <div class="spacer"></div>
@@ -15,7 +15,7 @@
                 <div class="dropdown-minimenu-content">
                     <ul>
                         <li><a [routerLink]="['/user','profile']">Profile</a></li>
-                        <li><a [routerLink]="['/games']">Library</a></li>
+                        <li><a [routerLink]="['/games']">Games</a></li>
                         <li><a [routerLink]="['/user','settings']">Settings</a></li>
                         <li><a (click)="logout()" onClick="window.location.reload(true)">Logout</a></li>
                     </ul>

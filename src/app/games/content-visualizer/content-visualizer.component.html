@@ -4,7 +4,15 @@
         <div class="center-content">
             <div class="row image-container">
                 <div class="col-4">
-                    <img class="img-thumbnail" [alt]="game.name" [src]="game.urlMedia">
+                    <img class="rounded" [alt]="game.name" [src]="game.urlMedia">
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <button class="interaction-buttons spacing" [hidden]="hideAddButtons">Add to Profile</button>
+                            <!--(click)="addGame(game)"-->
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
                 </div>
                 <div class="col-8">
                     <h3>{{ game.name }}</h3>
@@ -21,6 +29,7 @@
             <h6>About {{ game.name }}</h6>
             <hr>
             <div [innerHTML]="game.description"></div>
+            <br>
             <hr>
             <div class="row">
                 <div class="col-4">
