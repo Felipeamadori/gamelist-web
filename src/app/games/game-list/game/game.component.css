@@ -13,11 +13,6 @@ body {
     padding: 0 10px;
 }
 
-.row.section {
-    padding: 10px 10px 0px 5px;
-    margin-bottom: 40px;
-}
-
 .row {
     padding: 0;
     margin: 0;
@@ -25,17 +20,25 @@ body {
 
 .game-title {
     align-items: right;
+    margin-top: 40px;
 }
 
 .game-description {
-    align-items: right;
+    align-items: center;
+    text-align: justify-all;
 }
 
 .rounded {
-    width: 100%;
-    margin-top: 25%;
-    margin-bottom: 25%;
-    padding: 2px;
+    width: 50%;
+}
+
+@media (min-width: 1200px) {
+    .rounded {
+        width: 100%;
+        margin-top: 25%;
+        margin-bottom: 25%;
+        padding: 2px;
+    }
 }
 
 .buttons {
@@ -49,7 +52,7 @@ body {
     border-color: #5900ff;
     border-radius: 5px;
     background-color: #eee;
-    margin: 10px 0 0 0;
+    margin: 0 10px 0 0;
     float: center;
     width: 120px;
 }

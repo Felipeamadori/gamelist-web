@@ -5,12 +5,14 @@ import { HeaderComponent } from '../utils/header/header.component';
 import { FooterComponent } from '../utils/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { LoadscreenComponent } from './loadscreen/loadscreen.component';
+import { CreateReviewComponent } from './create-review/create-review.component';
 
 @NgModule({
     declarations: [ 
         HeaderComponent,
         FooterComponent,
-        LoadscreenComponent
+        LoadscreenComponent,
+        CreateReviewComponent
     ],
     imports: [ 
         CommonModule,
@@ -19,7 +21,8 @@ import { LoadscreenComponent } from './loadscreen/loadscreen.component';
     exports: [
         HeaderComponent,
         FooterComponent,
-        LoadscreenComponent
+        LoadscreenComponent,
+        CreateReviewComponent
     ]
 })
 

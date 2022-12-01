@@ -50,7 +50,7 @@
             <div class="col-xl-10">
                 <h2>Game List</h2>
                 <hr class="name-separator">
-                <form action="/action_page.php">
+                <form (keydown.enter)="$event.preventDefault()">
                     <input class="rounded search-container" type="search" placeholder="Search..." (keyup)="onKey($event)">
                 </form>
             </div>

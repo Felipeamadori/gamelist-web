@@ -10,11 +10,11 @@
                     <div class="form-group">
                         <input formControlName="email" placeholder="email" class="form-control" autofocus>
                         <small *ngIf="registerForm.get('email')?.errors?.required" class="text-danger d-block mt-2">
-            Email is required!
-        </small>
+                            Email is required!
+                        </small>
                         <small *ngIf="!registerForm.get('email')?.errors?.required" class="text-danger d-block mt-2">
-            &nbsp;
-        </small>
+                            &nbsp;
+                        </small>
                     </div>
                     <div class="form-group">
                         <input formControlName="nome" placeholder="nome" class="form-control">
@@ -40,7 +40,15 @@
                     <p>Already a user? <a [routerLink]="['/login']">Sign In!</a></p>
                 </form>
             </div>
-            <div class="col-2"></div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-2">
+                <app-loadscreen *ngIf="loading == true"></app-loadscreen>
+            </div>
+            <div class="col-5"></div>
         </div>
     </div>
     <app-footer></app-footer>
