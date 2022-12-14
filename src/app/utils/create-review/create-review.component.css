@@ -20,12 +20,15 @@ input[type=range] {
     height: 38px;
     margin: 10px 0;
     width: 100%;
-    border-radius: 50%;
+    
 }
 
 input[type=range]::-webkit-slider-runnable-track {
     cursor: pointer;
     background: #eee;
+    border-radius: 10px;
+    border-color: #5900ff;
+    border-width: 1px;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -43,4 +46,28 @@ input[type=range]::-webkit-slider-thumb:hover {
     border-width: 2px;
     background: #5900ff;
     cursor: pointer;
+}
+
+input[type=submit] {
+    color: #5900ff;
+    font-size: 12px;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-radius: 5px;
+    background-color: #eee;
+    margin: 10px 0 0 0;
+    float: center;
+    width: 100px;
+}
+
+input[type=submit]:hover {
+    color: #eee;
+    font-size: 12px;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-radius: 5px;
+    background-color: #5900ff;
+    margin: 10px 0 0 0;
+    float: center;
+    width: 100px;
 }

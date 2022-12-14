@@ -1,6 +1,9 @@
-<body *ngIf=" !this.loading">
+<body>
     <app-header></app-header>
-    <div class="container">
+    <div class="container" *ngIf=" this.loading">
+        <app-loadscreen></app-loadscreen>
+    </div>
+    <div class="container" *ngIf=" !this.loading">
         <div class="center-content">
             <div class="row image-container">
                 <div class="col-4">
@@ -8,8 +11,8 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <button class="interaction-buttons spacing" [hidden]="hideAddButtons">Add to Profile</button>
-                            <!--(click)="addGame(game)"-->
+                            <button class="interaction-buttons spacing" *ngIf="checkList(game, gamesOnList)" (click)="addGame()">Add to Profile</button>
+                            <button class="interaction-buttons spacing" *ngIf="!checkList(game, gamesOnList)" (click)="addGame()">Remove from Profile</button>
                         </div>
                         <div class="col-3"></div>
                     </div>
@@ -18,11 +21,6 @@
                     <h3>{{ game.name }}</h3>
                     <h4>&starf; {{ rating }}/10</h4>
                     <p>{{ game.shortDescription }}</p>
-                    <ul style="list-style-type: none;padding-left: 0px">
-                        <li>Release date: <b>To be defined</b></li>
-                        <li>Developer: <b>To be defined</b></li>
-                        <li>Publisher: <b>To be defined</b></li>
-                    </ul>
                 </div>
             </div>
             <br>

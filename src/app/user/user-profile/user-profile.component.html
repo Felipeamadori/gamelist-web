@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-xl-10">
-                <app-game [hideAddButtons]="ownProfile" [games]="game | filterByName : filter"></app-game>
+                <app-game [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
             </div>
             <div class="col-1"></div>
         </div>

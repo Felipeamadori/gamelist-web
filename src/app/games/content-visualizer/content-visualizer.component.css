@@ -40,7 +40,7 @@ h2 {
     background-color: #eee;
     margin: 10px 0 0 0;
     float: center;
-    width: 120px;
+    width: 160px;
 }
 
 .interaction-buttons a {
@@ -51,7 +51,7 @@ h2 {
     background-color: #eee;
     margin: 10px 0 0 0;
     float: right;
-    width: 120px;
+    width: 160px;
     cursor: pointer;
 }
 

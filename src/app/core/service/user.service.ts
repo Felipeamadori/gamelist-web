@@ -67,6 +67,10 @@ export class UserService extends AbstractService {
     return this.http.post<UsuarioGame>(this.URL + 'adicionar-game', ug);
   }
 
+  /*removeGame(ug: UsuarioGame) {
+    return this.http.delete<UsuarioGame>(this.URL + 'remover-game', ug);
+  }*/
+
   getAllGamesById(id: Number): Observable<Game[]> {
     return this.http.get<Game[]>(this.URL + 'games/' + id);
   }

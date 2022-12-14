@@ -14,7 +14,8 @@ import { UserService } from 'src/app/core/service/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  game: Game[] = [];
+  games: Game[] = [];
+  gamesOnList: Game[];
   filter: string = '';
   ownProfile = true;
   //this.myProfile();
@@ -40,7 +41,8 @@ export class UserProfileComponent implements OnInit {
       this.reviews = 654321;
       if (this.userLogado) {
         this.userService.getAllGamesById(this.userLogado.id).subscribe(response => {
-          this.game = response;
+          this.games = response;
+          this.gamesOnList = response;
         });
       }
       this.loading = false;

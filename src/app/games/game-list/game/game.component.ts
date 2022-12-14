@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { empty } from 'rxjs';
 import { Game } from 'src/app/core/model/game.model';
 import { UsuarioGame } from 'src/app/core/model/usuario-game.model';
 import { Usuario } from 'src/app/core/model/usuario.model';
@@ -15,6 +16,7 @@ import { UserProfileComponent } from 'src/app/user/user-profile/user-profile.com
 export class GameComponent implements OnInit {
 
   @Input() games: Game[] = [];
+  @Input() gamesOnList: Game[] = [];
   @Input() hideAddButtons: boolean = false;
 
   filter: string = '';
@@ -24,7 +26,7 @@ export class GameComponent implements OnInit {
   
   ngOnInit(): void {
     this.userLogado = this.userService.getUserInfo() as Usuario;
-   }
+  }
   
   addGame(newGame: Game) {
     let novo = new UsuarioGame;
@@ -35,5 +37,14 @@ export class GameComponent implements OnInit {
         alert(response.game.name + 'Adicionado com sucesso')
       }
     });
+  }
+
+  checkGames(game: Game, gameList: Game[]) {
+    for(let i in gameList){
+      if(game.id == gameList[i].id) {
+        return true;
+      }
+    }
+    return false;
   }
 }

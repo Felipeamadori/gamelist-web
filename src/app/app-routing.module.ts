@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { UserModule } from './user/user.module';
 
 const routes: Routes = [
   {
@@ -39,8 +38,11 @@ const routes: Routes = [
   }
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+            RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})
+           ],
   exports: [RouterModule]
 })
 
