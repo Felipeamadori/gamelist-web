@@ -10,12 +10,11 @@
                 <p class="game-description">{{ game.shortDescription }}</p>
                 <a [routerLink]="[ '/games', game.id ]"><button class="interaction-buttons">View page</button></a>
                 <button class="interaction-buttons" *ngIf="!checkGames(game, gamesOnList)" (click)="addGame(game)">Add to List</button>
-                <button class="interaction-buttons" *ngIf="checkGames(game, gamesOnList)" hidden="true">Remove from List</button>
-                <!-- [hidden]="hideRemoveButtons" (click)="removeGame(game)"-->
                 <button class="interaction-buttons" *ngIf="checkGames(game, gamesOnList)" disabled=true>Create Review</button>
+                <button class="interaction-buttons" *ngIf="checkGames(game, gamesOnList)" disabled="true">Remove from List</button>
+                <!-- [hidden]="hideRemoveButtons" (click)="removeGame(game)"-->
             </div>
-
         </div>
-        <hr>    
+        <hr>
     </li>
 </ul>

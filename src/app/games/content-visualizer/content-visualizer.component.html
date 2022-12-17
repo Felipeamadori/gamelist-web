@@ -12,7 +12,7 @@
                         <div class="col-3"></div>
                         <div class="col-6">
                             <button class="interaction-buttons spacing" *ngIf="checkList(game, gamesOnList)" (click)="addGame()">Add to Profile</button>
-                            <button class="interaction-buttons spacing" *ngIf="!checkList(game, gamesOnList)" (click)="addGame()">Remove from Profile</button>
+                            <button class="interaction-buttons spacing" *ngIf="!checkList(game, gamesOnList)" disabled="true">Remove from Profile</button>
                         </div>
                         <div class="col-3"></div>
                     </div>

@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { empty } from 'rxjs';
 import { Game } from 'src/app/core/model/game.model';
 import { UsuarioGame } from 'src/app/core/model/usuario-game.model';
@@ -22,7 +24,11 @@ export class GameComponent implements OnInit {
   filter: string = '';
   userLogado: Usuario;
 
-  constructor(private userService: UserService) {  }
+  constructor(private userService: UserService, 
+              private cd: ChangeDetectorRef, 
+              private router: Router,
+              private viewportScroller: ViewportScroller,
+              changeDetectorRef: ChangeDetectorRef) {  }
   
   ngOnInit(): void {
     this.userLogado = this.userService.getUserInfo() as Usuario;
@@ -34,7 +40,11 @@ export class GameComponent implements OnInit {
     novo.usuario = this.userLogado;
     this.userService.addGame(novo).subscribe(response => {
       if (response) {
-        alert(response.game.name + 'Adicionado com sucesso')
+        if(confirm("'" + response.game.name + "' Adicionado com sucesso")){
+          this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/games']);
+          }); 
+        }
       }
     });
   }
@@ -46,5 +56,9 @@ export class GameComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  refreshComponent() {
+    this.cd.detectChanges();
   }
 }
