@@ -29,8 +29,7 @@
                 </div>
             </div>
             <div class="col-xl-2 d-flex flex-column text-center">
-                <a href="/user/edit-profile"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
-                <a href="/user/settings"><button class="interaction-buttons" [hidden]="!ownProfile">Settings</button></a>
+                <a [routerLink]="[ '/user', 'edit' ]"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
                 <a><button class="interaction-buttons" [hidden]="!ownProfile" (click)="logout()">Logout</button></a>
                 <a><button class="interaction-buttons" disabled=true [hidden]="ownProfile">Add Friend</button></a>
             </div>

@@ -8,7 +8,7 @@
         <!--(click)="handleSignClick()"-->
         <div>
             <span class="user-minimenu" *ngIf=" !this.loading ">
-                    Hello, {{ this.userLogado.nome }}!
+                    Hello, {{ (this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase()) }}!
             </span>
             <div class="dropdown-minimenu" *ngIf=" !this.loading ">
                 <span>&#9776; Menu</span>

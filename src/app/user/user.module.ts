@@ -4,16 +4,20 @@ import { GamesModule } from '../games/games.module';
 import { GameModule } from '../games/game-list/game/game.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UtilsModule } from '../utils/utils.module';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    UserProfileComponent
+    UserProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
     GamesModule,
     GameModule,
-    UtilsModule
+    UtilsModule,
+    RouterModule
   ],
   exports: [
     UserProfileComponent

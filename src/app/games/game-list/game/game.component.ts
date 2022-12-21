@@ -19,6 +19,7 @@ export class GameComponent implements OnInit {
 
   @Input() games: Game[] = [];
   @Input() gamesOnList: Game[] = [];
+  @Input() gamesReviewed: UsuarioGame[];
   @Input() hideAddButtons: boolean = false;
 
   filter: string = '';
@@ -52,6 +53,15 @@ export class GameComponent implements OnInit {
   checkGames(game: Game, gameList: Game[]) {
     for(let i in gameList){
       if(game.id == gameList[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  checkReviews (game: Game, gamesReviewed: UsuarioGame[]) {
+    for(let i in gamesReviewed){
+      if(game.id == gamesReviewed[i].game.id && gamesReviewed[i].comentario.length > 0) {
         return true;
       }
     }
