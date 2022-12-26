@@ -1,0 +1,14 @@
+<h4>Create a review:</h4>
+<form>
+    <label for="rating">Rating:</label>
+    <br>
+    <span class="star-text">&starf;{{ chosenRating }} </span>
+    <br>
+    <input type="range" id="rating" name="rating" min="1" max="10" step="1" #rating (input)="setRating(rating.value)">
+    <br>
+    <label for="comment">Commentary:</label>
+    <br>
+    <textarea type="text" id="comment" name="comment" #comment (input)="setComment(comment.value)" rows="4" cols="50" placeholder="Write your thoughts here..."></textarea>
+    <br>
+    <input type="submit" id="submit" name="submit" value="Submit Review">
+</form>

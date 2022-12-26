@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="header-bar row">
+<div class="container header-bar">
+    <div class="row">
         <a [routerLink]="['/']"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
         <a class="title-text" [routerLink]="['/']">Game List</a>
         <div class="spacer"></div>
@@ -8,14 +8,14 @@
         <!--(click)="handleSignClick()"-->
         <div>
             <span class="user-minimenu" *ngIf=" !this.loading ">
-                    Hello, {{ this.userLogado.nome }}!
+                    Hello, {{ (this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase()) }}!
             </span>
             <div class="dropdown-minimenu" *ngIf=" !this.loading ">
                 <span>&#9776; Menu</span>
                 <div class="dropdown-minimenu-content">
                     <ul>
                         <li><a [routerLink]="['/user','profile']">Profile</a></li>
-                        <li><a [routerLink]="['/games']">Library</a></li>
+                        <li><a [routerLink]="['/games']">Games</a></li>
                         <li><a [routerLink]="['/user','settings']">Settings</a></li>
                         <li><a (click)="logout()" onClick="window.location.reload(true)">Logout</a></li>
                     </ul>

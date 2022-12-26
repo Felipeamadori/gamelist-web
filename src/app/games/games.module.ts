@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { GameModule } from './game-list/game/game.module';
 import { FilterByName } from './game-list/filter-by-name.pipe';
 import { FilterByDescription } from './game-list/filter-by-description.pipe';
+import { UserModule } from '../user/user.module';
 
 @NgModule({
     declarations: [ 

@@ -8,49 +8,38 @@ import { Usuario } from 'src/app/core/model/usuario.model';
 import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
 
-  games: Game[] = [];
-  gamesOnList: Game[];
   filter: string = '';
-  ownProfile = true;
-  //this.myProfile();
-
   signed = false;
   loading = true;
   user$: Observable<TokenPayload | null>;
   user: TokenPayload | null;
   userLogado: UsuarioDto;
   reviews = 0;
-  
+
+  name: string;
+  bio: string;
+  pfp: string;
+  email: string;
+  password: string;
+  confirmation_password: string;
+
   constructor(private userService: UserService, private router: Router) { 
     this.user$ = this.userService.getUserLogado();
     this.user$.subscribe(user => this.user = user);
   }
-  
+
   ngOnInit(): void {
     this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
       this.userLogado = res;
       this.signed = true;
-      this.userLogado.joinDate = "31/10/2022";
-      this.reviews = 654321;
-      if (this.userLogado) {
-        this.userService.getAllGamesById(this.userLogado.id).subscribe(response => {
-          this.games = response;
-          this.gamesOnList = response;
-        });
-      }
       this.loading = false;
     });
-  }
-  
-  logout() {
-    this.userService.logout();
-    this.router.navigate(['']);
   }
 
   onKey(event: any) {
@@ -59,5 +48,40 @@ export class UserProfileComponent implements OnInit {
 
   numberWithDots(x: Number): String {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  setName(value:string) {
+    this.name = value as string;
+  }
+
+  setBio(value:unknown) {
+    this.bio = value as string;
+  }
+
+  setProfilePicture(value:unknown) {
+    this.pfp = value as string;
+  }
+
+  setEmail(value:unknown) {
+    this.email = value as string;
+  }
+
+  setPassword(value:unknown) {
+    this.password = value as string;
+  }
+
+  setConfirmationPassword(value:unknown) {
+    this.confirmation_password = value as string;
+  }
+
+  checkPassword(password:string, confirmation_password:string) {
+    if(password == confirmation_password) {
+      return true;
+    }
+    return false;
+  }
+
+  submitChanges(user: UsuarioDto, name: string, bio: string, pfp: string, email: string) {
+    
   }
 }

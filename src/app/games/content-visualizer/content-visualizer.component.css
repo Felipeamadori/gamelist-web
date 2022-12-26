@@ -31,3 +31,40 @@ body {
 h2 {
     font-size: 20px;
 }
+
+.interaction-buttons {
+    color: #5900ff;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-radius: 5px;
+    background-color: #eee;
+    margin: 10px 0 0 0;
+    float: center;
+    width: 160px;
+}
+
+.interaction-buttons a {
+    color: #5900ff;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-radius: 5px;
+    background-color: #eee;
+    margin: 10px 0 0 0;
+    float: right;
+    width: 160px;
+    cursor: pointer;
+}
+
+.interaction-buttons:hover {
+    background-color: #5900ff;
+    border-color: #5900ff;
+    color: #eee;
+}
+
+.rounded {
+    width: 100%;
+}
+
+.spacing {
+    margin-top: 20px;
+}

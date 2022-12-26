@@ -29,8 +29,7 @@
                 </div>
             </div>
             <div class="col-xl-2 d-flex flex-column text-center">
-                <a href="/user/edit-profile"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
-                <a href="/user/settings"><button class="interaction-buttons" [hidden]="!ownProfile">Settings</button></a>
+                <a [routerLink]="[ '/user', 'edit' ]"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
                 <a><button class="interaction-buttons" [hidden]="!ownProfile" (click)="logout()">Logout</button></a>
                 <a><button class="interaction-buttons" disabled=true [hidden]="ownProfile">Add Friend</button></a>
             </div>
@@ -50,7 +49,7 @@
             <div class="col-xl-10">
                 <h2>Game List</h2>
                 <hr class="name-separator">
-                <form action="/action_page.php">
+                <form (keydown.enter)="$event.preventDefault()">
                     <input class="rounded search-container" type="search" placeholder="Search..." (keyup)="onKey($event)">
                 </form>
             </div>
@@ -59,7 +58,7 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-xl-10">
-                <app-game [hideAddButtons]="ownProfile" [games]="game | filterByName : filter"></app-game>
+                <app-game [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
             </div>
             <div class="col-1"></div>
         </div>

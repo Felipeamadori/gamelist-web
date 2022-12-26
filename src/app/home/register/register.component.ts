@@ -11,6 +11,7 @@ import { UserService } from 'src/app/core/service/user.service';
 })
 export class RegisterComponent implements OnInit {
 
+  loading = false;
   registerForm: FormGroup;
   newUser: Usuario;
 
@@ -29,7 +30,6 @@ export class RegisterComponent implements OnInit {
           nome: ['',
               [
                   Validators.required,
-                  Validators.pattern(/^[a-z0-9_\-]+$/),
                   Validators.minLength(2),
                   Validators.maxLength(30)
               ]
@@ -43,13 +43,15 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.loading = true;
     this.newUser = this.registerForm.getRawValue() as Usuario;
     this.userService.registerUser(this.newUser).subscribe(() => {
       alert('Usuario cadastrado com sucesso.');
+      this.loading = false;
       this.router.navigate(['']);
     }, () => {
       alert('Ocorreu um problema ao cadastrar o usuario');
+      this.loading = false;
     });
   }
-
 }

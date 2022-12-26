@@ -1,13 +1,20 @@
-<body *ngIf=" !this.loading">
+<body *ngIf="this.loading">
+    <app-header></app-header>
+    <div class="container">
+        <app-loadscreen></app-loadscreen>
+    </div>
+    <app-footer></app-footer>
+</body>
+
+<body *ngIf="!this.loading">
     <app-header></app-header>
     <div class="container">
         <div class="search-container text-center">
-            <form action="/action_page.php">
-                <input class="rounded" type="search" placeholder="Search..." 
-                 #busca autofocus (keyup)="debounce.next(busca.value)">
+            <form (keydown.enter)="$event.preventDefault()">
+                <input class="rounded" type="search" placeholder="Search..." #busca autofocus (keyup)="debounce.next(busca.value)">
             </form>
         </div>
-        <app-game [hideAddButtons]="!logado" [games]="games | filterByName : filter"></app-game>
+        <app-game [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
         <div class="row text-center">
             <div class="col bottom-margin">
                 <button class="interaction-buttons text-center" (click)="addPage()">Load more</button>

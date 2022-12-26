@@ -18,19 +18,19 @@ export class HomeComponent implements OnInit {
   user: TokenPayload | null;
   userLogado: UsuarioDto;
 
-  
   constructor(private userService: UserService) {
-    this.user$ = this.userService.getUserLogado();
-    this.user$.subscribe(user => this.user = user);
+    /*this.user$ = this.userService.getUserLogado();
+    this.user$.subscribe(user => this.user = user);*/
    }
 
   ngOnInit(): void {
     if (this.userService.isLogged()) {
-      this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
+     this.userLogado = this.userService.getUserInfo();
+      /*this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
         this.userLogado = res;
-        this.loading = false;
         this.signed = true;
-      });
+      });*/
     }
+    this.loading = false;
   }  
 }

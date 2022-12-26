@@ -12,6 +12,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserModule } from './user/user.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenIntercepterService } from './core/service/tokenIntercepter.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { UserModule } from './user/user.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CommonModule,
     GamesModule,
     UtilsModule,
@@ -33,7 +36,7 @@ import { UserModule } from './user/user.module';
   exports: [
     
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenIntercepterService, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

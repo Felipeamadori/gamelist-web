@@ -1,19 +1,19 @@
-<p class="text-center text-muted" *ngIf="!games.length">No matches found.</p>
+<p class="text-center text-muted" *ngIf="!games?.length">No matches found.</p>
 <ul class="list-unstyled">
     <li *ngFor="let game of games">
-        <div class="row section">
+        <div class="row">
             <div class="col-xl-3 text-center">
-                <img class="img-thumbnail " [src]="game.urlMedia " [alt]="game.id ">
+                <img class="rounded " [src]="game.urlMedia " [alt]="game.id ">
             </div>
-            <div class="col-xl-7 row section text-center">
-                <h6 class="game-title ">{{ game.name }}</h6>
-                <br>
-                <p class="game-description ">{{ game.shortDescription }}</p>
-            </div>
-            <div class="col-xl-2 text-center">
+            <div class="col-xl-9 text-center">
+                <h5 class="game-title">{{ game.name }}</h5>
+                <p class="game-description">{{ game.shortDescription }}</p>
                 <a [routerLink]="[ '/games', game.id ]"><button class="interaction-buttons">View page</button></a>
-                <button class="interaction-buttons" [hidden]="hideAddButtons" (click)="addGame(game)">Add to Profile</button>
-                <button class="interaction-buttons" disabled=true [hidden]="hideAddButtons">Create Review</button>
+                <button class="interaction-buttons" *ngIf="!checkGames(game, gamesOnList)" (click)="addGame(game)">Add to List</button>
+                <button class="interaction-buttons" *ngIf="checkGames(game, gamesOnList)" disabled=true>Create Review</button>
+                <button class="interaction-buttons" *ngIf="checkGames(game, gamesOnList)" 
+                (click)="removeGame(game)">Remove from List</button>
+                <!-- [hidden]="hideRemoveButtons" (click)="removeGame(game)"-->
             </div>
         </div>
         <hr>

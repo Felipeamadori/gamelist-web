@@ -8,8 +8,8 @@ import { GameListComponent } from './games/game-list/game-list.component';
 import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
+import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { UserModule } from './user/user.module';
 
 const routes: Routes = [
   {
@@ -23,6 +23,9 @@ const routes: Routes = [
   },
   {
     path:'user/profile', component: UserProfileComponent
+  },
+  {
+    path:'user/edit', component: EditProfileComponent
   },
   {
     path:'users/:userId', component: UserProfileComponent
@@ -39,8 +42,12 @@ const routes: Routes = [
   }
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+            RouterModule.forRoot(routes, {scrollPositionRestoration: 'disabled'}),
+            RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+           ],
   exports: [RouterModule]
 })
 
