@@ -3,17 +3,20 @@
     <div class="container" *ngIf=" !this.loading ">
         <form>
             <div class="row">
-                <div class="col-xl-12 text-center">
-                    <h4>Edit Profile</h4>
-                </div>
-                
+                <div class="col-xl-4"></div>
                 <div class="col-xl-5">
+                    <h4>Edit Profile</h4>
+                    <hr>
+                </div>
+                <div class="col-xl-3"></div>
+                
+                <div class="col-xl-4">
                     <img class="profile-picture" [src]="this.userLogado.pfpUrl" *ngIf="this.userLogado.pfpUrl != null">
                     <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfpUrl == null">
                     <br>
                     <input type="file" name="pfp" accept="image/png, image/gif, image/jpeg" #pfp (input)="setProfilePicture(pfp.value)">
                 </div>
-                <div class="col-xl-7 right-side">
+                <div class="col-xl-8 right-side">
                     <label>Name*</label>
                     <br>
                     <input type="text" id="name" name="name" [value]="[ this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase() ]" #name (input)="setName(name.value)">
@@ -29,7 +32,7 @@
                     <br>
                     <label>Email*</label>
                     <br>
-                    <input type="email" id="email" name="email" [value]="[ this.userLogado.email ]" #email (input)="setEmail(email.value)">
+                    <input type="email" id="email" disabled="true" name="email" [value]="[ this.userLogado.email ]" #email (input)="setEmail(email.value)">
                     <small *ngIf="email.value == ''" class="text-danger d-block mt-2">
                         *Email is required
                     </small>

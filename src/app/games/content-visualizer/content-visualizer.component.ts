@@ -5,6 +5,7 @@ import { UsuarioGame } from 'src/app/core/model/usuario-game.model';
 import { Usuario } from 'src/app/core/model/usuario.model';
 import { GameService } from 'src/app/core/service/game.service';
 import { UserService } from 'src/app/core/service/user.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-content-visualizer',
@@ -14,6 +15,7 @@ import { UserService } from 'src/app/core/service/user.service';
 export class ContentVisualizerComponent implements OnInit {
 
   hideAddButtons: boolean = false;
+  tab = '1';
   game: Game;
   gamesOnList: Game[];
   genresLength: number;
@@ -25,6 +27,7 @@ export class ContentVisualizerComponent implements OnInit {
   constructor(
     private gameService: GameService,
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private userService: UserService
   ) { }
 
@@ -39,9 +42,12 @@ export class ContentVisualizerComponent implements OnInit {
         this.rating = this.ratingsMean(this.game.positiveRating, this.game.negativeRating);
         this.loading = false;
       })
-      this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
-        this.gamesOnList = userListResponse;
-      });
+      this.userLogado = this.userService.getUserInfo() as Usuario;
+      if(this.userLogado){
+        this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
+          this.gamesOnList = userListResponse;
+        });
+      }
   }
 
   splitCommas(str: String){
@@ -58,7 +64,7 @@ export class ContentVisualizerComponent implements OnInit {
       .map((n, index) => index + 1);
   }
 
-  checkList(game: Game, gameList: Game[]){
+  checkGames(game: Game, gameList: Game[]) {
     for(let i in gameList){
       if(game.id == gameList[i].id) {
         return true;
@@ -72,18 +78,28 @@ export class ContentVisualizerComponent implements OnInit {
     novo.game = this.game;
     novo.usuario = this.userLogado;
     this.userService.addGame(novo).subscribe(response => {
-      if (response) {
-        alert(response.game.name + 'Adicionado com sucesso')
+      if(confirm("'" + response.game.name + "' Adicionado com sucesso")){
+        this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/games/' + this.game.id]);
+        }); 
       }
     });
   }
 
-  /*removeGame() {
-    let novo = new UsuarioGame
-    this.userService.removeGame(novo).subscribe(response => {
-      if (response) {
-        alert(response.game.name + 'Removido com sucesso')
+  removeGame() {
+    let remover = new UsuarioGame;
+    remover.game = this.game;
+    remover.usuario = this.userLogado;
+    this.userService.removeGame(remover).subscribe(response => {
+      if(confirm("Removido com sucesso")){
+        this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/games/' + this.game.id]);
+        }); 
       }
     });
-  }*/
+  }
+
+  bottomTab(tab: string) {
+    return tab;
+  }
 }

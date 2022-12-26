@@ -21,6 +21,7 @@ export class GameComponent implements OnInit {
   @Input() gamesOnList: Game[] = [];
   @Input() gamesReviewed: UsuarioGame[];
   @Input() hideAddButtons: boolean = false;
+  @Input() currentRoute: string;
 
   filter: string = '';
   userLogado: Usuario;
@@ -43,7 +44,7 @@ export class GameComponent implements OnInit {
       if (response) {
         if(confirm("'" + response.game.name + "' Adicionado com sucesso")){
           this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['/games']);
+            this.router.navigate(['/' + this.currentRoute]);
           }); 
         }
       }
@@ -79,7 +80,7 @@ export class GameComponent implements OnInit {
     this.userService.removeGame(remover).subscribe(response => {
         if(confirm("Removido com sucesso")){
           this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['/games']);
+            this.router.navigate(['/' + this.currentRoute]);
           }); 
         }
     });

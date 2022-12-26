@@ -7,24 +7,29 @@
                 <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfpUrl == null">
             </div>
             <div class="col-xl-7">
-                <!--Capitalize first letter-->
-                <h1>{{ (this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase()) }}</h1>
-                <hr>
                 <div class="row">
-                    <div class="col-4">
-                        <h6>Games Reviewed:</h6>
-                        <p>&starf; {{ numberWithDots(reviews) }}</p>
+                    <div class="col-xl-12">
+                        <!--Capitalize first letter-->
+                        <h1>{{ (this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase()) }}</h1>
+                        <hr>
                     </div>
-                    <div class="col-4">
-                        <h6>Member Since:</h6>
-                        <p>&starf; {{ this.userLogado.joinDate }}</p>
-                    </div>
-                    <div class="col-4"></div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-12">
-                        <p align="justify">{{ this.userLogado.bio }}</p>
+                    <div class="col-xl-7">
+                        <div class="row">
+                            <div class="col-4">
+                                <h6>Games Reviewed:</h6>
+                                <p>&starf; {{ numberWithDots(reviews) }}</p>
+                            </div>
+                            <div class="col-4">
+                                <h6>Member Since:</h6>
+                                <p>&starf; {{ this.userLogado.joinDate }}</p>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p align="justify">{{ this.userLogado.bio }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -33,14 +38,6 @@
                 <a><button class="interaction-buttons" [hidden]="!ownProfile" (click)="logout()">Logout</button></a>
                 <a><button class="interaction-buttons" disabled=true [hidden]="ownProfile">Add Friend</button></a>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-xl-10">
-                <hr>
-            </div>
-            <div class="col-1"></div>
         </div>
 
 
@@ -58,7 +55,7 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-xl-10">
-                <app-game [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
+                <app-game [currentRoute]="'user/profile'" [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
             </div>
             <div class="col-1"></div>
         </div>

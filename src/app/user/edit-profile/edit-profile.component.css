@@ -184,7 +184,7 @@ input {
     border-color: #000;
     border-width: 1px;
     border-radius: 4px;
-    width: 50%;
+    width: 61%;
 }
 
 input:focus {
@@ -200,7 +200,7 @@ input:hover {
 }
 
 textarea {
-    width: 50%;
+    width: 61%;
     resize: none;
     outline: none;
     border-color: #000;
