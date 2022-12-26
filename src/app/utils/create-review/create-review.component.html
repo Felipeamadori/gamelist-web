@@ -2,14 +2,14 @@
     <form>
         <label for="rating">Rating:</label>
         <br>
-        <span class="star-text">&starf;{{ chosenRating }} </span>
+        <span class="star-text">&starf;{{ rating }} </span>
         <br>
-        <input type="range" id="rating" name="rating" min="1" max="10" step="1" #rating (input)="setRating(rating.value)">
+        <input [(ngModel)]="this.rating" type="range" id="rating" name="rating" min="1" max="10" step="1">
         <br>
         <label for="comment">Comment:</label>
         <br>
-        <textarea type="text" id="comment" name="comment" #comment (input)="setComment(comment.value)" rows="4" cols="50" placeholder="Write your thoughts here..."></textarea>
+        <textarea [(ngModel)]="this.comment" type="text" id="comment" name="comment" rows="4" cols="50" placeholder="Write your thoughts here..."></textarea>
         <br>
-        <input type="submit" id="submit" name="submit" value="Submit Review">
+        <input type="submit" id="submit" name="submit" value="Submit Review" (click)="submitReview()">
     </form>
 </body>

@@ -40,8 +40,8 @@ export class UserProfileComponent implements OnInit {
       this.reviews = 654321;
       if (this.userLogado) {
         this.userService.getAllGamesById(this.userLogado.id).subscribe(response => {
-          this.games = response;
-          this.gamesOnList = response;
+          this.games = response.map(g => g.game);
+          this.gamesOnList = response.map(g => g.game);
         });
       }
       this.loading = false;

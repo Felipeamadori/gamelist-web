@@ -6,6 +6,7 @@ import { FooterComponent } from '../utils/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { LoadscreenComponent } from './loadscreen/loadscreen.component';
 import { CreateReviewComponent } from './create-review/create-review.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [ 
@@ -16,7 +17,8 @@ import { CreateReviewComponent } from './create-review/create-review.component';
     ],
     imports: [ 
         CommonModule,
-        RouterModule
+        RouterModule,
+        FormsModule
     ],
     exports: [
         HeaderComponent,

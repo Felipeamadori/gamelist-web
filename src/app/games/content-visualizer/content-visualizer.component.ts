@@ -18,6 +18,7 @@ export class ContentVisualizerComponent implements OnInit {
   tab = '1';
   game: Game;
   gamesOnList: Game[];
+  userList: UsuarioGame[];
   genresLength: number;
   categoriesLength: number;
   rating: number;
@@ -45,7 +46,8 @@ export class ContentVisualizerComponent implements OnInit {
       this.userLogado = this.userService.getUserInfo() as Usuario;
       if(this.userLogado){
         this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
-          this.gamesOnList = userListResponse;
+          this.gamesOnList = userListResponse.map(g => g.game);
+          this.userList = userListResponse;
         });
       }
   }

@@ -43,7 +43,7 @@ export class GameListComponent implements OnInit {
         this.userLogado = userResponse;
         if (this.userLogado) {
           this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
-            this.gamesOnList = userListResponse;
+            this.gamesOnList = userListResponse.map(g => g.game);
           });
           this.userService
         } else {

@@ -56,7 +56,7 @@
                     <!--<app-reviews></app-reviews>-->
                 </div>
                 <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '2'">
-                    <app-create-review></app-create-review>
+                    <app-create-review [userList]="userList" [game]="game"></app-create-review>
                 </div>
             </div>
         </div>

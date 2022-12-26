@@ -75,8 +75,12 @@ export class UserService extends AbstractService {
     return this.http.delete<any>(this.URL + `remover-game`, httpOptions);
   }
 
-  getAllGamesById(id: Number): Observable<Game[]> {
-    return this.http.get<Game[]>(this.URL + 'games/' + id);
+  getAllGamesById(id: Number): Observable<UsuarioGame[]> {
+    return this.http.get<UsuarioGame[]>(this.URL + 'games/' + id);
+  }
+
+  createReview(newReview: UsuarioGame): Observable<UsuarioGame> {
+    return this.http.post<UsuarioGame>(this.URL + 'adicionar-review', newReview);
   }
 
   setUser(user: UsuarioDto) {
