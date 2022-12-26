@@ -15,6 +15,7 @@ import { Router, RouterLink } from '@angular/router';
 export class ContentVisualizerComponent implements OnInit {
 
   hideAddButtons: boolean = false;
+  tab = '1';
   game: Game;
   gamesOnList: Game[];
   genresLength: number;
@@ -95,6 +96,10 @@ export class ContentVisualizerComponent implements OnInit {
           this.router.navigate(['/games/' + this.game.id]);
         }); 
       }
-  });
+    });
+  }
+
+  bottomTab(tab: string) {
+    return tab;
   }
 }

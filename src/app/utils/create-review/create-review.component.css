@@ -1,5 +1,10 @@
+body {
+    background-color: #fff;
+}
+
 textarea {
     resize: none;
+    width: 40%;
 }
 
 textarea#comment {
@@ -19,7 +24,7 @@ textarea:focus {
 input[type=range] {
     height: 38px;
     margin: 10px 0;
-    width: 100%;
+    width: 40%;
     
 }
 

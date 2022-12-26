@@ -44,10 +44,20 @@
                     </ul>
                 </div>
             </div>
-            <h6>Reviews</h6>
-            <hr>
             <div class="row">
-                <app-create-review></app-create-review>
+                <div>
+                    <button class="tab-button-active" (click)="[tab = '1']" *ngIf="bottomTab(tab) == '1'">Reviews</button>
+                    <button class="tab-button-inactive" (click)="[tab = '1']" *ngIf="bottomTab(tab) != '1'">Reviews</button>
+                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2'">Create Review</button>
+                    <button class="tab-button-inactive" (click)="[tab = '2']" *ngIf="bottomTab(tab) != '2'">Create Review</button>
+                </div>
+                <button class="tab-button-container" disabled="true">&nbsp;</button>
+                <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '1'">
+                    <!--<app-reviews></app-reviews>-->
+                </div>
+                <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '2'">
+                    <app-create-review></app-create-review>
+                </div>
             </div>
         </div>
     </div>

@@ -68,3 +68,52 @@ h2 {
 .spacing {
     margin-top: 20px;
 }
+
+.tab-button-container {
+    margin: 0;
+    padding: 0;
+    float: right;  
+    width: calc(100% - 200px);
+    margin-bottom: 5px;
+    outline: 0px;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.tab-button-active {
+    max-width: 150;
+    margin-bottom: 5px;
+    outline: 0px;
+    border-width: 1px;
+    border-bottom: 0px;
+    border-color: #5900ff;
+    border-radius: 5px 5px 0 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.tab-button-inactive {
+    max-width: 150;
+    margin-bottom: 5px;
+    outline: 0px;
+    border-width: 1px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-radius: 5px 5px 0 0;
+    border-bottom-color: #5900ff;
+    background-color: #fff;
+    z-index: 0;
+}
+
+.bottom-tabs {
+    border-width: 1px;
+    border-bottom: 0px;
+    border-color: #5900ff;
+    border-radius: 4px 4px 0 0;
+}
