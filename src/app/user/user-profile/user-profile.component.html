@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-xl-10">
-                <app-game [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
+                <app-game [currentRoute]="'user/profile'" [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
             </div>
             <div class="col-1"></div>
         </div>
