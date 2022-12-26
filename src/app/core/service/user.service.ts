@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, Injector } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AbstractService } from './abstract.service';
 import jwt_decode from 'jwt-decode';
@@ -63,13 +63,17 @@ export class UserService extends AbstractService {
     return this.http.post<UsuarioDto>(this.URL + 'cadastrar', newUser);
   }
 
-  addGame(ug: UsuarioGame) {
+  addGame(ug: UsuarioGame) : Observable<UsuarioGame> {
     return this.http.post<UsuarioGame>(this.URL + 'adicionar-game', ug);
   }
 
-  /*removeGame(ug: UsuarioGame) {
-    return this.http.delete<UsuarioGame>(this.URL + 'remover-game', ug);
-  }*/
+  removeGame(ug: UsuarioGame) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }), 
+      body: ug
+    };
+    return this.http.delete<any>(this.URL + `remover-game`, httpOptions);
+  }
 
   getAllGamesById(id: Number): Observable<Game[]> {
     return this.http.get<Game[]>(this.URL + 'games/' + id);

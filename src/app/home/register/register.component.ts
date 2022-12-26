@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
           nome: ['',
               [
                   Validators.required,
-                  Validators.pattern(/^[a-z0-9_\-]+$/),
                   Validators.minLength(2),
                   Validators.maxLength(30)
               ]

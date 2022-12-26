@@ -38,17 +38,19 @@ export class GameListComponent implements OnInit {
     this.gameService.getGamesPagination(this.pagination).subscribe(response => {
       this.games = response.content;
     });
-    this.userService.getUserById(Number(this.user?.sub)).subscribe(userResponse => {
-      this.userLogado = userResponse;
-      if (this.userLogado) {
-        this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
-          this.gamesOnList = userListResponse;
-        });
-        this.userService
-      } else {
-        this.gamesOnList = [];
-      }
-    });
+    if (this.userService.isLogged()) {
+      this.userService.getUserById(Number(this.user?.sub)).subscribe(userResponse => {
+        this.userLogado = userResponse;
+        if (this.userLogado) {
+          this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
+            this.gamesOnList = userListResponse;
+          });
+          this.userService
+        } else {
+          this.gamesOnList = [];
+        }
+      });
+    }
     this.debounce
       .pipe(debounceTime(300))  
       .subscribe(filter => {

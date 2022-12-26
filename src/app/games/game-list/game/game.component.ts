@@ -71,4 +71,17 @@ export class GameComponent implements OnInit {
   refreshComponent() {
     this.cd.detectChanges();
   }
+
+  removeGame(g: Game) {
+    let remover = new UsuarioGame;
+    remover.game = g;
+    remover.usuario = this.userLogado;
+    this.userService.removeGame(remover).subscribe(response => {
+        if(confirm("Removido com sucesso")){
+          this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/games']);
+          }); 
+        }
+    });
+  }
 }
