@@ -86,10 +86,6 @@ hr {
     font-weight: bold;
 }
 
-span {
-    content: "\270E";
-}
-
 .search-container {
     margin-top: 10px;
 }
@@ -97,27 +93,6 @@ span {
 form {
     margin-left: 40px;
     margin-right: 40px;
-}
-
-input[type=search] {
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding: 9px 0px 8px 5px;
-    margin-top: 9px;
-    margin-right: -23px;
-    font-size: 14px;
-    border: none;
-    width: 250px;
-    border-radius: 3px;
-    height: 30px;
-    float: center;
-    border-width: 2px;
-    border-color: #ddd;
-    border-style: solid;
-}
-
-input[type=search]:focus {
-    outline: none;
-    border-color: #5900ff;
 }
 
 .interaction-buttons {
@@ -150,32 +125,58 @@ input[type=search]:focus {
     color: #eee;
 }
 
-input[type=submit] {
+input[type=submit][id=submit-active]  {
     color: #5900ff;
     font-size: 12px;
     border-width: 1px;
     border-color: #5900ff;
     border-radius: 5px;
-    background-color: #eee;
+    background-color: #fff;
     margin: 10px 0 0 0;
     float: right;
     width: 100px;
 }
 
-input[type=submit]:hover {
-    color: #eee;
+input[type=submit][id=submit-active]:hover {
+    color: #fff;
     font-size: 12px;
     border-width: 1px;
     border-color: #5900ff;
     border-radius: 5px;
     background-color: #5900ff;
     margin: 10px 0 0 0;
-    float: center;
+    float: right;
+    width: 100px;
+}
+
+input[type=submit][id=submit-inactive]  {
+    color: #666;
+    font-size: 12px;
+    border-width: 1px;
+    border-color: #666;
+    border-radius: 5px;
+    background-color: #ddd;
+    margin: 10px 0 0 0;
+    float: right;
+    width: 100px;
+}
+
+input[type=submit][id=submit-inactive]:hover {
+    font-size: 12px;
+    border-width: 1px;
+    border-radius: 5px;
+    margin: 10px 0 0 0;
+    float: right;
     width: 100px;
 }
 
 label {
+    font-weight: bold;
     margin-top: 10px;
+}
+
+input[type=file] {
+    float: left;
 }
 
 input {
@@ -183,6 +184,7 @@ input {
     border-color: #000;
     border-width: 1px;
     border-radius: 4px;
+    width: 50%;
 }
 
 input:focus {
@@ -198,6 +200,7 @@ input:hover {
 }
 
 textarea {
+    width: 50%;
     resize: none;
     outline: none;
     border-color: #000;

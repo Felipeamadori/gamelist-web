@@ -44,6 +44,7 @@ export class GameListComponent implements OnInit {
         this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
           this.gamesOnList = userListResponse;
         });
+        this.userService
       } else {
         this.gamesOnList = [];
       }
