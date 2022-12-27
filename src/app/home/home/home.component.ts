@@ -25,10 +25,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.userService.isLogged()) {
-     this.userLogado = this.userService.getUserInfo();
+      this.signed = true;
       /*this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
         this.userLogado = res;
-        this.signed = true;
       });*/
     }
     this.loading = false;

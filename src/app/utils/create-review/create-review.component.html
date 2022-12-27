@@ -1,5 +1,19 @@
 <body>
-    <form>
+    <form *ngIf="checkGames(game, userList)">
+        <label for="rating">Rating:</label>
+        <br>
+        <span class="star-text">&starf;{{ rating }} </span>
+        <br>
+        <input [(ngModel)]="this.rating" type="range" id="rating" name="rating" min="1" max="10" step="1">
+        <br>
+        <label for="comment">Comment:</label>
+        <br>
+        <textarea [(ngModel)]="this.comment" type="text" id="comment" name="comment" rows="4" cols="50" [value]="[this.comment]"></textarea>
+        <br>
+        <input type="submit" id="submit" name="submit" value="Submit changes" (click)="submitReview()">
+    </form>
+
+    <form *ngIf="!checkGames(game, userList)">
         <label for="rating">Rating:</label>
         <br>
         <span class="star-text">&starf;{{ rating }} </span>

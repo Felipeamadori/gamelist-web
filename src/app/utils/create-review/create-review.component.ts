@@ -14,21 +14,43 @@ export class CreateReviewComponent implements OnInit {
   @Input() game: Game;
   @Input() userList: UsuarioGame[];
 
-  rating = 10;
-  comment: string;
+  rating: Number;
+  comment: String;
 
+  currentGame: UsuarioGame;
   userLogado: Usuario;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userLogado = this.userService.getUserInfo() as Usuario;
+    this.currentGame = this.userList.filter(g => g.game.id === this.game.id)[0];
+    if(this.currentGame) {
+      this.rating = this.currentGame.nota;
+      this.comment = this.currentGame.comentario;
+    }
+    else {
+      this.rating = 10;
+      this.comment = '';
+    }
+  }
+  
+  checkGames(game: Game, userList: UsuarioGame[]) {
+    for(let i in userList){
+      if(game.id == userList[i].game.id) {
+        return true;
+      }
+    }
+    return false;
   }
 
   submitReview() {
     let newReview = new UsuarioGame();
-    let currentGame = this.userList.filter(g => g.game.id === this.game.id)[0];
-    newReview.id = currentGame.id;
+    if(this.checkGames(this.game, this.userList)){
+      newReview.id = this.currentGame.id;
+    } else {
+      newReview.id = this.game.id;
+    }
     newReview.nota = this.rating;
     newReview.comentario = this.comment;
     newReview.game = this.game;

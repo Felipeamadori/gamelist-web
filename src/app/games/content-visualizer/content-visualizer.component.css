@@ -22,6 +22,7 @@ p {
 
 .center-content {
     padding: 30px 50px;
+    padding-bottom: 0px;
 }
 
 body {
@@ -69,11 +70,16 @@ h2 {
     margin-top: 20px;
 }
 
+.tabs {
+    max-width: 50%;
+    min-width: 250px;
+}
+
 .tab-button-container {
     margin: 0;
     padding: 0;
     float: right;  
-    width: calc(100% - 200px);
+    min-width: calc(100% - 250px);
     margin-bottom: 5px;
     outline: 0px;
     border-width: 1px;
@@ -86,7 +92,7 @@ h2 {
 }
 
 .tab-button-active {
-    max-width: 150;
+    width: 50%;
     margin-bottom: 5px;
     outline: 0px;
     border-width: 1px;
@@ -98,7 +104,7 @@ h2 {
 }
 
 .tab-button-inactive {
-    max-width: 150;
+    width: 50%;
     margin-bottom: 5px;
     outline: 0px;
     border-width: 1px;

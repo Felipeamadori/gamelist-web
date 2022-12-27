@@ -24,6 +24,8 @@ export class ContentVisualizerComponent implements OnInit {
   rating: number;
   loading = true;
   userLogado: Usuario;
+  currentGame: UsuarioGame;
+  reviewsList: UsuarioGame[];
 
   constructor(
     private gameService: GameService,
@@ -42,14 +44,19 @@ export class ContentVisualizerComponent implements OnInit {
         this.categoriesLength = this.splitCommas(this.game.categ).length;
         this.rating = this.ratingsMean(this.game.positiveRating, this.game.negativeRating);
         this.loading = false;
+        this.gameService.getAllReviewsById(this.game.id).subscribe(response => {
+          this.reviewsList = response;
+          console.log(this.reviewsList);
+        })
       })
-      this.userLogado = this.userService.getUserInfo() as Usuario;
-      if(this.userLogado){
-        this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
-          this.gamesOnList = userListResponse.map(g => g.game);
-          this.userList = userListResponse;
-        });
-      }
+    this.userLogado = this.userService.getUserInfo() as Usuario;
+    if(this.userLogado){
+      this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
+        this.gamesOnList = userListResponse.map(g => g.game);
+        this.userList = userListResponse;
+        this.currentGame = this.userList.filter(g => g.game.id === this.game.id)[0];
+      });
+    }
   }
 
   splitCommas(str: String){

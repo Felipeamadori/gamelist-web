@@ -7,13 +7,15 @@ import { RouterModule } from '@angular/router';
 import { LoadscreenComponent } from './loadscreen/loadscreen.component';
 import { CreateReviewComponent } from './create-review/create-review.component';
 import { FormsModule } from '@angular/forms';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
     declarations: [ 
         HeaderComponent,
         FooterComponent,
         LoadscreenComponent,
-        CreateReviewComponent
+        CreateReviewComponent,
+        ReviewsComponent
     ],
     imports: [ 
         CommonModule,
@@ -24,7 +26,8 @@ import { FormsModule } from '@angular/forms';
         HeaderComponent,
         FooterComponent,
         LoadscreenComponent,
-        CreateReviewComponent
+        CreateReviewComponent,
+        ReviewsComponent
     ]
 })
 

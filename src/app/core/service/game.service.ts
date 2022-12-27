@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Game } from '../model/game.model';
 import { Page } from '../model/page.model';
+import { UsuarioGame } from '../model/usuario-game.model';
 import { AbstractService } from './abstract.service';
 
 @Injectable({
@@ -30,5 +31,8 @@ export class GameService extends AbstractService {
     return this.http.post<Game[]>(this.URL + '/by-name', name);
   }
 
+  getAllReviewsById(id: Number): Observable<UsuarioGame[]> {
+    return this.http.get<UsuarioGame[]>(this.URL + '/recuperar-review/' + id);
+  }
 }
 

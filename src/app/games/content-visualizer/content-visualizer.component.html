@@ -5,17 +5,11 @@
     </div>
     <div class="container" *ngIf=" !this.loading">
         <div class="center-content">
-            <div class="row image-container">
+            <div class="row image-container text-center">
                 <div class="col-4">
                     <img class="rounded" [alt]="game.name" [src]="game.urlMedia">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
-                            <button class="interaction-buttons spacing" *ngIf="!checkGames(game, gamesOnList)" (click)="addGame()">Add to Profile</button>
-                            <button class="interaction-buttons spacing" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame()">Remove from Profile</button>
-                        </div>
-                        <div class="col-3"></div>
-                    </div>
+                    <button class="interaction-buttons spacing" *ngIf="!checkGames(game, gamesOnList)" (click)="addGame()">Add to Profile</button>
+                    <button class="interaction-buttons spacing" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame()">Remove from Profile</button>
                 </div>
                 <div class="col-8">
                     <h3>{{ game.name }}</h3>
@@ -45,15 +39,17 @@
                 </div>
             </div>
             <div class="row">
-                <div>
+                <div class="tabs">
                     <button class="tab-button-active" (click)="[tab = '1']" *ngIf="bottomTab(tab) == '1'">Reviews</button>
                     <button class="tab-button-inactive" (click)="[tab = '1']" *ngIf="bottomTab(tab) != '1'">Reviews</button>
-                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2'">Create Review</button>
-                    <button class="tab-button-inactive" (click)="[tab = '2']" *ngIf="bottomTab(tab) != '2'">Create Review</button>
+                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2' && (!currentGame || currentGame?.comentario == null)">Create Review</button>
+                    <button class="tab-button-inactive" (click)="[tab = '2']" [disabled]="!userLogado" *ngIf="bottomTab(tab) != '2' && (!currentGame || currentGame?.comentario == null)">Create Review</button>
+                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2' && currentGame && currentGame?.comentario != null">Edit Review</button>
+                    <button class="tab-button-inactive" (click)="[tab = '2']" [disabled]="!userLogado" *ngIf="bottomTab(tab) != '2' && currentGame && currentGame?.comentario != null">Edit Review</button>
                 </div>
                 <button class="tab-button-container" disabled="true">&nbsp;</button>
                 <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '1'">
-                    <!--<app-reviews></app-reviews>-->
+                    <app-reviews [reviewsList]="reviewsList" [game]="game"></app-reviews>
                 </div>
                 <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '2'">
                     <app-create-review [userList]="userList" [game]="game"></app-create-review>
