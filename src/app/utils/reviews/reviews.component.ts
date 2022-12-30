@@ -12,8 +12,9 @@ export class ReviewsComponent implements OnInit {
 
   @Input() game: Game;
   @Input() reviewsList: UsuarioGame[];
+  notaExists: boolean;
 
-  constructor(private gameService: GameService) { }
+  constructor() { }
 
   ngOnInit(): void { }
 
@@ -23,5 +24,10 @@ export class ReviewsComponent implements OnInit {
       sum = sum + (this.reviewsList[a].nota as number);
     }
     return (sum/(this.reviewsList?.length)).toFixed(1);
+  }
+
+  setNotaExists() {
+    this.notaExists = true;
+    console.log(this.notaExists);
   }
 }

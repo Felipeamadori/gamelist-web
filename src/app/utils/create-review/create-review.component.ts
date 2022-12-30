@@ -30,7 +30,7 @@ export class CreateReviewComponent implements OnInit {
       this.comment = this.currentGame.comentario;
     }
     else {
-      this.rating = 10;
+      this.rating = 0;
       this.comment = '';
     }
   }

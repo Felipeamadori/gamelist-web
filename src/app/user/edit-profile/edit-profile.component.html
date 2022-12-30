@@ -29,17 +29,16 @@
                     <label>Bio</label>
                     <br>
                     <textarea type="text" id="bio" name="bio" rows="4" cols="50" [value]="[ this.userLogado.bio ] " placeholder="Tell us a bit about yourself..." #bio (input)="setBio(bio.value)"></textarea>
-                    <br>
-                    <label>Email*</label>
-                    <br>
-                    <input type="email" id="email" disabled="true" name="email" [value]="[ this.userLogado.email ]" #email (input)="setEmail(email.value)">
-                    <small *ngIf="email.value == ''" class="text-danger d-block mt-2">
-                        *Email is required
-                    </small>
-                    <small *ngIf="email.value != ''" class="text-danger d-block mt-2">
+                    <small class="text-danger d-block mt-2">
                         &nbsp;
                     </small>
-                    <label>Password</label>
+                    <label>Email</label>
+                    <br>
+                    <input type="email" id="email" disabled="true" name="email" [value]="[ this.userLogado.email ]" #email (input)="setEmail(email.value)">
+                    <small class="text-danger d-block mt-2">
+                        &nbsp;
+                    </small>
+                    <label>New Password</label>
                     <br>
                     <input type="password" id="password" name="password" placeholder="password..." #password (input)="setPassword(password.value)">
                     <br>
@@ -47,7 +46,7 @@
                         &nbsp;
                     </small>
                     <br>
-                    <label>Confirm Password</label>
+                    <label>Confirm New Password</label>
                     <br>
                     <input type="password" id="confirm_password" name="confirm_password" placeholder="password..."
                     #confirmation_password (input)="setConfirmationPassword(confirmation_password.value)">

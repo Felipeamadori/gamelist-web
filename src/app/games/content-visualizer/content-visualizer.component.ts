@@ -26,6 +26,7 @@ export class ContentVisualizerComponent implements OnInit {
   userLogado: Usuario;
   currentGame: UsuarioGame;
   reviewsList: UsuarioGame[];
+  buttonName: string;
 
   constructor(
     private gameService: GameService,
@@ -110,5 +111,13 @@ export class ContentVisualizerComponent implements OnInit {
 
   bottomTab(tab: string) {
     return tab;
+  }
+
+  defineButtonName() {
+    if(this.currentGame.comentario != null) {
+      this.buttonName = 'Edit Review';
+    } else {
+      this.buttonName = 'Create Review'; 
+    }
   }
 }
