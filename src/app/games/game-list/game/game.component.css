@@ -28,17 +28,64 @@ body {
     text-align: justify-all;
 }
 
-.rounded {
+.game-image {
     width: 50%;
 }
 
 @media (min-width: 1200px) {
-    .rounded {
+    .game-image {
         width: 100%;
         margin-top: 25%;
         margin-bottom: 25%;
         padding: 2px;
     }
+}
+
+.home-image {
+    width: 75%;
+}
+
+.home-interaction-buttons {
+    color: #5900ff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    margin-right: 25px;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-radius: 3px;
+    background-color: #eee;
+    min-width: 20px;
+    min-height: 20px;
+    padding: 2px;
+}
+
+.home-interaction-buttons:hover {
+    color: #eee;
+    border-color: #5900ff;
+    background-color: #5900ff;
+}
+
+.home-game-title {
+    align-items: center;
+    margin-top: 10px;
+}
+
+.home-fitting {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.home-li {
+    padding-top: 10px;
+}
+
+.vertical-center {
+    margin-top: 40px;
+    margin-bottom: auto;
+    align-items: center;
 }
 
 .buttons {

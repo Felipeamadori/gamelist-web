@@ -12,3 +12,21 @@ body {
 .spacing {
     margin-top: 20px;
 }
+
+.row {
+    padding-top: 20px;
+}
+
+.main-column {
+    border-color: #e5e5e5;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.side-column {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 20px;
+}

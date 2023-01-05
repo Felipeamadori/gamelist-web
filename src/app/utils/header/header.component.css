@@ -40,7 +40,7 @@ hr {
 }
 
 .sign-in {
-    color: #5900ff;
+    color: #5900ff !important;
     font-weight: bold;
     background-color: #eee;
     border-radius: 5px;
@@ -55,14 +55,15 @@ hr {
 }
 
 .sign-in:hover {
-    color: #eee;
+    color: #eee !important;
     background-color: #5900ff;
     border-width: 1px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .sign-up {
-    color: #eee;
+    color: #eee !important;
     font-weight: bold;
     background-color: #5900ff;
     border-radius: 5px;
@@ -78,10 +79,11 @@ hr {
 }
 
 .sign-up:hover {
-    color: #5900ff;
+    color: #5900ff !important;
     background-color: #eee;
     border-width: 1px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .user-minimenu {
