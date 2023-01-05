@@ -4,14 +4,15 @@
     <li *ngFor="let game of games">
         <div class="row">
             <div class="col-xl-3 text-center">
-                <img class="rounded game-image" [src]="game.urlMedia " [alt]="game.id ">
+                <a [title]="game.name" [routerLink]="[ '/games', game.id ]"><img class="rounded game-image" [src]="game.urlMedia " [alt]="game.id "></a>
             </div>
             <div class="col-xl-9 text-center">
                 <h5 class="game-title">{{ game.name }}</h5>
                 <p class="game-description" *ngIf="!hideDescription">{{ game.shortDescription }}</p>
-                <a [routerLink]="[ '/games', game.id ]"><button class="interaction-buttons">View page</button></a>
-                <button class="interaction-buttons" *ngIf="!checkGames(game, gamesOnList)" (click)="addGame(game)">Add to List</button>
-                <button class="interaction-buttons" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame(game)">Remove from List</button>
+                <a [routerLink]="[ '/games', game.id ]" [title]="[game.name]"><button class="interaction-buttons">View page</button></a>
+                <button class="interaction-buttons vertical-center" title="Add game to list" *ngIf="!checkGames(game, gamesOnList) && userLogado" (click)="addGame(game)">Add to list</button>
+                <button class="interaction-buttons vertical-center" title="Add game to list" *ngIf="!checkGames(game, gamesOnList) && !userLogado" [routerLink]="[ '/login' ]">Add to list</button>
+                <button class="interaction-buttons" title="Remove game from list" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame(game)">Remove from list</button>
             </div>
         </div>
         <hr>
@@ -26,7 +27,7 @@
                 <h2 class="vertical-center"><b>#{{ iterationNumber }}</b></h2>
             </div>
             <div class="col-xl-9 text-center home-fitting">
-                <a [title]="game.name" [routerLink]="[ '/games', game.id ]"><img class="rounded home-image" [src]="game.urlMedia " [alt]="game.id "></a>                
+                <a [title]="game.name" [routerLink]="[ '/games', game.id ]"><img class="rounded home-image" [src]="game.urlMedia " [alt]="game.id "></a>
                 <h6 class="home-game-title">{{ game.name }}</h6>
                 <p class="game-description" *ngIf="!hideDescription">{{ game.shortDescription }}</p>
             </div>
@@ -36,8 +37,7 @@
                 <button class="home-interaction-buttons vertical-center" title="Remove game from list" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame(game)">remove</button>
             </div>
         </div>
-        <hr>
-        {{ iterationNumberIncrement() }}
+        <hr> {{ iterationNumberIncrement() }}
     </li>
 
     {{ iterationNumberRefresh() }}

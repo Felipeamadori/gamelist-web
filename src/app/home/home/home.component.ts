@@ -36,12 +36,12 @@ export class HomeComponent implements OnInit {
       this.signed = true;
       this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
         this.userLogado = res;
+        if (this.userLogado) {
+          this.userService.getAllGamesById(this.userLogado.id).subscribe(response => {
+            this.gamesOnList = response.map(g => g.game);
+          });
+        }
       });
-      if (this.userLogado) {
-        this.userService.getAllGamesById(this.userLogado.id).subscribe(response => {
-          this.gamesOnList = response.map(g => g.game);
-        });
-      }
     };
     this.gameService.getGamesPagination(this.pagination).subscribe(response => {
       this.games = response.content;

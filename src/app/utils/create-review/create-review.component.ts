@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Game } from 'src/app/core/model/game.model';
 import { UsuarioGame } from 'src/app/core/model/usuario-game.model';
 import { Usuario } from 'src/app/core/model/usuario.model';
@@ -20,7 +21,8 @@ export class CreateReviewComponent implements OnInit {
   currentGame: UsuarioGame;
   userLogado: Usuario;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, 
+              private router: Router) { }
 
   ngOnInit(): void {
     this.userLogado = this.userService.getUserInfo() as Usuario;
@@ -59,6 +61,9 @@ export class CreateReviewComponent implements OnInit {
     this.userService.createReview(newReview).subscribe(response => {
         if (response) {
           alert("ok")
+          this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/games/' + this.game.id]);
+          }); 
         }
     });
   }
