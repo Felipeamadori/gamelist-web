@@ -1,7 +1,7 @@
 <body>
     <app-header></app-header>
     <div class="container" *ngIf=" !this.loading ">
-        <form>
+        <form (submit)="submitChanges(userLogado, name.value, bio.value, pfp.value)">
             <div class="row">
                 <div class="col-xl-4"></div>
                 <div class="col-xl-5">
@@ -34,7 +34,7 @@
                     </small>
                     <label>Email</label>
                     <br>
-                    <input type="email" id="email" disabled="true" name="email" [value]="[ this.userLogado.email ]" #email (input)="setEmail(email.value)">
+                    <input type="email" id="email" disabled="true" name="email" [value]="[ this.userLogado.email ]">
                     <small class="text-danger d-block mt-2">
                         &nbsp;
                     </small>
@@ -63,16 +63,13 @@
                 <br>
                 <input type="submit" id="submit-inactive" name="submit-inactive" value="Submit Changes" disabled="true"
                 *ngIf="(password.value != '' && confirmation_password.value != '' && !checkPassword(password.value, confirmation_password.value))
-                ||(password.value != '' && confirmation_password.value == '')
-                ||(password.value == '' && confirmation_password.value != '')
-                || name.value == '' || email.value == ''">
+                ||(password.value != '' && confirmation_password.value == '') || (password.value == '' && confirmation_password.value != '')
+                || name.value == '' ">
                 
                 <input type="submit" id="submit-active" name="submit-active" value="Submit Changes"
-                (onClick)="submitChanges(userLogado, name.value, bio.value, pfp.value, email.value)" 
+                (onClick)="submitChanges(userLogado, name.value, bio.value, pfp.value)" 
                 *ngIf="((password.value != '' && confirmation_password.value != '' && checkPassword(password.value, confirmation_password.value)) 
-                || (password.value == '' && confirmation_password.value == ''))
-                && name.value != '' 
-                && email.value != ''">
+                || (password.value == '' && confirmation_password.value == '')) && name.value != '' ">
             </div>
         </form>  
     </div>  
