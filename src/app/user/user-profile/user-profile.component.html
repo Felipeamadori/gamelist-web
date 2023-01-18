@@ -15,15 +15,15 @@
                     </div>
                     <div class="col-xl-7">
                         <div class="row">
-                            <div class="col-4">
-                                <h6>Games Reviewed:</h6>
-                                <p>&starf; {{ numberWithDots(reviews) }}</p>
+                            <div class="col-5">
+                                <h6>Games:</h6>
+                                <p><i class="fa-solid fa-gamepad dropdown-minimenu-content-icon"></i> {{ numberWithDots(reviews) }}</p>
                             </div>
-                            <div class="col-4">
+                            <div class="col-5">
                                 <h6>Member Since:</h6>
-                                <p>&starf; {{ this.userLogado.joinDate }}</p>
+                                <p><i class="fa-solid fa-calendar-days"></i> {{ this.userLogado.joinDate }}</p>
                             </div>
-                            <div class="col-4"></div>
+                            <div class="col-3"></div>
                         </div>
                         <div class="row">
                             <div class="col-12">
@@ -40,25 +40,42 @@
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-xl-10">
-                <h2>Game List</h2>
-                <hr class="name-separator">
-                <form (keydown.enter)="$event.preventDefault()">
-                    <input class="rounded search-container" type="search" placeholder="Search..." (keyup)="onKey($event)">
-                </form>
+        <div class="center-content">
+            <div class="row">
+                <div class="tabs">
+                    <button class="tab-button-active" (click)="[tab = '1']" *ngIf="bottomTab(tab) == '1'">Games</button>
+                    <button class="tab-button-inactive" (click)="[tab = '1']" *ngIf="bottomTab(tab) != '1'">Games</button>
+                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2'">Reviews</button>
+                    <button class="tab-button-inactive" (click)="[tab = '2']" *ngIf="bottomTab(tab) != '2'">Reviews</button>
+                </div>
+                <button class="tab-button-container" disabled="true">&nbsp;</button>
+                <div class="col-xl-12 hide-container" *ngIf="bottomTab(tab) == '1'">
+                    <form (keydown.enter)="$event.preventDefault()">
+                        <input class="rounded search-container" type="search" placeholder="Search..." (keyup)="onKey($event)">
+                    </form>
+                    <app-game [currentRoute]="'user/profile'" [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
+                </div>
+                <div class="col-xl-12 hide-container" *ngIf="bottomTab(tab) == '2'">
+                    <form (keydown.enter)="$event.preventDefault()">
+                        <input class="rounded search-container" type="search" placeholder="Search..." (keyup)="onKey($event)">
+                    </form>
+                   <app-user-reviews [reviewsList]="reviewsList"></app-user-reviews>
+                </div>
             </div>
-            <div class="col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-xl-10">
-                <app-game [currentRoute]="'user/profile'" [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
+    
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-xl-10">
+                </div>
+                <div class="col-1"></div>
             </div>
-            <div class="col-1"></div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-xl-10">
+                </div>
+                <div class="col-1"></div>
+            </div>
         </div>
-    </div>
+        </div>
     <app-footer></app-footer>
 </body>

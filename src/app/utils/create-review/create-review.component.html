@@ -10,7 +10,10 @@
         <br>
         <textarea [(ngModel)]="this.comment" type="text" id="comment" name="comment" rows="4" cols="50" [value]="[this.comment]"></textarea>
         <br>
-        <input type="submit" id="submit" name="submit" value="Submit changes" (click)="submitReview()">
+        <span *ngIf="comment == null">0/255</span>
+        <span *ngIf="comment != null">{{ comment.length }}/255</span>
+        <br>
+        <input type="submit" id="submit" name="submit" value="Submit Changes" (click)="submitReview()">
     </form>
 
     <form *ngIf="!checkGames(game, userList)">
@@ -23,6 +26,8 @@
         <label for="comment">Comment:</label>
         <br>
         <textarea [(ngModel)]="this.comment" type="text" id="comment" name="comment" rows="4" cols="50" placeholder="Write your thoughts here..."></textarea>
+        <br>
+        <span>{{ comment.length }}/255</span>
         <br>
         <input type="submit" id="submit" name="submit" value="Submit Review" (click)="submitReview()">
     </form>

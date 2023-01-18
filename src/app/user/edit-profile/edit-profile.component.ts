@@ -61,11 +61,7 @@ export class EditProfileComponent implements OnInit {
   setProfilePicture(value:unknown) {
     this.pfp = value as string;
   }
-
-  setEmail(value:unknown) {
-    this.email = value as string;
-  }
-
+  
   setPassword(value:unknown) {
     this.password = value as string;
   }
@@ -81,7 +77,18 @@ export class EditProfileComponent implements OnInit {
     return false;
   }
 
-  submitChanges(user: UsuarioDto, name: string, bio: string, pfp: string, email: string) {
-    
+  submitChanges(user: UsuarioDto, name: string, bio: string, pfp: string) {
+    this.loading = true;
+    if(name) user.nome = name;
+    if(bio) user.bio = bio;
+    if(pfp) user.pfpUrl = pfp;
+    this.userService.updateUser(user).subscribe(() => {
+      alert('Profile sucessfully updated.');
+      this.loading = false;
+      this.router.navigate(['/user','profile']);
+    }, () => {
+      alert('There was a problem updating your profile.');
+      this.loading = false;
+    });
   }
 }

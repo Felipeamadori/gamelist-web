@@ -63,6 +63,10 @@ export class UserService extends AbstractService {
     return this.http.post<UsuarioDto>(this.URL + 'cadastrar', newUser);
   }
 
+  updateUser(user: UsuarioDto): Observable<UsuarioDto> {
+    return this.http.post<UsuarioDto>(this.URL + 'atualizar-cadastro', user);
+  }
+
   addGame(ug: UsuarioGame) : Observable<UsuarioGame> {
     return this.http.post<UsuarioGame>(this.URL + 'adicionar-game', ug);
   }

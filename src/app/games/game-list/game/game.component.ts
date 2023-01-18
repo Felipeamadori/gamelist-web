@@ -22,7 +22,11 @@ export class GameComponent implements OnInit {
   @Input() gamesReviewed: UsuarioGame[];
   @Input() hideAddButtons: boolean = false;
   @Input() currentRoute: string;
+  @Input() hideDescription: boolean;
+  @Input() maxStackSize: number;
+  @Input() home: boolean;
 
+  iterationNumber = 1;
   filter: string = '';
   userLogado: Usuario;
 
@@ -34,6 +38,7 @@ export class GameComponent implements OnInit {
   
   ngOnInit(): void {
     this.userLogado = this.userService.getUserInfo() as Usuario;
+    console.log(this.userLogado.nome);
   }
   
   addGame(newGame: Game) {
@@ -84,5 +89,20 @@ export class GameComponent implements OnInit {
           }); 
         }
     });
+  }
+
+  setMaxGamesSize(maxStackSize?: number) {
+    if(maxStackSize != null && this.games?.length > maxStackSize) {
+      this.games.length = maxStackSize;
+      console.log("new array size = " + maxStackSize);
+    }
+  }
+
+  iterationNumberIncrement() {
+    this.iterationNumber += 1;
+  }
+
+  iterationNumberRefresh() {
+    this.iterationNumber = 1;
   }
 }

@@ -10,6 +10,7 @@ import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { AboutComponent } from './utils/about/about.component';
 
 const routes: Routes = [
   {
@@ -31,14 +32,16 @@ const routes: Routes = [
     path:'users/:userId', component: UserProfileComponent
   },
   {
-    path:'games', component: GameListComponent,
+    path:'games', component: GameListComponent
   },
   {
-    path:'games/:id_game', component: ContentVisualizerComponent,
+    path:'games/:id_game', component: ContentVisualizerComponent
   },
   {
-    path: '**',
-    component: NotFoundComponent
+    path: 'about-us', component: AboutComponent
+  },
+  {
+    path: '**', component: NotFoundComponent
   }
 ];
 
