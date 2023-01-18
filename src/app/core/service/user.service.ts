@@ -92,7 +92,10 @@ export class UserService extends AbstractService {
   }
 
   getUserInfo() {
-      return JSON.parse(window.localStorage.getItem(KEY) || '') as Usuario;
+      if (window.localStorage.getItem(KEY)) {
+        return JSON.parse(window.localStorage.getItem(KEY) || '') as Usuario;
+      }
+      return;
   }
 
   removeUser() {
