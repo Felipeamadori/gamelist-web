@@ -29,6 +29,8 @@ body {
 
 .comment {
     text-align: justify ;
+    inline-size: 700px;
+    overflow-wrap: break-word;
 }
 
 textarea {

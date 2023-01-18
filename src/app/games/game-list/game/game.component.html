@@ -32,9 +32,9 @@
                 <p class="game-description" *ngIf="!hideDescription">{{ game.shortDescription }}</p>
             </div>
             <div class="col-xl-2 text-center home-fitting">
-                <button class="home-interaction-buttons vertical-center" title="Add game to list" *ngIf="!checkGames(game, gamesOnList) && userLogado" (click)="addGame(game)">add</button>
-                <button class="home-interaction-buttons vertical-center" title="Add game to list" *ngIf="!checkGames(game, gamesOnList) && !userLogado" [routerLink]="[ '/login' ]">add</button>
-                <button class="home-interaction-buttons vertical-center" title="Remove game from list" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame(game)">remove</button>
+                <i class="fa-sharp fa-solid fa-plus home-interaction-buttons vertical-center" title="Add game to list" *ngIf="!checkGames(game, gamesOnList) && userLogado" (click)="addGame(game)"></i>
+                <i class="fa-sharp fa-solid fa-plus home-interaction-buttons vertical-center" title="Add game to list" *ngIf="!checkGames(game, gamesOnList) && !userLogado" [routerLink]="[ '/login' ]"></i>
+                <i class="fa-sharp fa-solid fa-xmark home-interaction-buttons vertical-center" title="Remove game from list" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame(game)"></i>
             </div>
         </div>
         <hr> {{ iterationNumberIncrement() }}

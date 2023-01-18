@@ -32,6 +32,8 @@ body {
 .comment {
     margin-top: 40px;
     text-align: justify ;
+    inline-size: 700px;
+    overflow-wrap: break-word;
 }
 
 .star-text {

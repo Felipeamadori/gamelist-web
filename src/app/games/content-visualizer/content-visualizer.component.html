@@ -44,7 +44,7 @@
                     <button class="tab-button-inactive" (click)="[tab = '1']" *ngIf="bottomTab(tab) != '1'">Reviews</button>
                     <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2' && (!currentGame || currentGame?.comentario == null)">Create Review</button>
                     <button class="tab-button-inactive" (click)="[tab = '2']" [disabled]="!userLogado" *ngIf="bottomTab(tab) != '2' && (!currentGame || currentGame?.comentario == null)">Create Review</button>
-                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2' && currentGame && currentGame?.comentario != null">Edit Review</button>
+                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2' && (currentGame && currentGame?.comentario != null)">Edit Review</button>
                     <button class="tab-button-inactive" (click)="[tab = '2']" [disabled]="!userLogado" *ngIf="bottomTab(tab) != '2' && currentGame && currentGame?.comentario != null">Edit Review</button>
                 </div>
                 <button class="tab-button-container" disabled="true">&nbsp;</button>

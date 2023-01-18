@@ -28,12 +28,8 @@ body {
     text-align: justify-all;
 }
 
-.col-xl-3 {
-    padding: 0;
-}
-
 .game-image {
-    width: 250px !important;
+    width: 50%z;
 }
 
 @media (min-width: 1200px) {
@@ -53,21 +49,23 @@ body {
     color: #5900ff;
     text-align: center;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 20px;
     margin-right: 25px;
     border-width: 1px;
     border-color: #5900ff;
     border-radius: 3px;
     background-color: #eee;
-    min-width: 20px;
-    min-height: 20px;
+    min-width: 25px;
+    min-height: 25px;
     padding: 2px;
+    padding-top: 3px;
 }
 
 .home-interaction-buttons:hover {
     color: #eee;
     border-color: #5900ff;
     background-color: #5900ff;
+    cursor: pointer;
 }
 
 .home-game-title {
@@ -87,7 +85,7 @@ body {
 }
 
 .vertical-center {
-    margin-top: 40px;
+    margin-top: 25px;
     margin-bottom: auto;
     align-items: center;
 }
