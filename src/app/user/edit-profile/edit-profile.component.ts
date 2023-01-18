@@ -61,11 +61,7 @@ export class EditProfileComponent implements OnInit {
   setProfilePicture(value:unknown) {
     this.pfp = value as string;
   }
-
-  setEmail(value:unknown) {
-    this.email = value as string;
-  }
-
+  
   setPassword(value:unknown) {
     this.password = value as string;
   }

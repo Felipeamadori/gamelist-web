@@ -23,6 +23,7 @@ export class ContentVisualizerComponent implements OnInit {
   categoriesLength: number;
   rating: number;
   loading = true;
+  loadingReviews = true;
   userLogado: Usuario;
   currentGame: UsuarioGame;
   reviewsList: UsuarioGame[];
@@ -48,6 +49,7 @@ export class ContentVisualizerComponent implements OnInit {
         this.gameService.getAllReviewsById(this.game.id).subscribe(response => {
           this.reviewsList = response;
           console.log(this.reviewsList);
+          this.loadingReviews = false;
         })
       })
     this.userLogado = this.userService.getUserInfo() as Usuario;

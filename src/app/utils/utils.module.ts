@@ -9,6 +9,7 @@ import { CreateReviewComponent } from './create-review/create-review.component';
 import { FormsModule } from '@angular/forms';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AboutComponent } from './about/about.component';
+import { UserReviewsComponent } from './user-reviews/user-reviews.component';
 
 @NgModule({
     declarations: [ 
@@ -17,7 +18,8 @@ import { AboutComponent } from './about/about.component';
         LoadscreenComponent,
         CreateReviewComponent,
         ReviewsComponent,
-        AboutComponent
+        AboutComponent,
+        UserReviewsComponent
     ],
     imports: [ 
         CommonModule,
@@ -29,7 +31,8 @@ import { AboutComponent } from './about/about.component';
         FooterComponent,
         LoadscreenComponent,
         CreateReviewComponent,
-        ReviewsComponent
+        ReviewsComponent,
+        UserReviewsComponent
     ]
 })
 

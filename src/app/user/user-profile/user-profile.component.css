@@ -98,3 +98,61 @@ input[type=search]:focus {
     border-color: #5900ff;
     color: #eee;
 }
+
+.tabs {
+    max-width: 50%;
+    min-width: 250px;
+}
+
+.center-content {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.tab-button-container {
+    padding: 0;
+    float: right;  
+    min-width: calc(100% - 250px);
+    margin-bottom: 5px;
+    outline: 0px;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.tab-button-active {
+    width: 50%;
+    margin-bottom: 5px;
+    outline: 0px;
+    border-width: 1px;
+    border-bottom: 0px;
+    border-color: #5900ff;
+    border-radius: 5px 5px 0 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.tab-button-inactive {
+    width: 50%;
+    margin-bottom: 5px;
+    outline: 0px;
+    border-width: 1px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-radius: 5px 5px 0 0;
+    border-bottom-color: #5900ff;
+    background-color: #fff;
+    z-index: 0;
+}
+
+.bottom-tabs {
+    border-width: 1px;
+    border-bottom: 0px;
+    border-color: #5900ff;
+    border-radius: 4px 4px 0 0;
+}

@@ -28,8 +28,12 @@ body {
     text-align: justify-all;
 }
 
+.col-xl-3 {
+    padding: 0;
+}
+
 .game-image {
-    width: 50%;
+    width: 250px !important;
 }
 
 @media (min-width: 1200px) {

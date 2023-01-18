@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UsuarioDto } from 'src/app/core/dto/usuario-dto';
 import { Game } from 'src/app/core/model/game.model';
 import { TokenPayload } from 'src/app/core/model/tokenPayload.model';
+import { UsuarioGame } from 'src/app/core/model/usuario-game.model';
 import { Usuario } from 'src/app/core/model/usuario.model';
 import { UserService } from 'src/app/core/service/user.service';
 
@@ -16,9 +17,11 @@ export class UserProfileComponent implements OnInit {
 
   games: Game[] = [];
   gamesOnList: Game[];
+  reviewsList: UsuarioGame[];
   filter: string = '';
   ownProfile = true;
   //this.myProfile();
+  tab = '1';
 
   signed = false;
   loading = true;
@@ -42,10 +45,15 @@ export class UserProfileComponent implements OnInit {
         this.userService.getAllGamesById(this.userLogado.id).subscribe(response => {
           this.games = response.map(g => g.game);
           this.gamesOnList = response.map(g => g.game);
+          this.reviewsList = response;
         });
       }
       this.loading = false;
     });
+  }
+
+  checkReviews() {
+    console.log(this.reviewsList);
   }
   
   logout() {
@@ -59,5 +67,9 @@ export class UserProfileComponent implements OnInit {
 
   numberWithDots(x: Number): String {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  bottomTab(tab: string) {
+    return tab;
   }
 }
