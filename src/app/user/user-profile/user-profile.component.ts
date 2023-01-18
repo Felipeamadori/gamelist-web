@@ -28,7 +28,7 @@ export class UserProfileComponent implements OnInit {
   user$: Observable<TokenPayload | null>;
   user: TokenPayload | null;
   userLogado: UsuarioDto;
-  reviews = 0;
+  reviews : any = 0;
   
   constructor(private userService: UserService, private router: Router) { 
     this.user$ = this.userService.getUserLogado();
@@ -40,13 +40,15 @@ export class UserProfileComponent implements OnInit {
       this.userLogado = res;
       this.signed = true;
       this.userLogado.joinDate = "31/10/2022";
-      this.reviews = 654321;
       if (this.userLogado) {
         this.userService.getAllGamesById(this.userLogado.id).subscribe(response => {
           this.games = response.map(g => g.game);
           this.gamesOnList = response.map(g => g.game);
           this.reviewsList = response;
+          this.reviews = response.length;
         });
+      } else {
+        this.reviews = "Not provided";
       }
       this.loading = false;
     });

@@ -2,7 +2,6 @@ body {
     background-color: #eee;
 }
 
-
 /* clears the ‘X’ from Internet Explorer */
 
 input[type=search]::-ms-clear {
@@ -16,7 +15,6 @@ input[type=search]::-ms-reveal {
     width: 0;
     height: 0;
 }
-
 
 /* clears the ‘X’ from Chrome */
 
@@ -46,6 +44,10 @@ hr {
 
 .search-container {
     margin-top: 10px;
+}
+
+.hide-container > div {
+    display: none;
 }
 
 input[type=search] {

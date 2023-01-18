@@ -14,7 +14,7 @@
                     <img class="profile-picture" [src]="this.userLogado.pfpUrl" *ngIf="this.userLogado.pfpUrl != null">
                     <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfpUrl == null">
                     <br>
-                    <input type="file" name="pfp" accept="image/png, image/gif, image/jpeg" #pfp (input)="setProfilePicture(pfp.value)">
+                    <input type="file" name="pfp" disabled="true" accept="image/png, image/gif, image/jpeg" #pfp (input)="setProfilePicture(pfp.value)">
                 </div>
                 <div class="col-xl-8 right-side">
                     <label>Name*</label>

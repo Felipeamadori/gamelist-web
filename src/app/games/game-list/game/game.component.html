@@ -4,7 +4,7 @@
     <li *ngFor="let game of games">
         <div class="row">
             <div class="col-xl-3 text-center">
-                <a [title]="game.name" [routerLink]="[ '/games', game.id ]"><img class="rounded game-image" [src]="game.urlMedia " [alt]="game.id "></a>
+                <a [title]="game.name" [routerLink]="[ '/games', game.id ]"><img class="game-image" [src]="game.urlMedia " [alt]="game.id "></a>
             </div>
             <div class="col-xl-9 text-center">
                 <h5 class="game-title">{{ game.name }}</h5>
