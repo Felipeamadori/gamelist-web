@@ -1,22 +1,37 @@
 <body>
     <app-header></app-header>
     <div class="container">
-        <div class="row" *ngIf=" this.loading ">
-            <div class="col-2"></div>
-            <div class="col-8 text-center spacing">
-                <h3>Log in to see goose!</h3>
+        <div class="row" *ngIf="this.loading">
+            <div class="col-5"></div>
+            <div class="col-2">
+                <app-loadscreen class="text-center"></app-loadscreen>
             </div>
-            <div class="col-2"></div>
+            <div class="col-5"></div>
         </div>
-        <div class="row spacing" *ngIf=" !this.loading ">
+        <div class="row" *ngIf=" !this.loading && !this.signed ">
             <div class="col-2"></div>
-            <div class="col-8 text-center spacing">
-                <h5>Work in progress...</h5>
-                <br>
-                <img class="img-thumbnail" src="../../assets/images/marcelo.jpg">
-                <h5>This is the way.</h5>
+            <div class="col-7 text-center main-column">
+                <h3 class="spacing">Log in to see goose!</h3>
             </div>
-            <div class="col-2"></div>
+            <div class="col-3 text-center side-column">
+                <h5>Top rated games:</h5>
+                <app-game [home]="true" [maxStackSize]="5" [hideDescription]="true" [currentRoute]="'/'" [games]="games | filterByName : filter"></app-game>
+            </div>
+        </div>
+        <div class="row" *ngIf=" !this.loading && this.signed">
+            <div class="col-9 text-center main-column">
+                <h4>You are now logged in.</h4>
+                <!--<h5 class="spacing">Work in progress...</h5>-->
+                <br>
+                <img class="rounded" src="../../assets/images/marcelo.jpg">
+                <br>
+                <br>
+                <h4>Click "<u><i>Games</i></u>" in the "<u><i>toolbar</i></u>" or in the "<u><i>user hover menu</i></u>" to access a list with all the games in our database.</h4>
+            </div>
+            <div class="col-3 text-center side-column">
+                <h5>Top rated games:</h5>
+                <app-game [home]="true" [maxStackSize]="5" [hideDescription]="true" [currentRoute]="'/'" [gamesOnList]="gamesOnList" [games]="games | filterByName : filter"></app-game>
+            </div>
         </div>
     </div>
     <app-footer></app-footer>

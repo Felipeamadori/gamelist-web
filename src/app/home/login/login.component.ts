@@ -12,6 +12,7 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+    loading = false;
     loginForm: FormGroup;
     usuario: Usuario;
 
@@ -30,9 +31,12 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+      this.loading = true;
       this.authService.authenticate(this.usuario).subscribe(() => { 
+          this.loading = false;
           this.router.navigate(['/']);
         }, () => {
+          this.loading = false;
           alert('User not found')
           return;
         });

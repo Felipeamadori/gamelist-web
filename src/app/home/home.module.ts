@@ -6,6 +6,7 @@ import { UtilsModule } from '../utils/utils.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { GamesModule } from '../games/games.module';
 
 @NgModule({
     declarations: [ LoginComponent, RegisterComponent, HomeComponent ],
@@ -13,7 +14,8 @@ import { HomeComponent } from './home/home.component';
         CommonModule, 
         ReactiveFormsModule,
         RouterModule,
-        UtilsModule
+        UtilsModule,
+        GamesModule
     ]
 })
 export class HomeModule { }

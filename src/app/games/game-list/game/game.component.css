@@ -13,11 +13,6 @@ body {
     padding: 0 10px;
 }
 
-.row.section {
-    padding: 10px 10px 0px 5px;
-    margin-bottom: 40px;
-}
-
 .row {
     padding: 0;
     margin: 0;
@@ -25,16 +20,83 @@ body {
 
 .game-title {
     align-items: right;
+    margin-top: 40px;
 }
 
 .game-description {
-    align-items: right;
+    align-items: center;
+    text-align: justify-all;
 }
 
-.img-thumbnail {
-    height: 140px;
-    margin: 0px;
+.game-image {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+@media (max-width: 1200px) {
+    .game-image {
+        width: 100%;
+        margin-top: 25%;
+        margin-bottom: 25%;
+        padding: 2px;
+        border-radius: 5px;
+    }
+}
+
+.home-image {
+    width: 75%;
+}
+
+.home-interaction-buttons {
+    color: #5900ff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 25px;
+    border-width: 1px;
+    border-color: #5900ff;
+    border-radius: 3px;
+    background-color: #eee;
+    min-width: 25px;
+    min-height: 25px;
     padding: 2px;
+    padding-top: 3px;
+}
+
+.home-interaction-buttons:hover {
+    color: #eee;
+    border-color: #5900ff;
+    background-color: #5900ff;
+    cursor: pointer;
+}
+
+.home-game-title {
+    align-items: center;
+    margin-top: 10px;
+}
+
+.home-fitting {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.home-li {
+    padding-top: 10px;
+}
+
+.vertical-center {
+    margin-top: 25px;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.buttons {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .interaction-buttons {
@@ -43,9 +105,9 @@ body {
     border-color: #5900ff;
     border-radius: 5px;
     background-color: #eee;
-    margin: 10px 0 0 0;
+    margin: 0 10px 0 0;
     float: center;
-    width: 120px;
+    width: 145px;
 }
 
 .interaction-buttons a {

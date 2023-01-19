@@ -1,5 +1,5 @@
 .container {
-    padding: 0;
+    position: relative;
     background-color: #5e1ed4;
 }
 
@@ -16,11 +16,12 @@
 
 .footer {
     margin: 0;
-    display: flex;
+    display: relative;
+    bottom: 0;
     line-height: 20px;
     height: 100px;
     margin: auto;
-    width: 25%;
+    width: 100%;
     padding: 10px;
 }
 

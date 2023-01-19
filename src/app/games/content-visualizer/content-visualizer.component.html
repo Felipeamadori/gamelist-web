@@ -1,26 +1,27 @@
-<body *ngIf=" !this.loading">
+<body>
     <app-header></app-header>
-    <div class="container">
+    <div class="container" *ngIf=" this.loading">
+        <app-loadscreen></app-loadscreen>
+    </div>
+    <div class="container" *ngIf=" !this.loading">
         <div class="center-content">
-            <div class="row image-container">
+            <div class="row image-container text-center">
                 <div class="col-4">
-                    <img class="img-thumbnail" [alt]="game.name" [src]="game.urlMedia">
+                    <img class="rounded" [alt]="game.name" [src]="game.urlMedia">
+                    <button class="interaction-buttons spacing" *ngIf="!checkGames(game, gamesOnList)" (click)="addGame()">Add to Profile</button>
+                    <button class="interaction-buttons spacing" *ngIf="checkGames(game, gamesOnList)" (click)="removeGame()">Remove from Profile</button>
                 </div>
                 <div class="col-8">
                     <h3>{{ game.name }}</h3>
                     <h4>&starf; {{ rating }}/10</h4>
                     <p>{{ game.shortDescription }}</p>
-                    <ul style="list-style-type: none;padding-left: 0px">
-                        <li>Release date: <b>To be defined</b></li>
-                        <li>Developer: <b>To be defined</b></li>
-                        <li>Publisher: <b>To be defined</b></li>
-                    </ul>
                 </div>
             </div>
             <br>
             <h6>About {{ game.name }}</h6>
             <hr>
             <div [innerHTML]="game.description"></div>
+            <br>
             <hr>
             <div class="row">
                 <div class="col-4">
@@ -37,9 +38,25 @@
                     </ul>
                 </div>
             </div>
-            <h6>Reviews</h6>
-            <hr>
             <div class="row">
+                <div class="tabs">
+                    <button class="tab-button-active" (click)="[tab = '1']" *ngIf="bottomTab(tab) == '1'">Reviews</button>
+                    <button class="tab-button-inactive" (click)="[tab = '1']" *ngIf="bottomTab(tab) != '1'">Reviews</button>
+                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2' && (!currentGame || currentGame?.comentario == null)">Create Review</button>
+                    <button class="tab-button-inactive" (click)="[tab = '2']" [disabled]="!userLogado" *ngIf="bottomTab(tab) != '2' && (!currentGame || currentGame?.comentario == null)">Create Review</button>
+                    <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2' && (currentGame && currentGame?.comentario != null)">Edit Review</button>
+                    <button class="tab-button-inactive" (click)="[tab = '2']" [disabled]="!userLogado" *ngIf="bottomTab(tab) != '2' && currentGame && currentGame?.comentario != null">Edit Review</button>
+                </div>
+                <button class="tab-button-container" disabled="true">&nbsp;</button>
+                <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '1' && loadingReviews == false">
+                    <app-loadscreen></app-loadscreen>
+                </div>
+                <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '1' && loadingReviews == false">
+                    <app-reviews [reviewsList]="reviewsList" [game]="game"></app-reviews>
+                </div>
+                <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '2'">
+                    <app-create-review [userList]="userList" [game]="game"></app-create-review>
+                </div>
             </div>
         </div>
     </div>

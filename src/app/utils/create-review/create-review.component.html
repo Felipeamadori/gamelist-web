@@ -1,0 +1,34 @@
+<body>
+    <form *ngIf="checkGames(game, userList)">
+        <label for="rating">Rating:</label>
+        <br>
+        <span class="star-text">&starf;{{ rating }} </span>
+        <br>
+        <input [(ngModel)]="this.rating" type="range" id="rating" name="rating" min="1" max="10" step="1">
+        <br>
+        <label for="comment">Comment:</label>
+        <br>
+        <textarea [(ngModel)]="this.comment" type="text" id="comment" name="comment" rows="4" cols="50" [value]="[this.comment]"></textarea>
+        <br>
+        <span *ngIf="comment == null">0/255</span>
+        <span *ngIf="comment != null">{{ comment.length }}/255</span>
+        <br>
+        <input type="submit" id="submit" name="submit" value="Submit Changes" (click)="submitReview()">
+    </form>
+
+    <form *ngIf="!checkGames(game, userList)">
+        <label for="rating">Rating:</label>
+        <br>
+        <span class="star-text">&starf;{{ rating }} </span>
+        <br>
+        <input [(ngModel)]="this.rating" type="range" id="rating" name="rating" min="1" max="10" step="1">
+        <br>
+        <label for="comment">Comment:</label>
+        <br>
+        <textarea [(ngModel)]="this.comment" type="text" id="comment" name="comment" rows="4" cols="50" placeholder="Write your thoughts here..."></textarea>
+        <br>
+        <span>{{ comment.length }}/255</span>
+        <br>
+        <input type="submit" id="submit" name="submit" value="Submit Review" (click)="submitReview()">
+    </form>
+</body>

@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, Injector } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AbstractService } from './abstract.service';
 import jwt_decode from 'jwt-decode';
@@ -63,12 +63,28 @@ export class UserService extends AbstractService {
     return this.http.post<UsuarioDto>(this.URL + 'cadastrar', newUser);
   }
 
-  addGame(ug: UsuarioGame) {
+  updateUser(user: UsuarioDto): Observable<UsuarioDto> {
+    return this.http.post<UsuarioDto>(this.URL + 'atualizar-cadastro', user);
+  }
+
+  addGame(ug: UsuarioGame) : Observable<UsuarioGame> {
     return this.http.post<UsuarioGame>(this.URL + 'adicionar-game', ug);
   }
 
-  getAllGamesById(id: Number): Observable<Game[]> {
-    return this.http.get<Game[]>(this.URL + 'games/' + id);
+  removeGame(ug: UsuarioGame) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }), 
+      body: ug
+    };
+    return this.http.delete<any>(this.URL + `remover-game`, httpOptions);
+  }
+
+  getAllGamesById(id: Number): Observable<UsuarioGame[]> {
+    return this.http.get<UsuarioGame[]>(this.URL + 'games/' + id);
+  }
+
+  createReview(newReview: UsuarioGame): Observable<UsuarioGame> {
+    return this.http.post<UsuarioGame>(this.URL + 'adicionar-review', newReview);
   }
 
   setUser(user: UsuarioDto) {
@@ -76,7 +92,10 @@ export class UserService extends AbstractService {
   }
 
   getUserInfo() {
-      return JSON.parse(window.localStorage.getItem(KEY) || '') as Usuario;
+      if (window.localStorage.getItem(KEY)) {
+        return JSON.parse(window.localStorage.getItem(KEY) || '') as Usuario;
+      }
+      return;
   }
 
   removeUser() {

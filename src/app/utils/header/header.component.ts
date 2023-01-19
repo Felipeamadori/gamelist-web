@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   loading = true;
   signed = false;
   clicked = false;
+  currentPage: string;
 
   constructor(private userService: UserService, private router: Router) {
     this.user$ = this.userService.getUserLogado();
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCurrentPage();
     if(this.userService.isLogged()) {
       this.userService.getUserById(Number(this.user?.sub)).subscribe( res => {
         this.userLogado = res;
@@ -36,11 +38,20 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.userService.logout();
-    this.router.navigate(['']);
+    if(this.currentPage == '/user/profile' || this.currentPage == '/user/edit') {
+      console.log('redirecting.')
+      this.router.navigate(['']);
+    } else {
+      window.location.reload();
+    }
   }
 
   handleSignClick() {
     this.signed = true;
   }
 
+  getCurrentPage() {
+    this.currentPage = this.router.url;
+    console.log('Current page: ' + "'" + this.currentPage + "'");
+  }
 }

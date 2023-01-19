@@ -1,0 +1,30 @@
+<body>
+    <div *ngIf="reviewsList?.length != 0 && this.notaExists">
+        <h6 *ngIf="this.reviewsList.length != 1">Avarage from user reviews: <b>&starf; {{ this.starsMean() }}</b> from <b>{{ this.reviewsList.length }}</b> total reviews.</h6>
+        <h6 *ngIf="this.reviewsList.length == 1">Avarage from user reviews: <b>&starf; {{ this.starsMean() }}</b> from <b>{{ this.reviewsList.length }}</b> total review.</h6>
+    </div>
+    <div *ngIf="!this.notaExists">
+        <h6>There aren't any reviews for this game just yet.</h6>
+        <h6>You can be the first by selecting 'Create Review' and then writing what you think about '<b>{{ game.name }}</b>'!"</h6>
+    </div>
+    <br>
+    <ul class="list-unstyled" *ngIf="this.notaExists">
+        <ng-container *ngFor="let review of reviewsList">
+            <li *ngIf="this.review.nota != 0">
+                <div class="row">
+                <div class="col-lg-2 text-center">
+                    <img class="imagem" src="../../../assets/images/marcelo.jpg">
+                    <h6>{{ this.review.usuario.nome.charAt(0).toUpperCase() + this.review.usuario.nome.slice(1).toLowerCase() }}</h6>
+                </div>
+                <div class="col-lg-2 text-center rate">
+                    <h4><b>&starf; {{ this.review.nota }}</b></h4>
+                </div>
+                <div class="col-lg-8 comment">
+                    <p>{{ this.review.comentario }}</p>
+                </div>
+            </div>
+            <hr>
+        </li>
+    </ng-container>
+    </ul>
+</body>

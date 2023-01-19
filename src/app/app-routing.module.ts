@@ -8,7 +8,10 @@ import { GameListComponent } from './games/game-list/game-list.component';
 import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
+import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { AboutComponent } from './utils/about/about.component';
+
 
 const routes: Routes = [
   {
@@ -24,22 +27,31 @@ const routes: Routes = [
     path:'user/profile', component: UserProfileComponent
   },
   {
+    path:'user/edit', component: EditProfileComponent
+  },
+  {
     path:'users/:userId', component: UserProfileComponent
   },
   {
-    path:'games', component: GameListComponent,
+    path:'games', component: GameListComponent
   },
   {
-    path:'games/:id_game', component: ContentVisualizerComponent,
+    path:'games/:id_game', component: ContentVisualizerComponent
   },
   {
-    path: '**',
-    component: NotFoundComponent
+    path: 'about-us', component: AboutComponent
+  },
+  {
+    path: '**', component: NotFoundComponent
   }
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+            RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'}),
+            RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+           ],
   exports: [RouterModule]
 })
 

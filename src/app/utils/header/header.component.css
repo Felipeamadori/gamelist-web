@@ -13,7 +13,6 @@
 
 .container {
     padding: 0;
-    margin-bottom: 40px;
 }
 
 .row {
@@ -31,10 +30,9 @@ hr {
 }
 
 .header-bar {
-    position: flex;
+    position: relative;
     width: 100%;
-    height: 60px;
-    display: flex;
+    height: 100px;
     align-items: center;
     background-color: #5900ff;
     color: white;
@@ -42,7 +40,7 @@ hr {
 }
 
 .sign-in {
-    color: #5900ff;
+    color: #5900ff !important;
     font-weight: bold;
     background-color: #eee;
     border-radius: 5px;
@@ -53,18 +51,19 @@ hr {
     font-size: 16px;
     width: 90px;
     height: 26px;
-    margin: 0px 5px 0px 5px;
+    margin: 17px 5px 0px 5px;
 }
 
 .sign-in:hover {
-    color: #eee;
+    color: #eee !important;
     background-color: #5900ff;
     border-width: 1px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .sign-up {
-    color: #eee;
+    color: #eee !important;
     font-weight: bold;
     background-color: #5900ff;
     border-radius: 5px;
@@ -75,15 +74,16 @@ hr {
     font-size: 16px;
     width: 90px;
     height: 26px;
-    margin: 0px 10px 0px 5px;
+    margin: 17px 10px 0px 5px;
     padding: 0;
 }
 
 .sign-up:hover {
-    color: #5900ff;
+    color: #5900ff !important;
     background-color: #eee;
     border-width: 1px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .user-minimenu {
@@ -110,10 +110,21 @@ hr {
     display: none;
     position: absolute;
     background-color: #5900ff;
-    min-width: 100px;
+    min-width: 110px;
     box-shadow: 0px 8px 10px 3px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 4px;
+}
+
+.dropdown-minimenu-content-icon {
+    text-align: left !important;
+    padding-left: 10px;
+}
+
+.dropdown-minimenu-content-text {
+    text-align: right !important;
+    padding-right: 10px;
+    display: inline;
 }
 
 .dropdown-minimenu-content a {
@@ -139,14 +150,15 @@ hr {
 }
 
 .dropdown-minimenu-content ul a {
-    padding-left: 5px;
     padding-top: 3px;
+    padding-right: 10px;
     display: block;
     font-weight: 400;
     height: 30px;
 }
 
 .dropdown-minimenu-content ul a:hover {
+    padding-right: 10px;
     background-color: #4900d2;
     border-radius: 4px;
 }
