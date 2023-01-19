@@ -29,6 +29,7 @@ export class GameComponent implements OnInit {
   iterationNumber = 1;
   filter: string = '';
   userLogado: Usuario;
+  loading = true;
 
   constructor(private userService: UserService, 
               private cd: ChangeDetectorRef, 

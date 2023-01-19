@@ -48,7 +48,7 @@
                     <button class="tab-button-inactive" (click)="[tab = '2']" [disabled]="!userLogado" *ngIf="bottomTab(tab) != '2' && currentGame && currentGame?.comentario != null">Edit Review</button>
                 </div>
                 <button class="tab-button-container" disabled="true">&nbsp;</button>
-                <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '1' && loadingReviews == false">
+                <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '1' && loadingReviews == true">
                     <app-loadscreen></app-loadscreen>
                 </div>
                 <div class="col-xl-12 bottom-tabs" *ngIf="bottomTab(tab) == '1' && loadingReviews == false">

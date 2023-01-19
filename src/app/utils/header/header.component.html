@@ -7,7 +7,7 @@
         <a class="sign-up" [hidden]="signed" onclick="return false;" [routerLink]="['/register']">Sign Up</a>
         <div>
             <span class="user-minimenu" *ngIf=" !this.loading ">
-                    Hello, {{ (this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase()) }}!
+                    Hello, {{ this.userLogado.nome }}!
             </span>
             <div class="dropdown-minimenu" *ngIf=" !this.loading ">
                 <span><i class="fa-sharp fa-solid fa-caret-down"></i> Menu</span>

@@ -21,6 +21,9 @@ export class GameListComponent implements OnInit {
   filter: string = '';
   noMatches = false;
   loading = true;
+  gamesLoading = true;
+  debounceLoading = false;
+  userListLoading = true;
   pagination = 0;
   debounce: Subject<string> = new Subject<string>();
   logado: boolean; 
@@ -37,6 +40,9 @@ export class GameListComponent implements OnInit {
     this.logado = this.userService.isLogged();
     this.gameService.getGamesPagination(this.pagination).subscribe(response => {
       this.games = response.content;
+      this.gamesLoading = false;
+      console.log("gamesLoading" + this.gamesLoading);
+      this.updateLoading();
     });
     if (this.userService.isLogged()) {
       this.userService.getUserById(Number(this.user?.sub)).subscribe(userResponse => {
@@ -49,23 +55,38 @@ export class GameListComponent implements OnInit {
         } else {
           this.gamesOnList = [];
         }
+        this.userListLoading = false;
+        console.log("userListLoading" + this.userListLoading);
+        this.updateLoading();
       });
+    } else {
+      this.userListLoading = false;
+      console.log("userListLoading" + this.userListLoading);
+      this.updateLoading();
     }
     this.debounce
       .pipe(debounceTime(300))  
       .subscribe(filter => {
         this.filter = filter;
         if (this.filter !== '') {
-            this.gameService.getGameByName(this.filter).subscribe(response => {
-              this.games = response;
-            });
-          } else {
-            this.gameService.getGamesPagination(this.pagination).subscribe(response => {
-              this.games = response.content;
-            });
-          }
-        });
-    this.loading = false;
+          this.gameService.getGameByName(this.filter).subscribe(response => {
+            this.games = response;
+          });
+        } else {
+          this.gameService.getGamesPagination(this.pagination).subscribe(response => {
+            this.games = response.content;
+          });
+        }
+        this.debounceLoading = false;
+        console.log("debounce" + this.debounceLoading);
+        this.updateLoading();
+      });
+  }
+
+  updateLoading(): void {
+    if(this.gamesLoading == false && this.userListLoading == false && this.debounceLoading == false) {
+      this.loading = false;
+    }
   }
 
   ngOnDestroy(): void {
