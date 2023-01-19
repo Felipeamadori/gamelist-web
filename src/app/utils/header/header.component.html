@@ -3,9 +3,9 @@
         <a [routerLink]="['/']"><img width="60" alt="GoosePls" src="./assets/images/goosePls.gif"></a>
         <a class="title-text" [routerLink]="['/']">Game List</a>
         <div class="spacer"></div>
-        <a class="sign-in" [hidden]="signed" [routerLink]="['/login']">Sign In</a>
-        <a class="sign-up" [hidden]="signed" onclick="return false;" [routerLink]="['/register']">Sign Up</a>
-        <div>
+        <a class="sign-in" *ngIf="!this.signed && !this.loading" [routerLink]="['/login']">Sign In</a>
+        <a class="sign-up" *ngIf="!this.signed && !this.loading" onclick="return false;" [routerLink]="['/register']">Sign Up</a>
+        <div *ngIf="this.signed && !this.loading">
             <span class="user-minimenu" *ngIf=" !this.loading ">
                     Hello, {{ this.userLogado.nome }}!
             </span>

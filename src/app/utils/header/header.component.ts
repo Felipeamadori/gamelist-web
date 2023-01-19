@@ -33,6 +33,8 @@ export class HeaderComponent implements OnInit {
         this.signed = true;
         this.loading = false;
       });
+    } else {
+      this.loading = false;
     }
   }
 
