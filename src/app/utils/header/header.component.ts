@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.userService.logout();
     if(this.currentPage == '/user/profile' || this.currentPage == '/user/edit') {
-      console.log('redirecting.')
       this.router.navigate(['']);
     } else {
       window.location.reload();
@@ -52,6 +51,5 @@ export class HeaderComponent implements OnInit {
 
   getCurrentPage() {
     this.currentPage = this.router.url;
-    console.log('Current page: ' + "'" + this.currentPage + "'");
   }
 }

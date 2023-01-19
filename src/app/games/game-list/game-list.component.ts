@@ -41,7 +41,6 @@ export class GameListComponent implements OnInit {
     this.gameService.getGamesPagination(this.pagination).subscribe(response => {
       this.games = response.content;
       this.gamesLoading = false;
-      console.log("gamesLoading" + this.gamesLoading);
       this.updateLoading();
     });
     if (this.userService.isLogged()) {
@@ -56,12 +55,10 @@ export class GameListComponent implements OnInit {
           this.gamesOnList = [];
         }
         this.userListLoading = false;
-        console.log("userListLoading" + this.userListLoading);
         this.updateLoading();
       });
     } else {
       this.userListLoading = false;
-      console.log("userListLoading" + this.userListLoading);
       this.updateLoading();
     }
     this.debounce
@@ -78,7 +75,6 @@ export class GameListComponent implements OnInit {
           });
         }
         this.debounceLoading = false;
-        console.log("debounce" + this.debounceLoading);
         this.updateLoading();
       });
   }

@@ -21,11 +21,9 @@ export class ReviewsComponent implements OnInit {
     for (var x = 0; x < this.reviewsList.length; x++) {
       if(this.reviewsList[x].comentario != null) {
         this.reviewsIsNotNull = true;
-        console.log(this.reviewsList[x].comentario)
       }
       if(this.reviewsList[x].nota && this.reviewsList[x].nota != 0) {
         this.notaExists = true;
-        console.log(this.reviewsList[x].nota)
       }
     }
   }

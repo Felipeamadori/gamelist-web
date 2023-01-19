@@ -53,10 +53,6 @@ export class UserProfileComponent implements OnInit {
       this.loading = false;
     });
   }
-
-  checkReviews() {
-    console.log(this.reviewsList);
-  }
   
   logout() {
     this.userService.logout();

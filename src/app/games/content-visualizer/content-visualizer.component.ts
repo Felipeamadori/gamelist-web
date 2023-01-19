@@ -43,14 +43,12 @@ export class ContentVisualizerComponent implements OnInit {
       .getGameByID(id_game)
       .subscribe(game => {
         this.game = game
-        console.log(game)
         this.loading = false;
         this.genresLength = this.splitCommas(this.game.genres).length;
         this.categoriesLength = this.splitCommas(this.game.categ).length;
         this.rating = this.ratingsMean(this.game.positiveRating, this.game.negativeRating);
         this.gameService.getAllReviewsById(this.game.id).subscribe(response => {
           this.reviewsList = response;
-          console.log(this.reviewsList);
           this.loadingReviews = false;
           if(this.userLogado){
             this.userService.getAllGamesById(this.userLogado.id).subscribe(userListResponse => {
