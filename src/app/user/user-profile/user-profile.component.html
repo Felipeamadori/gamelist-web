@@ -6,14 +6,14 @@
     <div class="container" *ngIf=" !this.loading ">
         <div class="row">
             <div class="col-xl-3 text-center">
-                <img class="profile-picture" [src]="this.userLogado.pfpUrl" *ngIf="this.userLogado.pfpUrl != null">
-                <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfpUrl == null">
+                <img class="profile-picture" [src]="this.userProfile.pfpUrl" *ngIf="this.userProfile.pfpUrl != null">
+                <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userProfile.pfpUrl == null">
             </div>
             <div class="col-xl-7">
                 <div class="row">
                     <div class="col-xl-12">
                         <!--Capitalize first letter-->
-                        <h1>{{ this.userLogado.nome }}</h1>
+                        <h1>{{ this.userProfile.nome }}</h1>
                         <hr>
                     </div>
                     <div class="col-xl-7">
@@ -24,13 +24,13 @@
                             </div>
                             <div class="col-5">
                                 <h6>Member Since:</h6>
-                                <p><i class="fa-solid fa-calendar-days"></i> {{ this.userLogado.joinDate }}</p>
+                                <p><i class="fa-solid fa-calendar-days"></i> {{ this.userProfile.joinDate }}</p>
                             </div>
                             <div class="col-3"></div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <p align="justify">{{ this.userLogado.bio }}</p>
+                                <p align="justify">{{ this.userProfile.bio }}</p>
                             </div>
                         </div>
                     </div>
