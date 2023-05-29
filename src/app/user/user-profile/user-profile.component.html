@@ -26,6 +26,14 @@
                                 <h6>Member Since:</h6>
                                 <p><i class="fa-solid fa-calendar-days"></i> {{ this.userProfile.joinDate }}</p>
                             </div>
+                            <div class="col-5">
+                                <h6>Followers</h6>
+                                <p>12</p>
+                            </div>
+                            <div class="col-5">
+                                <h6>Following</h6>
+                                <p>65</p>
+                            </div>
                             <div class="col-3"></div>
                         </div>
                         <div class="row">
@@ -39,17 +47,21 @@
             <div class="col-xl-2 d-flex flex-column text-center">
                 <a [routerLink]="[ '/user', 'edit' ]"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
                 <a><button class="interaction-buttons" [hidden]="!ownProfile" (click)="logout()">Logout</button></a>
-                <a><button class="interaction-buttons" disabled=true [hidden]="ownProfile">Add Friend</button></a>
+                <a><button class="interaction-buttons" disabled=true [hidden]="ownProfile">Follow</button></a>
             </div>
         </div>
 
         <div class="center-content">
             <div class="row">
-                <div class="tabs">
+                <div class="tabs col-xl-5">
                     <button class="tab-button-active" (click)="[tab = '1']" *ngIf="bottomTab(tab) == '1'">Games</button>
                     <button class="tab-button-inactive" (click)="[tab = '1']" *ngIf="bottomTab(tab) != '1'">Games</button>
                     <button class="tab-button-active" (click)="[tab = '2']" *ngIf="bottomTab(tab) == '2'">Reviews</button>
                     <button class="tab-button-inactive" (click)="[tab = '2']" *ngIf="bottomTab(tab) != '2'">Reviews</button>
+                    <button class="tab-button-active" (click)="[tab = '3']" *ngIf="bottomTab(tab) == '3'">Followers</button>
+                    <button class="tab-button-inactive" (click)="[tab = '3']" *ngIf="bottomTab(tab) != '3'">Followers</button>
+                    <button class="tab-button-active" (click)="[tab = '4']" *ngIf="bottomTab(tab) == '4'">Following</button>
+                    <button class="tab-button-inactive" (click)="[tab = '4']" *ngIf="bottomTab(tab) != '4'">Following</button>
                 </div>
                 <button class="tab-button-container" disabled="true">&nbsp;</button>
                 <div class="col-xl-12 hide-container" *ngIf="bottomTab(tab) == '1'">
@@ -63,6 +75,12 @@
                         <input class="rounded search-container" type="search" placeholder="Search..." (keyup)="onKey($event)">
                     </form>
                     <app-user-reviews [reviewsList]="reviewsList"></app-user-reviews>
+                </div>
+                <div class="col-xl-12 hide-container" *ngIf="bottomTab(tab) == '3'">
+                    <p>Followers...</p>
+                </div>
+                <div class="col-xl-12 hide-container" *ngIf="bottomTab(tab) == '4'">
+                    <p>Following...</p>
                 </div>
             </div>
 
