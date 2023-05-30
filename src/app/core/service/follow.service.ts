@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AbstractService } from "./abstract.service";
 import { Follow } from "../model/follow.model";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UsuarioDto } from "../dto/usuario-dto";
 
 @Injectable({
@@ -19,7 +19,11 @@ export class FollowService extends AbstractService {
   }
 
   unfollowUser(unfollow: Follow) {
-    return this.http.post<Follow>(this.URL + 'unfollow', unfollow);
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }), 
+      body: unfollow
+    };
+    return this.http.delete<any>(this.URL + 'unfollow', httpOptions);
   }
 
   getFollowings(user: UsuarioDto) {

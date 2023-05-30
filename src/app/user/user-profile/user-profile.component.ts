@@ -70,10 +70,12 @@ export class UserProfileComponent implements OnInit {
           this.followingNumber = following.length;                       
         })
         this.userService.getAllGamesById(this.userProfile.id).subscribe(response => {
-          this.games = response.map(g => g.game);
-          this.gamesOnList = response.map(g => g.game);
-          this.reviewsList = response;
-          this.reviews = response.length;
+          if (response) {
+            this.games = response.map(g => g.game);
+            this.gamesOnList = response.map(g => g.game);
+            this.reviewsList = response;
+            this.reviews = response.length;
+          }
         });
       } else {
         this.reviews = 'Not provided';
@@ -118,13 +120,11 @@ export class UserProfileComponent implements OnInit {
       novo.followe = r;
       novo.following = this.userProfile;
       this.followService.unfollowUser(novo).subscribe(response => {
-        if (response) {
           if(confirm(`Deixou de seguir ${this.userProfile.nome}...`)){
             this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
               this.router.navigate([`/users/${this.profileId}`])
             })            
           }
-        }
       });
     })
   }
