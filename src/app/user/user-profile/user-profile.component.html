@@ -28,11 +28,11 @@
                             </div>
                             <div class="col-5">
                                 <h6>Followers</h6>
-                                <p>12</p>
+                                <p>{{ this.followersNumber }}</p>
                             </div>
                             <div class="col-5">
                                 <h6>Following</h6>
-                                <p>65</p>
+                                <p>{{ this.followingNumber }}</p>
                             </div>
                             <div class="col-3"></div>
                         </div>
@@ -47,7 +47,8 @@
             <div class="col-xl-2 d-flex flex-column text-center">
                 <a [routerLink]="[ '/user', 'edit' ]"><button class="interaction-buttons" [hidden]="!ownProfile">Edit Profile</button></a>
                 <a><button class="interaction-buttons" [hidden]="!ownProfile" (click)="logout()">Logout</button></a>
-                <a><button class="interaction-buttons" disabled=true [hidden]="ownProfile">Follow</button></a>
+                <a><button class="interaction-buttons" [hidden]="ownProfile" (click)="follow()" *ngIf="!isFollowing">Follow</button></a>
+                <a><button class="interaction-buttons" [hidden]="ownProfile" (click)="unfollow()" *ngIf="isFollowing">Unfollow</button></a>
             </div>
         </div>
 
@@ -77,10 +78,10 @@
                     <app-user-reviews [reviewsList]="reviewsList"></app-user-reviews>
                 </div>
                 <div class="col-xl-12 hide-container" *ngIf="bottomTab(tab) == '3'">
-                    <p>Followers...</p>
+                    <app-followers [followers]="followers" [showFollowers]="true"></app-followers>
                 </div>
                 <div class="col-xl-12 hide-container" *ngIf="bottomTab(tab) == '4'">
-                    <p>Following...</p>
+                    <app-followers [following]="following" [showFollowers]="false"></app-followers>
                 </div>
             </div>
 
