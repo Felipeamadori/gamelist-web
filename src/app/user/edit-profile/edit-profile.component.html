@@ -1,5 +1,8 @@
 <body>
     <app-header></app-header>
+    <div class="container" *ngIf=" this.loading ">
+        <app-loadscreen></app-loadscreen>
+    </div>
     <div class="container" *ngIf=" !this.loading ">
         <form (submit)="submitChanges(userLogado, name.value, bio.value, pfp.value)">
             <div class="row">
@@ -9,7 +12,7 @@
                     <hr>
                 </div>
                 <div class="col-xl-3"></div>
-                
+
                 <div class="col-xl-4">
                     <img class="profile-picture" [src]="this.userLogado.pfpUrl" *ngIf="this.userLogado.pfpUrl != null">
                     <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.userLogado.pfpUrl == null">
@@ -19,7 +22,7 @@
                 <div class="col-xl-8 right-side">
                     <label>Name*</label>
                     <br>
-                    <input type="text" id="name" name="name" [value]="[ this.userLogado.nome.charAt(0).toUpperCase() + this.userLogado.nome.slice(1).toLowerCase() ]" #name (input)="setName(name.value)">
+                    <input type="text" id="name" name="name" [value]="[ this.userLogado.nome ]" #name (input)="setName(name.value)">
                     <small *ngIf="name.value == ''" class="text-danger d-block mt-2">
                         *Name is required
                     </small>
@@ -48,8 +51,7 @@
                     <br>
                     <label>Confirm New Password</label>
                     <br>
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder="password..."
-                    #confirmation_password (input)="setConfirmationPassword(confirmation_password.value)">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="password..." #confirmation_password (input)="setConfirmationPassword(confirmation_password.value)">
                     <small *ngIf="!checkPassword(password.value, confirmation_password.value) && confirmation_password.value != ''" class="text-danger d-block mt-2">
                         *Passwords do not match
                     </small>
@@ -61,17 +63,14 @@
             </div>
             <div class="col-xl-12">
                 <br>
-                <input type="submit" id="submit-inactive" name="submit-inactive" value="Submit Changes" disabled="true"
-                *ngIf="(password.value != '' && confirmation_password.value != '' && !checkPassword(password.value, confirmation_password.value))
+                <input type="submit" id="submit-inactive" name="submit-inactive" value="Submit Changes" disabled="true" *ngIf="(password.value != '' && confirmation_password.value != '' && !checkPassword(password.value, confirmation_password.value))
                 ||(password.value != '' && confirmation_password.value == '') || (password.value == '' && confirmation_password.value != '')
                 || name.value == '' ">
-                
-                <input type="submit" id="submit-active" name="submit-active" value="Submit Changes"
-                (onClick)="submitChanges(userLogado, name.value, bio.value, pfp.value)" 
-                *ngIf="((password.value != '' && confirmation_password.value != '' && checkPassword(password.value, confirmation_password.value)) 
+
+                <input type="submit" id="submit-active" name="submit-active" value="Submit Changes" (onClick)="submitChanges(userLogado, name.value, bio.value, pfp.value)" *ngIf="((password.value != '' && confirmation_password.value != '' && checkPassword(password.value, confirmation_password.value)) 
                 || (password.value == '' && confirmation_password.value == '')) && name.value != '' ">
             </div>
-        </form>  
-    </div>  
+        </form>
+    </div>
     <app-footer></app-footer>
 </body>

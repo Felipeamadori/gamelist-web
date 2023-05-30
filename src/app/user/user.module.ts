@@ -6,11 +6,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UtilsModule } from '../utils/utils.module';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RouterModule } from '@angular/router';
+import { FollowersComponent } from './followers/followers.component';
 
 @NgModule({
   declarations: [
     UserProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FollowersComponent
   ],
   imports: [
     CommonModule,

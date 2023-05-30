@@ -18,18 +18,14 @@ export class ReviewsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { 
-    for (let review in this.reviewsList.map(g => g.comentario)) {
-      console.log(review)
-      if(review != null) {
+    for (var x = 0; x < this.reviewsList.length; x++) {
+      if(this.reviewsList[x].comentario != null) {
         this.reviewsIsNotNull = true;
-        this.setNotaExists();
+      }
+      if(this.reviewsList[x].nota && this.reviewsList[x].nota != 0) {
+        this.notaExists = true;
       }
     }
-  }
-
-  setNotaExists() {
-    this.notaExists = true;
-    console.log("Nota existe");
   }
 
   starsMean() {

@@ -83,12 +83,12 @@ export class EditProfileComponent implements OnInit {
     if(bio) user.bio = bio;
     if(pfp) user.pfpUrl = pfp;
     this.userService.updateUser(user).subscribe(() => {
-      alert('Profile sucessfully updated.');
       this.loading = false;
+      alert('Profile sucessfully updated.');
       this.router.navigate(['/user','profile']);
     }, () => {
-      alert('There was a problem updating your profile.');
       this.loading = false;
+      alert('There was a problem updating your profile.');
     });
   }
 }

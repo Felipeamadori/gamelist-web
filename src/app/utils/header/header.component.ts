@@ -33,13 +33,15 @@ export class HeaderComponent implements OnInit {
         this.signed = true;
         this.loading = false;
       });
+    } else {
+      this.loading = false;
     }
   }
 
   logout() {
     this.userService.logout();
-    if(this.currentPage == '/user/profile' || this.currentPage == '/user/edit') {
-      console.log('redirecting.')
+    const pattern = /.*\/users\/.*$/
+    if(pattern.test(this.currentPage) || this.currentPage == '/user/profile' || this.currentPage == '/user/edit') {
       this.router.navigate(['']);
     } else {
       window.location.reload();
@@ -52,6 +54,5 @@ export class HeaderComponent implements OnInit {
 
   getCurrentPage() {
     this.currentPage = this.router.url;
-    console.log('Current page: ' + "'" + this.currentPage + "'");
   }
 }

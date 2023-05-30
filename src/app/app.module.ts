@@ -13,11 +13,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserModule } from './user/user.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenIntercepterService } from './core/service/tokenIntercepter.service';
+import { CommunityComponent } from './community/community.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,    
+    NotFoundComponent,
+    CommunityComponent,    
   ],
   imports: [
     BrowserModule,

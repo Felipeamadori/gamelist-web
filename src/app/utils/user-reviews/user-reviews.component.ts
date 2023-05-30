@@ -29,6 +29,5 @@ export class UserReviewsComponent implements OnInit {
 
   setNotaExists() {
     this.notaExists = true;
-    console.log("Nota existe");
   }
 }

@@ -11,6 +11,7 @@ import { RegisterComponent } from './home/register/register.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { AboutComponent } from './utils/about/about.component';
+import { CommunityComponent } from './community/community.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,9 @@ const routes: Routes = [
   },
   {
     path:'users/:userId', component: UserProfileComponent
+  },
+  {
+    path:'community', component: CommunityComponent
   },
   {
     path:'games', component: GameListComponent
