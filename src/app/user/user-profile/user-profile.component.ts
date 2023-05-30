@@ -52,36 +52,36 @@ export class UserProfileComponent implements OnInit {
     }
     this.route.paramMap.subscribe(param => {
       this.profileId = Number(param.get('userId')) || Number(this.user!.sub)
+      if (Number(this.user?.sub) == this.profileId) this.ownProfile = true;
+      this.userService.getUserById(this.profileId).subscribe( res => {
+        this.userProfile = res;
+        this.userProfile.joinDate = '31/10/2022';
+        if (this.userProfile) {
+          this.followService.getFollowers(this.userProfile).subscribe( followers => {
+            this.followers = followers;
+            this.followersNumber = followers.length;
+            followers.forEach(follower => {
+              if(follower.id === Number(this.user?.sub)) this.isFollowing = true;
+            }) 
+          })
+          this.followService.getFollowings(this.userProfile).subscribe( following => {
+            this.following = following;
+            this.followingNumber = following.length;                       
+          })
+          this.userService.getAllGamesById(this.userProfile.id).subscribe(response => {
+            if (response) {
+              this.games = response.map(g => g.game);
+              this.gamesOnList = response.map(g => g.game);
+              this.reviewsList = response;
+              this.reviews = response.length;
+            }
+          });
+        } else {
+          this.reviews = 'Not provided';
+        }
+        this.loading = false;
+      });  
     })
-    if (Number(this.user?.sub) == this.profileId) this.ownProfile = true;
-    this.userService.getUserById(this.profileId).subscribe( res => {
-      this.userProfile = res;
-      this.userProfile.joinDate = '31/10/2022';
-      if (this.userProfile) {
-        this.followService.getFollowers(this.userProfile).subscribe( followers => {
-          this.followers = followers;
-          this.followersNumber = followers.length;
-          followers.forEach(follower => {
-            if(follower.id === Number(this.user?.sub)) this.isFollowing = true;
-          }) 
-        })
-        this.followService.getFollowings(this.userProfile).subscribe( following => {
-          this.following = following;
-          this.followingNumber = following.length;                       
-        })
-        this.userService.getAllGamesById(this.userProfile.id).subscribe(response => {
-          if (response) {
-            this.games = response.map(g => g.game);
-            this.gamesOnList = response.map(g => g.game);
-            this.reviewsList = response;
-            this.reviews = response.length;
-          }
-        });
-      } else {
-        this.reviews = 'Not provided';
-      }
-      this.loading = false;
-    });  
   }
   
   logout() {
