@@ -55,6 +55,10 @@ export class UserService extends AbstractService {
     this.userSubject.next(data);
   }
 
+  getAllUsers(): Observable<UsuarioDto[]> {
+    return this.http.get<UsuarioDto[]>(this.URL)
+  }
+
   getUserById(id: Number): Observable<UsuarioDto> {
     return this.http.get<UsuarioDto>(this.URL + id);
   }
