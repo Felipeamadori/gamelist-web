@@ -40,7 +40,8 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.userService.logout();
-    if(this.currentPage == '/user/profile' || this.currentPage == '/user/edit') {
+    const pattern = /.*\/users\/.*$/
+    if(pattern.test(this.currentPage) || this.currentPage == '/user/profile' || this.currentPage == '/user/edit') {
       this.router.navigate(['']);
     } else {
       window.location.reload();

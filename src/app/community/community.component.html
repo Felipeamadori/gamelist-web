@@ -1,0 +1,16 @@
+<body>
+  <app-header></app-header>
+  <div class="container" *ngIf=" this.loading ">
+      <app-loadscreen></app-loadscreen>
+  </div>
+  <div class="container" *ngIf=" !this.loading ">
+    <ul>      
+        <li *ngFor="let user of users">
+          <a [routerLink]="[ '/users', user.id ]">
+            <img class="profile-picture" [src]="this.user.pfpUrl" *ngIf="this.user.pfpUrl != null">
+            <img class="profile-picture" src="../../assets/images/marcelo.jpg" *ngIf="this.user.pfpUrl == null">
+            <h6>{{user.nome}}</h6>
+          </a>  
+        </li>          
+    </ul>
+  </div>
